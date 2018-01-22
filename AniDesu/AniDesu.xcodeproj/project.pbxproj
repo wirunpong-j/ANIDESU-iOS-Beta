@@ -12,6 +12,7 @@
 		D3E736232015D5FC00247976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736212015D5FC00247976 /* Main.storyboard */; };
 		D3E736252015D5FC00247976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E736242015D5FC00247976 /* Assets.xcassets */; };
 		D3E736282015D5FC00247976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736262015D5FC00247976 /* LaunchScreen.storyboard */; };
+		D3E736312015E4AB00247976 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E736302015E4AB00247976 /* Constants.swift */; };
 		EB144E1F3235C82DC5B94985 /* Pods_AniDesu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		D3E736242015D5FC00247976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E736272015D5FC00247976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3E736292015D5FC00247976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E736302015E4AB00247976 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		D3E7361C2015D5FC00247976 /* AniDesu */ = {
 			isa = PBXGroup;
 			children = (
+				D3E7362F2015E47B00247976 /* Utilities */,
 				D3E7361D2015D5FC00247976 /* AppDelegate.swift */,
 				D3E7361F2015D5FC00247976 /* ViewController.swift */,
 				D3E736212015D5FC00247976 /* Main.storyboard */,
@@ -86,6 +89,14 @@
 				D3E736292015D5FC00247976 /* Info.plist */,
 			);
 			path = AniDesu;
+			sourceTree = "<group>";
+		};
+		D3E7362F2015E47B00247976 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D3E736302015E4AB00247976 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			files = (
 				D3E736202015D5FC00247976 /* ViewController.swift in Sources */,
 				D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */,
+				D3E736312015E4AB00247976 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

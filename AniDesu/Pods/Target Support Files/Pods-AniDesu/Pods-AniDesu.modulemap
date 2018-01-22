@@ -1,0 +1,6 @@
+framework module Pods_AniDesu {
+  umbrella header "Pods-AniDesu-umbrella.h"
+
+  export *
+  module * { export * }
+}

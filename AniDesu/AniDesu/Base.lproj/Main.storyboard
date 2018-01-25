@@ -406,22 +406,24 @@
         <!--Profile-->
         <scene sceneID="OVD-cP-ZUw">
             <objects>
-                <viewController id="ArJ-5D-2Xa" sceneMemberID="viewController">
+                <viewController id="ArJ-5D-2Xa" customClass="ProfileVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtw-FV-DoN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-yB-U6s">
-                                <rect key="frame" x="142.5" y="323" width="90" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QX-CE-l7t">
+                                <rect key="frame" x="153" y="562" width="68" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutBtnPressed:" destination="ArJ-5D-2Xa" eventType="touchUpInside" id="JOT-VA-mly"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ITA-yB-U6s" firstAttribute="centerX" secondItem="qtw-FV-DoN" secondAttribute="centerX" id="gbX-oq-dDZ"/>
-                            <constraint firstItem="ITA-yB-U6s" firstAttribute="centerY" secondItem="qtw-FV-DoN" secondAttribute="centerY" id="hzC-Vs-awS"/>
+                            <constraint firstItem="5QX-CE-l7t" firstAttribute="centerX" secondItem="qtw-FV-DoN" secondAttribute="centerX" id="7xv-PS-4sU"/>
+                            <constraint firstItem="Bcr-dB-oxb" firstAttribute="bottom" secondItem="5QX-CE-l7t" secondAttribute="bottom" constant="20" id="bIB-qc-azQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcr-dB-oxb"/>
                     </view>
@@ -429,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jh0-Mh-HQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="931"/>
+            <point key="canvasLocation" x="3496.8000000000002" y="930.58470764617698"/>
         </scene>
         <!--Home-->
         <scene sceneID="oKd-tP-GCt">

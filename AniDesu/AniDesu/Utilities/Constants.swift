@@ -17,3 +17,7 @@ let TO_HOME = "toHome"
 let POST_CELL = "postCell"
 let ANIME_CELL = "animeCell"
 let MY_ANIME_LIST_CELL = "myAnimeListCell"
+
+// User default key
+let LOGGED_IN_KEY = "logged"
+let TOKEN_KEY = "token"

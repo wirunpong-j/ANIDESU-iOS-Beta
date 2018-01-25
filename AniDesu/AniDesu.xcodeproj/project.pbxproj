@@ -11,6 +11,10 @@
 		D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */; };
 		D36483ED2019E1B400CC10B5 /* MyAnimeListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */; };
 		D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */; };
+		D36483F12019EC4F00CC10B5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483F02019EC4F00CC10B5 /* ProfileVC.swift */; };
+		D36483F32019F28F00CC10B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D36483F22019F28E00CC10B5 /* GoogleService-Info.plist */; };
+		D36483F52019F44700CC10B5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483F42019F44700CC10B5 /* AuthService.swift */; };
+		D36483F72019F4EA00CC10B5 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483F62019F4EA00CC10B5 /* UserDataService.swift */; };
 		D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361D2015D5FC00247976 /* AppDelegate.swift */; };
 		D3E736202015D5FC00247976 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361F2015D5FC00247976 /* LoginVC.swift */; };
 		D3E736232015D5FC00247976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736212015D5FC00247976 /* Main.storyboard */; };
@@ -37,6 +41,10 @@
 		D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListCell.swift; sourceTree = "<group>"; };
 		D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListService.swift; sourceTree = "<group>"; };
 		D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListVC.swift; sourceTree = "<group>"; };
+		D36483F02019EC4F00CC10B5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D36483F22019F28E00CC10B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D36483F42019F44700CC10B5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		D36483F62019F4EA00CC10B5 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		D3E7361A2015D5FC00247976 /* AniDesu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDesu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E7361D2015D5FC00247976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E7361F2015D5FC00247976 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 		D3E7361C2015D5FC00247976 /* AniDesu */ = {
 			isa = PBXGroup;
 			children = (
+				D36483F22019F28E00CC10B5 /* GoogleService-Info.plist */,
 				D3E8912D2019C13E00A50489 /* Controller */,
 				D3E8912A2019BF3600A50489 /* Services */,
 				D3E891272019BE9F00A50489 /* Model */,
@@ -155,6 +164,8 @@
 				D3E8912B2019BF4800A50489 /* PostService.swift */,
 				D3E891362019CF0300A50489 /* AnimeService.swift */,
 				D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */,
+				D36483F42019F44700CC10B5 /* AuthService.swift */,
+				D36483F62019F4EA00CC10B5 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 				D3E7361F2015D5FC00247976 /* LoginVC.swift */,
 				D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */,
 				D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */,
+				D36483F02019EC4F00CC10B5 /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3E736282015D5FC00247976 /* LaunchScreen.storyboard in Resources */,
+				D36483F32019F28F00CC10B5 /* GoogleService-Info.plist in Resources */,
 				D3E736252015D5FC00247976 /* Assets.xcassets in Resources */,
 				D3E736232015D5FC00247976 /* Main.storyboard in Resources */,
 			);
@@ -296,6 +309,8 @@
 				D3E736202015D5FC00247976 /* LoginVC.swift in Sources */,
 				D3E8912F2019C15200A50489 /* HomeVC.swift in Sources */,
 				D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */,
+				D36483F52019F44700CC10B5 /* AuthService.swift in Sources */,
+				D36483F72019F4EA00CC10B5 /* UserDataService.swift in Sources */,
 				D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */,
 				D3E891242019B8E200A50489 /* CircleImage.swift in Sources */,
 				D3E891372019CF0300A50489 /* AnimeService.swift in Sources */,
@@ -306,6 +321,7 @@
 				D3E736312015E4AB00247976 /* Constants.swift in Sources */,
 				D36483E92019DECD00CC10B5 /* MyAnimeList.swift in Sources */,
 				D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */,
+				D36483F12019EC4F00CC10B5 /* ProfileVC.swift in Sources */,
 				D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */,
 				D3E891262019BD6A00A50489 /* PostCell.swift in Sources */,
 				D3E891352019CD0400A50489 /* Anime.swift in Sources */,

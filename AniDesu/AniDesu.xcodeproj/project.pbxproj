@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D36483E92019DECD00CC10B5 /* MyAnimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483E82019DECD00CC10B5 /* MyAnimeList.swift */; };
+		D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */; };
+		D36483ED2019E1B400CC10B5 /* MyAnimeListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */; };
+		D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */; };
 		D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361D2015D5FC00247976 /* AppDelegate.swift */; };
 		D3E736202015D5FC00247976 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361F2015D5FC00247976 /* LoginVC.swift */; };
 		D3E736232015D5FC00247976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736212015D5FC00247976 /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 		02FDC64EE547E2C3F1035705 /* Pods-AniDesu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDesu.release.xcconfig"; path = "Pods/Target Support Files/Pods-AniDesu/Pods-AniDesu.release.xcconfig"; sourceTree = "<group>"; };
 		28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDesu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F9A1436184E0CFD385F2A2 /* Pods-AniDesu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDesu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDesu/Pods-AniDesu.debug.xcconfig"; sourceTree = "<group>"; };
+		D36483E82019DECD00CC10B5 /* MyAnimeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeList.swift; sourceTree = "<group>"; };
+		D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListCell.swift; sourceTree = "<group>"; };
+		D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListService.swift; sourceTree = "<group>"; };
+		D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListVC.swift; sourceTree = "<group>"; };
 		D3E7361A2015D5FC00247976 /* AniDesu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDesu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E7361D2015D5FC00247976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E7361F2015D5FC00247976 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 				D3E891232019B8E200A50489 /* CircleImage.swift */,
 				D3E891252019BD6A00A50489 /* PostCell.swift */,
 				D3E891322019CC5F00A50489 /* AnimeCell.swift */,
+				D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			children = (
 				D3E891282019BEAA00A50489 /* Post.swift */,
 				D3E891342019CD0400A50489 /* Anime.swift */,
+				D36483E82019DECD00CC10B5 /* MyAnimeList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +154,7 @@
 			children = (
 				D3E8912B2019BF4800A50489 /* PostService.swift */,
 				D3E891362019CF0300A50489 /* AnimeService.swift */,
+				D36483EC2019E1B400CC10B5 /* MyAnimeListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -154,6 +165,7 @@
 				D3E8912E2019C15200A50489 /* HomeVC.swift */,
 				D3E7361F2015D5FC00247976 /* LoginVC.swift */,
 				D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */,
+				D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -284,12 +296,16 @@
 				D3E736202015D5FC00247976 /* LoginVC.swift in Sources */,
 				D3E8912F2019C15200A50489 /* HomeVC.swift in Sources */,
 				D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */,
+				D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */,
 				D3E891242019B8E200A50489 /* CircleImage.swift in Sources */,
 				D3E891372019CF0300A50489 /* AnimeService.swift in Sources */,
+				D36483ED2019E1B400CC10B5 /* MyAnimeListService.swift in Sources */,
 				D3E8912C2019BF4800A50489 /* PostService.swift in Sources */,
 				D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */,
 				D3E891292019BEAA00A50489 /* Post.swift in Sources */,
 				D3E736312015E4AB00247976 /* Constants.swift in Sources */,
+				D36483E92019DECD00CC10B5 /* MyAnimeList.swift in Sources */,
+				D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */,
 				D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */,
 				D3E891262019BD6A00A50489 /* PostCell.swift in Sources */,
 				D3E891352019CD0400A50489 /* Anime.swift in Sources */,

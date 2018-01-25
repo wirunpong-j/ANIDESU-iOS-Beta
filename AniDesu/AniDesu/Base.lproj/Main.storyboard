@@ -13,13 +13,15 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Italic</string>
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,30 +63,162 @@
         <!--Discover-->
         <scene sceneID="he0-zJ-VQY">
             <objects>
-                <viewController id="2VE-C7-exr" sceneMemberID="viewController">
+                <viewController id="2VE-C7-exr" customClass="DiscoverAnimeVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2pp-uO-wev">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3A-tj-owp">
-                                <rect key="frame" x="127.5" y="323" width="120" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" placeholder="ANIME SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="BEe-dP-JYT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqE-Hw-ped">
+                                <rect key="frame" x="0.0" y="76" width="375" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7Q-1s-v9f">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebb-Uz-znV">
+                                                <rect key="frame" x="0.0" y="10.5" width="100.5" height="29"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="WINTER">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNN-Rt-NaV">
+                                                <rect key="frame" x="100.5" y="10.5" width="97" height="29"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="SPRING">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UX1-nq-V6I">
+                                                <rect key="frame" x="197.5" y="10.5" width="61" height="29"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="FALL">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JO-hQ-Wd0">
+                                                <rect key="frame" x="258.5" y="10.5" width="116.5" height="29"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="SUMMER">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="QMF-fG-1Sb"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333333333" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Mfe-7X-9Hb"/>
+                                    <constraint firstAttribute="trailing" secondItem="o7Q-1s-v9f" secondAttribute="trailing" id="TkI-dr-W5m"/>
+                                    <constraint firstItem="o7Q-1s-v9f" firstAttribute="top" secondItem="xqE-Hw-ped" secondAttribute="top" id="c3D-aq-rxH"/>
+                                    <constraint firstItem="o7Q-1s-v9f" firstAttribute="leading" secondItem="xqE-Hw-ped" secondAttribute="leading" id="fRg-pH-Icf"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vnl-Xf-7Ce">
+                                <rect key="frame" x="0.0" y="126" width="375" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zJ0-9z-yV4">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="animeCell" id="E0L-jt-UM0" customClass="AnimeCell" customModule="AniDesu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="252"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="171" height="252"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animeImage" translatesAutoresizingMaskIntoConstraints="NO" id="7MX-DU-Ge3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="252"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="h0g-vX-UFU">
+                                                    <rect key="frame" x="5" y="223.5" width="161" height="23.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-7K-bNK">
+                                                            <rect key="frame" x="0.0" y="6" width="52.5" height="12"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINISHED AIRING" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pU6-uW-1W5">
+                                                            <rect key="frame" x="54.5" y="0.0" width="52" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8F-TW-rGj">
+                                                            <rect key="frame" x="108.5" y="6" width="52.5" height="12"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Death March Kara Hajimaru Isekai Kyousoukyoku" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w0-W7-SJd">
+                                                    <rect key="frame" x="8" y="171" width="155" height="43"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="h0g-vX-UFU" secondAttribute="bottom" constant="5" id="Btv-xd-VId"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="6w0-W7-SJd" secondAttribute="trailing" id="ERc-Zj-SmJ"/>
+                                            <constraint firstItem="h0g-vX-UFU" firstAttribute="top" secondItem="6w0-W7-SJd" secondAttribute="bottom" constant="9.5" id="Eug-Nc-x2v"/>
+                                            <constraint firstItem="h0g-vX-UFU" firstAttribute="leading" secondItem="E0L-jt-UM0" secondAttribute="leading" constant="5" id="VMH-AS-qmc"/>
+                                            <constraint firstItem="7MX-DU-Ge3" firstAttribute="top" secondItem="E0L-jt-UM0" secondAttribute="top" id="Ynx-uO-zTa"/>
+                                            <constraint firstAttribute="trailing" secondItem="h0g-vX-UFU" secondAttribute="trailing" constant="5" id="eN6-XO-Z8B"/>
+                                            <constraint firstAttribute="bottom" secondItem="7MX-DU-Ge3" secondAttribute="bottom" id="oxH-cK-az2"/>
+                                            <constraint firstItem="7MX-DU-Ge3" firstAttribute="leading" secondItem="E0L-jt-UM0" secondAttribute="leading" id="pEv-cq-qbd"/>
+                                            <constraint firstItem="6w0-W7-SJd" firstAttribute="leading" secondItem="E0L-jt-UM0" secondAttribute="leadingMargin" id="pN6-OD-GX5"/>
+                                            <constraint firstAttribute="trailing" secondItem="7MX-DU-Ge3" secondAttribute="trailing" id="xYY-At-fVq"/>
+                                        </constraints>
+                                        <size key="customSize" width="171" height="252"/>
+                                        <connections>
+                                            <outlet property="animeAiringLabel" destination="pU6-uW-1W5" id="yEo-sQ-Iug"/>
+                                            <outlet property="animeImage" destination="7MX-DU-Ge3" id="che-2w-K1H"/>
+                                            <outlet property="animeRatingLabel" destination="x8F-TW-rGj" id="Dj6-lj-UEE"/>
+                                            <outlet property="animeTitleLabel" destination="6w0-W7-SJd" id="OqS-L8-Whc"/>
+                                            <outlet property="animeTypeLabel" destination="jfN-7K-bNK" id="aBo-dS-I2Q"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n3A-tj-owp" firstAttribute="centerY" secondItem="2pp-uO-wev" secondAttribute="centerY" id="7Pi-jF-2pi"/>
-                            <constraint firstItem="n3A-tj-owp" firstAttribute="centerX" secondItem="2pp-uO-wev" secondAttribute="centerX" id="ofx-9P-YZf"/>
+                            <constraint firstItem="sNd-wk-CLe" firstAttribute="trailing" secondItem="Vnl-Xf-7Ce" secondAttribute="trailing" id="5IU-Ns-KDm"/>
+                            <constraint firstItem="BEe-dP-JYT" firstAttribute="trailing" secondItem="sNd-wk-CLe" secondAttribute="trailing" id="7Jz-TB-Lwg"/>
+                            <constraint firstItem="xqE-Hw-ped" firstAttribute="trailing" secondItem="sNd-wk-CLe" secondAttribute="trailing" id="7Th-WV-59j"/>
+                            <constraint firstItem="BEe-dP-JYT" firstAttribute="leading" secondItem="sNd-wk-CLe" secondAttribute="leading" id="D0S-9R-WoB"/>
+                            <constraint firstItem="Vnl-Xf-7Ce" firstAttribute="top" secondItem="xqE-Hw-ped" secondAttribute="bottom" id="MgZ-3U-3c5"/>
+                            <constraint firstItem="Vnl-Xf-7Ce" firstAttribute="leading" secondItem="sNd-wk-CLe" secondAttribute="leading" id="XIY-34-YXF"/>
+                            <constraint firstItem="sNd-wk-CLe" firstAttribute="bottom" secondItem="Vnl-Xf-7Ce" secondAttribute="bottom" id="aql-fi-1b6"/>
+                            <constraint firstItem="BEe-dP-JYT" firstAttribute="top" secondItem="sNd-wk-CLe" secondAttribute="top" id="hNq-p3-ePg"/>
+                            <constraint firstItem="xqE-Hw-ped" firstAttribute="leading" secondItem="sNd-wk-CLe" secondAttribute="leading" id="rYA-b8-iQx"/>
+                            <constraint firstItem="xqE-Hw-ped" firstAttribute="top" secondItem="BEe-dP-JYT" secondAttribute="bottom" id="ssq-Oz-9uC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sNd-wk-CLe"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="icon-discover" id="Ety-qM-TUU"/>
+                    <connections>
+                        <outlet property="animeCollection" destination="Vnl-Xf-7Ce" id="TYS-NU-a41"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-CX-9hL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="931"/>
+            <point key="canvasLocation" x="941.60000000000002" y="930.58470764617698"/>
         </scene>
         <!--My List-->
         <scene sceneID="OSx-Nt-xgR">
@@ -330,6 +464,7 @@
     </scenes>
     <resources>
         <image name="anidesu_logo" width="500" height="500"/>
+        <image name="animeImage" width="230" height="324"/>
         <image name="icon-animelist" width="25" height="25"/>
         <image name="icon-discover" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>

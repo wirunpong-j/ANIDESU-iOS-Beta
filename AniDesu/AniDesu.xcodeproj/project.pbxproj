@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361D2015D5FC00247976 /* AppDelegate.swift */; };
-		D3E736202015D5FC00247976 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361F2015D5FC00247976 /* ViewController.swift */; };
+		D3E736202015D5FC00247976 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361F2015D5FC00247976 /* LoginVC.swift */; };
 		D3E736232015D5FC00247976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736212015D5FC00247976 /* Main.storyboard */; };
 		D3E736252015D5FC00247976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E736242015D5FC00247976 /* Assets.xcassets */; };
 		D3E736282015D5FC00247976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E736262015D5FC00247976 /* LaunchScreen.storyboard */; };
@@ -18,6 +18,10 @@
 		D3E891292019BEAA00A50489 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891282019BEAA00A50489 /* Post.swift */; };
 		D3E8912C2019BF4800A50489 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E8912B2019BF4800A50489 /* PostService.swift */; };
 		D3E8912F2019C15200A50489 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E8912E2019C15200A50489 /* HomeVC.swift */; };
+		D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */; };
+		D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891322019CC5F00A50489 /* AnimeCell.swift */; };
+		D3E891352019CD0400A50489 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891342019CD0400A50489 /* Anime.swift */; };
+		D3E891372019CF0300A50489 /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891362019CF0300A50489 /* AnimeService.swift */; };
 		EB144E1F3235C82DC5B94985 /* Pods_AniDesu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +31,7 @@
 		59F9A1436184E0CFD385F2A2 /* Pods-AniDesu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDesu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDesu/Pods-AniDesu.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E7361A2015D5FC00247976 /* AniDesu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDesu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E7361D2015D5FC00247976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3E7361F2015D5FC00247976 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D3E7361F2015D5FC00247976 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D3E736222015D5FC00247976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3E736242015D5FC00247976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E736272015D5FC00247976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +42,10 @@
 		D3E891282019BEAA00A50489 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D3E8912B2019BF4800A50489 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D3E8912E2019C15200A50489 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAnimeVC.swift; sourceTree = "<group>"; };
+		D3E891322019CC5F00A50489 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
+		D3E891342019CD0400A50489 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		D3E891362019CF0300A50489 /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 			children = (
 				D3E891232019B8E200A50489 /* CircleImage.swift */,
 				D3E891252019BD6A00A50489 /* PostCell.swift */,
+				D3E891322019CC5F00A50489 /* AnimeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E891282019BEAA00A50489 /* Post.swift */,
+				D3E891342019CD0400A50489 /* Anime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E8912B2019BF4800A50489 /* PostService.swift */,
+				D3E891362019CF0300A50489 /* AnimeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,7 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				D3E8912E2019C15200A50489 /* HomeVC.swift */,
-				D3E7361F2015D5FC00247976 /* ViewController.swift */,
+				D3E7361F2015D5FC00247976 /* LoginVC.swift */,
+				D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,14 +281,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E736202015D5FC00247976 /* ViewController.swift in Sources */,
+				D3E736202015D5FC00247976 /* LoginVC.swift in Sources */,
 				D3E8912F2019C15200A50489 /* HomeVC.swift in Sources */,
+				D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */,
 				D3E891242019B8E200A50489 /* CircleImage.swift in Sources */,
+				D3E891372019CF0300A50489 /* AnimeService.swift in Sources */,
 				D3E8912C2019BF4800A50489 /* PostService.swift in Sources */,
 				D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */,
 				D3E891292019BEAA00A50489 /* Post.swift in Sources */,
 				D3E736312015E4AB00247976 /* Constants.swift in Sources */,
+				D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */,
 				D3E891262019BD6A00A50489 /* PostCell.swift in Sources */,
+				D3E891352019CD0400A50489 /* Anime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

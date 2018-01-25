@@ -15,3 +15,4 @@ let TO_HOME = "toHome"
 
 // Reuse Cell
 let POST_CELL = "postCell"
+let ANIME_CELL = "animeCell"

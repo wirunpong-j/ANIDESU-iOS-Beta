@@ -12,3 +12,6 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Segues
 let TO_HOME = "toHome"
+
+// Reuse Cell
+let POST_CELL = "postCell"

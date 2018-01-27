@@ -22,7 +22,6 @@ class HomeVC: UIViewController {
         postTableView.estimatedRowHeight = UITableViewAutomaticDimension
         
         PostService.instance.findAllPost { (success) in
-            
         }
     }
     

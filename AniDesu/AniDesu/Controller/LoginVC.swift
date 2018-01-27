@@ -19,12 +19,11 @@ class LoginVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(AuthService.instance.isLoggedIn)
-        print(AuthService.instance.authToken)
-        
         if AuthService.instance.isLoggedIn && FBSDKAccessToken.current() != nil {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                AniListService.instance.authorization { (success) in
+                    self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                }
             }
         }
     }
@@ -38,14 +37,13 @@ class LoginVC: UIViewController {
                 case .cancelled:
                     print("User cancelled login.")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                    print("facebook login success")
                     let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                     Auth.auth().signIn(with: credential) { (user, error) in
                         if let error = error {
                             print(error)
                             return
                         }
-                        print("login success")
+                        print("facebook login success")
                         AuthService.instance.isLoggedIn = true
                         AuthService.instance.authToken = accessToken.authenticationToken
                         

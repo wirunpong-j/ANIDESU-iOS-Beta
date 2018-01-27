@@ -19,18 +19,15 @@ class MyAnimeListVC: UIViewController {
         myAnimeListCollection.delegate = self
         myAnimeListCollection.dataSource = self
         
-        MyAnimeListService.instance.fetchAllMyAnimeListData { (success) in
-            
-        }
     }
 }
 
 extension MyAnimeListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MY_ANIME_LIST_CELL, for: indexPath) as? MyAnimeListCell {
-            let myAnimeList = MyAnimeListService.instance.allMyAnimeList[indexPath.item]
-//            let anime = AnimeService.instance.allAnime[indexPath.item]
-            cell.configureCell(myAnimeList: myAnimeList)
+//            let myAnimeList = MyAnimeListService.instance.allMyAnimeList[indexPath.item]
+////            let anime = AnimeService.instance.allAnime[indexPath.item]
+//            cell.configureCell(myAnimeList: myAnimeList)
             
             return cell
         }
@@ -39,7 +36,8 @@ extension MyAnimeListVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyAnimeListService.instance.allMyAnimeList.count
+//        return MyAnimeListService.instance.allMyAnimeList.count
+        return 1
     }
 }
 

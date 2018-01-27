@@ -12,6 +12,7 @@ class DiscoverAnimeVC: UIViewController {
 
     // Outlets
     @IBOutlet weak var animeCollection: UICollectionView!
+    var allAnime = [Anime]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +20,30 @@ class DiscoverAnimeVC: UIViewController {
         animeCollection.delegate = self
         animeCollection.dataSource = self
         
-        AnimeService.instance.fetchAnimeDataBySeason(season: "WINTER") { (success) in
-            
+        updateUI(season: 0)
+        
+    }
+    
+    @IBAction func seasonBtnPressed(_ sender: UIButton) {
+        updateUI(season: sender.tag)
+    }
+    
+    private func updateUI(season: Int) {
+        var seasonType: SeasonType = .WINTER
+        switch season {
+            case 0: seasonType = .WINTER
+            case 1: seasonType = .SPRING
+            case 2: seasonType = .FALL
+            case 3: seasonType = .SUMMER
+            default: break
         }
-
+        
+        AniListService.instance.fetchAnimeDataBySeason(season: seasonType) { (animeList) in
+            if animeList != nil {
+                self.allAnime = animeList!
+                self.animeCollection.reloadData()
+            }
+        }
     }
     
 }
@@ -30,7 +51,7 @@ class DiscoverAnimeVC: UIViewController {
 extension DiscoverAnimeVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ANIME_CELL, for: indexPath) as? AnimeCell {
-            let anime = AnimeService.instance.allAnime[indexPath.item]
+            let anime = allAnime[indexPath.row]
             cell.configureCell(anime: anime)
             return cell
         }
@@ -39,7 +60,7 @@ extension DiscoverAnimeVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return AnimeService.instance.allAnime.count
+        return allAnime.count
     }
 }
 

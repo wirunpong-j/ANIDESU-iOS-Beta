@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AnimeCell: UICollectionViewCell {
     
@@ -22,11 +23,13 @@ class AnimeCell: UICollectionViewCell {
     }
     
     func configureCell(anime: Anime) {
-//        animeImage =
-        animeTypeLabel.text = anime.type
-        animeAiringLabel.text = anime.airing_status
+        animeTypeLabel.text = anime.type.uppercased()
+        animeAiringLabel.text = anime.airing_status.uppercased()
         animeRatingLabel.text = "\(anime.average_score)"
         animeTitleLabel.text = anime.title_romaji
+        
+        let url = URL(string: anime.image_url_lge)
+        animeImage.kf.setImage(with: url)
     }
     
 }

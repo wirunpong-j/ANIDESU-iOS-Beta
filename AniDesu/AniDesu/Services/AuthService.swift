@@ -28,4 +28,12 @@ class AuthService {
             defaults.set(newValue, forKey: TOKEN_KEY)
         }
     }
+    
+    var anilistToken : String {
+        get {
+            return defaults.string(forKey: ANILIST_TOKEN_KEY)!
+        } set {
+            defaults.set(newValue, forKey: ANILIST_TOKEN_KEY)
+        }
+    }
 }

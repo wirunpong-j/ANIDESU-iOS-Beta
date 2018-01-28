@@ -65,7 +65,7 @@
             <objects>
                 <viewController id="2VE-C7-exr" customClass="DiscoverAnimeVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2pp-uO-wev">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" placeholder="ANIME SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="BEe-dP-JYT">
@@ -254,14 +254,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-CX-9hL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.60000000000002" y="930.58470764617698"/>
+            <point key="canvasLocation" x="1280.8" y="930.58470764617698"/>
         </scene>
         <!--My List-->
         <scene sceneID="OSx-Nt-xgR">
             <objects>
                 <viewController id="tCV-m1-PO0" customClass="MyAnimeListVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6f0-HE-rJH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" placeholder="ANIME SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="r87-z4-yQt">
@@ -454,18 +454,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBu-pp-WQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="930.58470764617698"/>
+            <point key="canvasLocation" x="2127.1999999999998" y="930.58470764617698"/>
         </scene>
         <!--Review-->
         <scene sceneID="pBO-vX-oMd">
             <objects>
                 <viewController id="9xD-lK-nMe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0t5-0w-jEu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcp-EZ-vdd">
-                                <rect key="frame" x="134" y="323" width="107" height="21"/>
+                                <rect key="frame" x="134" y="298.5" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -482,14 +482,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDH-Pn-OSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615" y="931"/>
+            <point key="canvasLocation" x="2952.8000000000002" y="930.58470764617698"/>
         </scene>
         <!--Profile-->
         <scene sceneID="OVD-cP-ZUw">
             <objects>
                 <viewController id="ArJ-5D-2Xa" customClass="ProfileVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtw-FV-DoN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QX-CE-l7t">
@@ -501,7 +501,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjM-Jh-nlX">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <rect key="frame" x="166" y="298.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -523,22 +523,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jh0-Mh-HQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3496.8000000000002" y="930.58470764617698"/>
+            <point key="canvasLocation" x="3836" y="930.58470764617698"/>
         </scene>
-        <!--Home-->
+        <!--ANIDESU-->
         <scene sceneID="oKd-tP-GCt">
             <objects>
                 <viewController id="Zk4-eP-AzA" customClass="HomeVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qPI-6m-LTq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" text="" placeholder="ANIME SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-Iu-WOq">
-                                <rect key="frame" x="0.0" y="20" width="330" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dPo-ux-U1z">
-                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="170" id="xma-Sl-ABt" customClass="PostCell" customModule="AniDesu" customModuleProvider="target">
@@ -639,43 +635,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR6-Cd-EG4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.20982199907302856" green="0.21007919311523438" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW8-am-QLm">
-                                <rect key="frame" x="330" y="20" width="45" height="56"/>
-                                <color key="backgroundColor" red="0.20982199907302856" green="0.21007919311523438" blue="0.19129827618598938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="jZV-bW-vq1"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="icon-menu"/>
-                                <connections>
-                                    <action selector="menuBtnPressed:" destination="Zk4-eP-AzA" eventType="touchUpInside" id="u0c-jr-rgZ"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.13368907569999999" green="0.19126266240000001" blue="0.24622952940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zvP-Iu-WOq" firstAttribute="top" secondItem="dR6-Cd-EG4" secondAttribute="bottom" id="4BH-J0-zjT"/>
-                            <constraint firstItem="zW8-am-QLm" firstAttribute="leading" secondItem="zvP-Iu-WOq" secondAttribute="trailing" id="8hR-c8-BeZ"/>
-                            <constraint firstItem="dR6-Cd-EG4" firstAttribute="top" secondItem="qPI-6m-LTq" secondAttribute="top" id="97n-e5-mxi"/>
-                            <constraint firstItem="dPo-ux-U1z" firstAttribute="top" secondItem="zW8-am-QLm" secondAttribute="bottom" id="BnQ-NI-xjZ"/>
+                            <constraint firstItem="dPo-ux-U1z" firstAttribute="top" secondItem="vMG-wp-7Qt" secondAttribute="top" id="AVo-dD-4B2"/>
                             <constraint firstItem="vMG-wp-7Qt" firstAttribute="bottom" secondItem="dPo-ux-U1z" secondAttribute="bottom" id="Ibk-O6-UbQ"/>
-                            <constraint firstItem="dR6-Cd-EG4" firstAttribute="leading" secondItem="qPI-6m-LTq" secondAttribute="leading" id="PiE-RW-k3q"/>
-                            <constraint firstAttribute="trailing" secondItem="dR6-Cd-EG4" secondAttribute="trailing" id="Tg2-le-e0J"/>
-                            <constraint firstItem="zvP-Iu-WOq" firstAttribute="top" secondItem="vMG-wp-7Qt" secondAttribute="top" id="cSG-Uf-0HD"/>
-                            <constraint firstItem="zW8-am-QLm" firstAttribute="top" secondItem="dR6-Cd-EG4" secondAttribute="bottom" id="djt-nT-KDj"/>
                             <constraint firstItem="vMG-wp-7Qt" firstAttribute="trailing" secondItem="dPo-ux-U1z" secondAttribute="trailing" id="kPK-ZS-wMn"/>
                             <constraint firstItem="dPo-ux-U1z" firstAttribute="leading" secondItem="vMG-wp-7Qt" secondAttribute="leading" id="sNF-ls-Cjf"/>
-                            <constraint firstItem="vMG-wp-7Qt" firstAttribute="trailing" secondItem="zW8-am-QLm" secondAttribute="trailing" id="sjj-9D-bM9"/>
-                            <constraint firstItem="dPo-ux-U1z" firstAttribute="top" secondItem="zvP-Iu-WOq" secondAttribute="bottom" id="ujE-3z-T1a"/>
-                            <constraint firstItem="zvP-Iu-WOq" firstAttribute="leading" secondItem="vMG-wp-7Qt" secondAttribute="leading" id="zLF-oc-jZY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vMG-wp-7Qt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="icon-home" id="Ptt-RR-Kmm"/>
+                    <navigationItem key="navigationItem" title="ANIDESU" id="JJN-Lc-fRS">
+                        <barButtonItem key="leftBarButtonItem" image="icon-menu" id="LPy-E3-ORR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menuBtnPressed:" destination="Zk4-eP-AzA" id="yx9-2n-AjZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="icon-search" id="b9Y-vj-ybj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="postTableView" destination="dPo-ux-U1z" id="98w-MC-bQu"/>
                         <segue destination="iJ3-Y9-wUu" kind="show" identifier="toCreatePost" id="zdQ-Vp-ma7"/>
@@ -683,14 +663,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdh-7z-9KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80.799999999999997" y="930.58470764617698"/>
+            <point key="canvasLocation" x="-519" y="931"/>
         </scene>
         <!--Create Post-->
         <scene sceneID="EVF-i2-81o">
             <objects>
                 <viewController id="WJn-ew-KYQ" customClass="CreatePostVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9D3-RR-ngU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="xsU-Ao-UlI" customClass="CircleImage" customModule="AniDesu" customModuleProvider="target">
@@ -742,7 +722,6 @@
                         <viewLayoutGuide key="safeArea" id="Gjc-za-KDY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Post" id="VhY-am-jcZ">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Kco-Ew-96q"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="sTO-WV-aSo">
                             <connections>
                                 <action selector="cancelBtnPressed:" destination="WJn-ew-KYQ" id="CFR-U8-oNI"/>
@@ -764,19 +743,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8R-vH-ub3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80.799999999999997" y="1677.2113943028487"/>
+            <point key="canvasLocation" x="-519" y="1687"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t4q-Vd-vfS">
             <objects>
                 <tabBarController id="jun-YU-kgl" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z75-2C-H6f">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Z75-2C-H6f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.13368907570838928" green="0.19126266241073608" blue="0.24622952938079834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Zk4-eP-AzA" kind="relationship" relationship="viewControllers" id="RQc-0x-dVK"/>
+                        <segue destination="hHv-gd-SiL" kind="relationship" relationship="viewControllers" id="RQc-0x-dVK"/>
                         <segue destination="2VE-C7-exr" kind="relationship" relationship="viewControllers" id="mkm-BF-vXO"/>
                         <segue destination="tCV-m1-PO0" kind="relationship" relationship="viewControllers" id="6J0-es-jcK"/>
                         <segue destination="9xD-lK-nMe" kind="relationship" relationship="viewControllers" id="MGw-ec-4QY"/>
@@ -803,7 +784,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRI-5u-F0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="1677"/>
+            <point key="canvasLocation" x="-1298" y="1688"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="fSb-bf-wdQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hHv-gd-SiL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="icon-home" id="Ptt-RR-Kmm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Um-BP-8Zg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zk4-eP-AzA" kind="relationship" relationship="rootViewController" id="0wB-lF-ShM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fha-0P-WGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1298" y="931"/>
         </scene>
     </scenes>
     <resources>
@@ -815,6 +815,7 @@
         <image name="icon-menu" width="25" height="25"/>
         <image name="icon-profile" width="25" height="25"/>
         <image name="icon-review" width="25" height="25"/>
+        <image name="icon-search" width="25" height="25"/>
         <image name="profileDefault" width="192" height="192"/>
     </resources>
 </document>

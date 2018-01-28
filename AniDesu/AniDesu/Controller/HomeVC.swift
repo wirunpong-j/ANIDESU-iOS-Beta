@@ -10,6 +10,7 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    // Outlets
     @IBOutlet weak var postTableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,12 +18,18 @@ class HomeVC: UIViewController {
         
         postTableView.delegate = self
         postTableView.dataSource = self
-        
-        postTableView.rowHeight = UITableViewAutomaticDimension
-        postTableView.estimatedRowHeight = UITableViewAutomaticDimension
+        setUpView()
         
         PostService.instance.findAllPost { (success) in
         }
+        
+    }
+    
+    func setUpView() {
+        postTableView.rowHeight = UITableViewAutomaticDimension
+        postTableView.estimatedRowHeight = UITableViewAutomaticDimension
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     @IBAction func menuBtnPressed(_ sender: Any) {

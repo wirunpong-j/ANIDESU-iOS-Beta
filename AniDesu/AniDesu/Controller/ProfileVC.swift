@@ -12,9 +12,14 @@ import FBSDKLoginKit
 import Firebase
 
 class ProfileVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLabel.text = UserDataService.instance.displayName
     }
     
     @IBAction func logoutBtnPressed(_ sender: Any) {

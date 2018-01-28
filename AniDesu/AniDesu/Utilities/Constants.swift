@@ -22,6 +22,7 @@ let MY_ANIME_LIST_CELL = "myAnimeListCell"
 let LOGGED_IN_KEY = "logged"
 let TOKEN_KEY = "token"
 let ANILIST_TOKEN_KEY = "anilistToken"
+let USER_ID_KEY = "uid"
 
 // Anilist APIs
 let BASE_URL = "https://anilist.co/api"

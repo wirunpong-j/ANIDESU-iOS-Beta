@@ -21,8 +21,14 @@ class LoginVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if AuthService.instance.isLoggedIn && FBSDKAccessToken.current() != nil {
             DispatchQueue.main.async {
-                AniListService.instance.authorization { (success) in
-                    self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                AuthService.instance.loginUser(uid: AuthService.instance.uid) { (success) in
+                    if success {
+                        AuthService.instance.authAniList { (success) in
+                            if success {
+                                self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -37,17 +43,28 @@ class LoginVC: UIViewController {
                 case .cancelled:
                     print("User cancelled login.")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                    
                     let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                    
                     Auth.auth().signIn(with: credential) { (user, error) in
                         if let error = error {
                             print(error)
                             return
                         }
-                        print("facebook login success")
-                        AuthService.instance.isLoggedIn = true
-                        AuthService.instance.authToken = accessToken.authenticationToken
                         
-                        self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                        AuthService.instance.loginUser(uid: (user?.uid)!) { (success) in
+                            if success {
+                                AuthService.instance.authAniList { (success) in
+                                    if success {
+                                        AuthService.instance.uid = (user?.uid)!
+                                        AuthService.instance.isLoggedIn = true
+                                        AuthService.instance.authToken = accessToken.authenticationToken
+                                        print("facebook login success")
+                                        self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                                    }
+                                }
+                            }
+                        }
                 }
             }
         }

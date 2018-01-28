@@ -13,22 +13,6 @@ import SwiftyJSON
 class AniListService {
     static let instance = AniListService()
     
-    func authorization(completion: @escaping CompletionHandler) {
-        Alamofire.request(AUTHORIZE_URL, method: .post, parameters: AUTHORIZE_BODY, encoding: JSONEncoding.default, headers: API_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                var json: JSON
-                do { try json = JSON(data: data) } catch { return }
-                
-                AuthService.instance.anilistToken = json["access_token"].stringValue
-                completion(true)
-            } else {
-                print("ERROR")
-                completion(false)
-            }
-        }
-    }
-    
     func fetchAnimeDataBySeason(season: SeasonType, completion: @escaping ([Anime]?) -> ()) {
         let body: [String: Any] = [
             "season": season.rawValue,

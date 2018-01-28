@@ -9,6 +9,7 @@ target 'AniDesu' do
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'

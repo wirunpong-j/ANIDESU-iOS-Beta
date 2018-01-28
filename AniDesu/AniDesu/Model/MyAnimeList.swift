@@ -13,4 +13,5 @@ struct MyAnimeList {
     public private(set) var score: Int
     public private(set) var progress: Int
     public private(set) var note: String
+    
 }

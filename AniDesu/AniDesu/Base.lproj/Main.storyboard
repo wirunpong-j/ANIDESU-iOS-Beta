@@ -73,14 +73,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqE-Hw-ped">
-                                <rect key="frame" x="0.0" y="76" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7Q-1s-v9f">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebb-Uz-znV">
-                                                <rect key="frame" x="0.0" y="10.5" width="100.5" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <rect key="frame" x="0.0" y="6" width="100.5" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                 <state key="normal" title="WINTER">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -89,8 +89,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNN-Rt-NaV">
-                                                <rect key="frame" x="100.5" y="10.5" width="97" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <rect key="frame" x="100.5" y="6" width="96.5" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                 <state key="normal" title="SPRING">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -99,8 +99,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UX1-nq-V6I">
-                                                <rect key="frame" x="197.5" y="10.5" width="61" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <rect key="frame" x="197" y="6" width="62" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                 <state key="normal" title="FALL">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -109,8 +109,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JO-hQ-Wd0">
-                                                <rect key="frame" x="258.5" y="10.5" width="116.5" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <rect key="frame" x="259" y="6" width="116" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                 <state key="normal" title="SUMMER">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -121,20 +121,20 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.1333333333" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="QMF-fG-1Sb"/>
+                                            <constraint firstAttribute="height" constant="40" id="QMF-fG-1Sb"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1333333333" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Mfe-7X-9Hb"/>
+                                    <constraint firstAttribute="height" constant="40" id="Mfe-7X-9Hb"/>
                                     <constraint firstAttribute="trailing" secondItem="o7Q-1s-v9f" secondAttribute="trailing" id="TkI-dr-W5m"/>
                                     <constraint firstItem="o7Q-1s-v9f" firstAttribute="top" secondItem="xqE-Hw-ped" secondAttribute="top" id="c3D-aq-rxH"/>
                                     <constraint firstItem="o7Q-1s-v9f" firstAttribute="leading" secondItem="xqE-Hw-ped" secondAttribute="leading" id="fRg-pH-Icf"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vnl-Xf-7Ce">
-                                <rect key="frame" x="0.0" y="126" width="375" height="492"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bbu-Y4-v72">
                                     <size key="itemSize" width="50" height="50"/>
@@ -269,43 +269,43 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqf-gx-oHR">
-                                <rect key="frame" x="0.0" y="76" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="73S-7u-GE8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bID-Zh-GHj">
-                                                <rect key="frame" x="0.0" y="10.5" width="100.5" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                <state key="normal" title="WINTER">
+                                                <rect key="frame" x="0.0" y="6.5" width="123.5" height="27"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <state key="normal" title="PLAN TO WATCH">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-1B-9ha">
-                                                <rect key="frame" x="100.5" y="10.5" width="97" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                <state key="normal" title="SPRING">
+                                                <rect key="frame" x="123.5" y="6.5" width="81" height="27"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <state key="normal" title="WATCHING">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHe-zf-b14">
-                                                <rect key="frame" x="197.5" y="10.5" width="61" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                <state key="normal" title="FALL">
+                                                <rect key="frame" x="204.5" y="6.5" width="96" height="27"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <state key="normal" title="COMPLETED">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Us-A7-fh7">
-                                                <rect key="frame" x="258.5" y="10.5" width="116.5" height="29"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                <state key="normal" title="SUMMER">
+                                                <rect key="frame" x="300.5" y="6.5" width="74.5" height="27"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <state key="normal" title="DROPPED">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1333333333" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="HY3-kz-cW1"/>
+                                            <constraint firstAttribute="height" constant="40" id="HY3-kz-cW1"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -314,12 +314,12 @@
                                     <constraint firstItem="73S-7u-GE8" firstAttribute="top" secondItem="gqf-gx-oHR" secondAttribute="top" id="1IX-KL-m5x"/>
                                     <constraint firstAttribute="bottom" secondItem="73S-7u-GE8" secondAttribute="bottom" id="IJ3-e2-7lE"/>
                                     <constraint firstAttribute="trailing" secondItem="73S-7u-GE8" secondAttribute="trailing" id="Tig-K7-Qdx"/>
-                                    <constraint firstAttribute="height" constant="50" id="Uxc-r0-oRw"/>
+                                    <constraint firstAttribute="height" constant="40" id="Uxc-r0-oRw"/>
                                     <constraint firstItem="73S-7u-GE8" firstAttribute="leading" secondItem="gqf-gx-oHR" secondAttribute="leading" id="Xtj-yj-wcx"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7CH-84-VFW">
-                                <rect key="frame" x="0.0" y="126" width="375" height="492"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N0k-5z-XEj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -488,15 +488,26 @@
                                     <action selector="logoutBtnPressed:" destination="ArJ-5D-2Xa" eventType="touchUpInside" id="JOT-VA-mly"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjM-Jh-nlX">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5QX-CE-l7t" firstAttribute="centerX" secondItem="qtw-FV-DoN" secondAttribute="centerX" id="7xv-PS-4sU"/>
+                            <constraint firstItem="FjM-Jh-nlX" firstAttribute="centerX" secondItem="qtw-FV-DoN" secondAttribute="centerX" id="WPb-YZ-6xI"/>
                             <constraint firstItem="Bcr-dB-oxb" firstAttribute="bottom" secondItem="5QX-CE-l7t" secondAttribute="bottom" constant="20" id="bIB-qc-azQ"/>
+                            <constraint firstItem="FjM-Jh-nlX" firstAttribute="centerY" secondItem="qtw-FV-DoN" secondAttribute="centerY" id="e04-G2-rw1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcr-dB-oxb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="icon-profile" id="Mwc-tm-L9b"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="FjM-Jh-nlX" id="myJ-qD-RcO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jh0-Mh-HQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

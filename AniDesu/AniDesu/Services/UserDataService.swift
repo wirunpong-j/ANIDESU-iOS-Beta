@@ -16,6 +16,7 @@ class UserDataService {
     public private(set) var email = ""
     public private(set) var about = ""
     public private(set) var imageUrlProfile = ""
+    public private(set) var myAnimeList = [MyAnimeList]()
     
     func setUserData(uid: String, displayName: String, email: String, about: String, imageUrlProfile: String) {
         self.uid = uid

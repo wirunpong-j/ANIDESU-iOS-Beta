@@ -11,7 +11,8 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Segues
-let TO_HOME = "toHome"
+let SEGUE_HOME = "toHome"
+let SEGUE_CREATE_POST = "toCreatePost"
 
 // Reuse Cell
 let POST_CELL = "postCell"

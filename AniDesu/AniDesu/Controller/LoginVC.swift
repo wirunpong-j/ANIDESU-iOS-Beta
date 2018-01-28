@@ -25,7 +25,7 @@ class LoginVC: UIViewController {
                     if success {
                         AuthService.instance.authAniList { (success) in
                             if success {
-                                self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                                self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
                             }
                         }
                     }
@@ -53,14 +53,28 @@ class LoginVC: UIViewController {
                         }
                         
                         AuthService.instance.loginUser(uid: (user?.uid)!) { (success) in
-                            if success {
+                            if !success {
+                                let imageUrl = (user?.photoURL)?.absoluteString
+                                AuthService.instance.createUser(uid: (user?.uid)!, displayName: (user?.displayName)!, email: (user?.email)!, about: "Welcome To AniDesu.", imageUrl: imageUrl!) { (success) in
+                                    if success {
+                                        AuthService.instance.authAniList { (success) in
+                                            if success {
+                                                AuthService.instance.isLoggedIn = true
+                                                AuthService.instance.authToken = accessToken.authenticationToken
+                                                print("facebook login success")
+                                                self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
                                 AuthService.instance.authAniList { (success) in
                                     if success {
                                         AuthService.instance.uid = (user?.uid)!
                                         AuthService.instance.isLoggedIn = true
                                         AuthService.instance.authToken = accessToken.authenticationToken
                                         print("facebook login success")
-                                        self.performSegue(withIdentifier: TO_HOME, sender: nil)
+                                        self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
                                     }
                                 }
                             }

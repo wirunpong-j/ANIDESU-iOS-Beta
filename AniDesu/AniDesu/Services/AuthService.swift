@@ -49,17 +49,23 @@ class AuthService {
     }
     
     func loginUser(uid: String, completion: @escaping CompletionHandler) {
-        var ref = Database.database().reference()
+        let ref = Database.database().reference()
         ref.child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
             // get user data
             let value = snapshot.value as? NSDictionary
-            let about = value?["about"] as? String ?? ""
-            let displayName = value?["display_name"] as? String ?? ""
-            let email = value?["email"] as? String ?? ""
-            let imageURL = value?["image_url_profile"] as? String ?? ""
             
-            UserDataService.instance.setUserData(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageURL)
-            completion(true)
+            if value?.allValues != nil {
+                let about = value?["about"] as? String ?? ""
+                let displayName = value?["display_name"] as? String ?? ""
+                let email = value?["email"] as? String ?? ""
+                let imageURL = value?["image_url_profile"] as? String ?? ""
+                
+                UserDataService.instance.setUserData(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageURL)
+                
+                completion(true)
+            } else {
+                completion(false)
+            }
 
         }) { (error) in
             print(error.localizedDescription)
@@ -67,6 +73,21 @@ class AuthService {
             
             completion(false)
         }
+    }
+    
+    func createUser(uid: String, displayName: String, email: String, about: String, imageUrl: String, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let info = [
+            "uid": uid,
+            "display_name": displayName,
+            "email": email,
+            "image_url_profile": imageUrl,
+            "about": "Welcome To AniDesu."
+        ]
+        ref.child("users").child(uid).child("profile").setValue(info)
+        UserDataService.instance.setUserData(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageUrl)
+        
+        completion(true)
     }
     
     func authAniList(completion: @escaping CompletionHandler) {

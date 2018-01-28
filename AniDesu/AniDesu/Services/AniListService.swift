@@ -42,4 +42,21 @@ class AniListService {
             }
         }
     }
+    
+    func fetchAnimePage(animeID: Int, completion: @escaping (Anime?) -> ()) {
+        Alamofire.request("\(ANIME_PAGE_URL)/\(animeID)/page", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                var json: JSON
+                do { try json = JSON(data: data) } catch { return }
+                let anime = Anime(anime: json)
+                
+                completion(anime)
+            } else {
+                print("fetchAnimePage ERROR")
+                completion(nil)
+            }
+        }
+    }
 }

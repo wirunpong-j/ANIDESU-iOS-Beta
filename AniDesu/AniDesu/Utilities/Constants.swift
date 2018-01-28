@@ -28,6 +28,7 @@ let USER_ID_KEY = "uid"
 let BASE_URL = "https://anilist.co/api"
 let AUTHORIZE_URL = "\(BASE_URL)/auth/access_token"
 let ANIME_BROWSE_URL = "\(BASE_URL)/browse/anime"
+let ANIME_PAGE_URL = "\(BASE_URL)/anime"
 
 let AUTHORIZE_BODY = [
     "grant_type": "client_credentials",
@@ -54,4 +55,10 @@ enum SeasonType: String {
     case SPRING = "SPRING"
     case FALL = "FALL"
     case SUMMER = "SUMMER"
+}
+enum StatusType: String {
+    case PLAN_TO_WATCH = "plan_to_watch"
+    case WATCHING = "watching"
+    case COMPLETED = "completed"
+    case DROPPED = "dropped"
 }

@@ -13,11 +13,42 @@ class MyAnimeListVC: UIViewController {
     // Outlets
     @IBOutlet weak var myAnimeListCollection: UICollectionView!
     
+    // Variables
+    var allMyAnimeList = [MyAnimeList]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         myAnimeListCollection.delegate = self
         myAnimeListCollection.dataSource = self
+        
+        updateUI(status: 0)
+        
+    }
+    
+    @IBAction func statusBtnPressed(_ sender: UIButton) {
+        updateUI(status: sender.tag)
+    }
+    
+    
+    func updateUI(status: Int) {
+        var statusType: StatusType = .PLAN_TO_WATCH
+        switch status {
+            case 0: statusType = .PLAN_TO_WATCH
+            case 1: statusType = .WATCHING
+            case 2: statusType = .COMPLETED
+            case 3: statusType = .DROPPED
+            default: break
+        }
+        
+        UserDataService.instance.fetchMyAnimeList(statusType: statusType) { (data) in
+            if data != nil {
+                self.allMyAnimeList = data!
+            } else {
+                self.allMyAnimeList.removeAll()
+            }
+            self.myAnimeListCollection.reloadData()
+        }
         
     }
 }
@@ -25,9 +56,8 @@ class MyAnimeListVC: UIViewController {
 extension MyAnimeListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MY_ANIME_LIST_CELL, for: indexPath) as? MyAnimeListCell {
-//            let myAnimeList = MyAnimeListService.instance.allMyAnimeList[indexPath.item]
-////            let anime = AnimeService.instance.allAnime[indexPath.item]
-//            cell.configureCell(myAnimeList: myAnimeList)
+            let myAnimeList = allMyAnimeList[indexPath.item]
+            cell.configureCell(myAnimeList: myAnimeList)
             
             return cell
         }
@@ -36,8 +66,7 @@ extension MyAnimeListVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return MyAnimeListService.instance.allMyAnimeList.count
-        return 1
+        return allMyAnimeList.count
     }
 }
 

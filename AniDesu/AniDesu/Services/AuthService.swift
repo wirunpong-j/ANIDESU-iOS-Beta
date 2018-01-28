@@ -51,14 +51,12 @@ class AuthService {
     func loginUser(uid: String, completion: @escaping CompletionHandler) {
         var ref = Database.database().reference()
         ref.child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
+            // get user data
             let value = snapshot.value as? NSDictionary
             let about = value?["about"] as? String ?? ""
             let displayName = value?["display_name"] as? String ?? ""
             let email = value?["email"] as? String ?? ""
             let imageURL = value?["image_url_profile"] as? String ?? ""
-            
-            print(value?.allValues)
             
             UserDataService.instance.setUserData(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageURL)
             completion(true)
@@ -86,6 +84,5 @@ class AuthService {
             }
         }
     }
-    
     
 }

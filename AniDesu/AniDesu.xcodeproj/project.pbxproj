@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D30B7831201C6A6B00F88F92 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B7830201C6A6B00F88F92 /* Anime.swift */; };
 		D30B7833201DF47900F88F92 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B7832201DF47900F88F92 /* CreatePostVC.swift */; };
+		D30B7835201E1EB800F88F92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B7834201E1EB800F88F92 /* User.swift */; };
 		D36483E92019DECD00CC10B5 /* MyAnimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483E82019DECD00CC10B5 /* MyAnimeList.swift */; };
 		D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */; };
 		D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */; };
@@ -39,6 +40,7 @@
 		59F9A1436184E0CFD385F2A2 /* Pods-AniDesu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDesu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDesu/Pods-AniDesu.debug.xcconfig"; sourceTree = "<group>"; };
 		D30B7830201C6A6B00F88F92 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		D30B7832201DF47900F88F92 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		D30B7834201E1EB800F88F92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D36483E82019DECD00CC10B5 /* MyAnimeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeList.swift; sourceTree = "<group>"; };
 		D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListCell.swift; sourceTree = "<group>"; };
 		D36483EE2019E26800CC10B5 /* MyAnimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				D3E891282019BEAA00A50489 /* Post.swift */,
 				D36483E82019DECD00CC10B5 /* MyAnimeList.swift */,
 				D30B7830201C6A6B00F88F92 /* Anime.swift */,
+				D30B7834201E1EB800F88F92 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */,
 				D3E891242019B8E200A50489 /* CircleImage.swift in Sources */,
 				D3E891372019CF0300A50489 /* AniListService.swift in Sources */,
+				D30B7835201E1EB800F88F92 /* User.swift in Sources */,
 				D3E8912C2019BF4800A50489 /* PostService.swift in Sources */,
 				D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */,
 				D3E891292019BEAA00A50489 /* Post.swift in Sources */,

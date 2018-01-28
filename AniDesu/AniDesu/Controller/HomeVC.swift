@@ -13,15 +13,15 @@ class HomeVC: UIViewController {
     // Outlets
     @IBOutlet weak var postTableView: UITableView!
     
+    // Variables
+    var allPost = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         postTableView.delegate = self
         postTableView.dataSource = self
         setUpView()
-        
-        PostService.instance.findAllPost { (success) in
-        }
         
     }
     
@@ -30,6 +30,15 @@ class HomeVC: UIViewController {
         postTableView.estimatedRowHeight = UITableViewAutomaticDimension
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        PostService.instance.fetchAllPost { (allPost) in
+            if allPost != nil {
+                self.allPost = allPost!
+            } else {
+                self.allPost.removeAll()
+            }
+            self.postTableView.reloadData()
+        }
     }
     
     @IBAction func menuBtnPressed(_ sender: Any) {
@@ -49,7 +58,7 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
-            let post = PostService.instance.posts[indexPath.row]
+            let post = allPost[indexPath.row]
             cell.configureCell(post: post)
             
             return cell
@@ -59,7 +68,7 @@ extension HomeVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostService.instance.posts.count
+        return allPost.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

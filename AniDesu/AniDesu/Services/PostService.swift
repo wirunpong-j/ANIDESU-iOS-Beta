@@ -7,16 +7,71 @@
 //
 
 import Foundation
+import Firebase
 
 class PostService {
     static let instance = PostService()
-    var posts = [Post]()
     
-    func findAllPost(completion: @escaping CompletionHandler) {
-        var post1 = Post(postID: "1", uid: "test01", status: "Hello, World", postDate: "30 Nov 2018 - 22:33", likeCount: 290)
-        var post2 = Post(postID: "1", uid: "test02", status: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", postDate: "1 Dec 2018 - 01:01", likeCount: 909)
-        
-        self.posts.append(post1)
-        self.posts.append(post2)
+    func fetchAllPost(completion: @escaping ([Post]?) -> ()) {
+        let ref = Database.database().reference()
+        ref.child("posts").queryOrdered(byChild: "post_date").observeSingleEvent(of: .value, with: { (snapshot) in
+            // get all post
+            let value = snapshot.value as? NSDictionary
+            
+            var allPost = [Post]()
+            if let allValues = value?.allValues {
+                for item in allValues {
+                    let postInfo = item as? NSDictionary
+                    let likeCount = postInfo!["like_count"] as? Int ?? 0
+                    let postDate = postInfo!["post_date"] as? String ?? ""
+                    let postKey = postInfo!["post_key"] as? String ?? ""
+                    let status = postInfo!["status"] as? String ?? ""
+                    let uid = postInfo!["uid"] as? String ?? ""
+                    
+                    self.fetchUserInfo(uid: uid) { (user) in
+                        let post = Post(postID: postKey, uid: uid, status: status, postDate: postDate, likeCount: likeCount, user: user!)
+                        allPost.append(post)
+                        
+                        if allPost.count >= value!.allValues.count {
+                            completion(allPost)
+                        }
+                    }
+                }
+            }
+            completion(nil)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            print("fetchPost ERROR")
+            
+            completion(nil)
+        }
+    }
+    
+    func fetchUserInfo(uid: String, completion: @escaping (User?) -> ()) {
+        let ref = Database.database().reference()
+        ref.child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            // get user data
+            let value = snapshot.value as? NSDictionary
+            
+            if value?.allValues != nil {
+                let about = value?["about"] as? String ?? ""
+                let displayName = value?["display_name"] as? String ?? ""
+                let email = value?["email"] as? String ?? ""
+                let imageURL = value?["image_url_profile"] as? String ?? ""
+                let user = User(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageURL)
+                
+                completion(user)
+                
+            } else {
+                completion(nil)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            print("Not Show Data")
+            
+            completion(nil)
+        }
     }
 }

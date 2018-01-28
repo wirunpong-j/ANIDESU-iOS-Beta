@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostCell: UITableViewCell {
     
@@ -22,8 +23,9 @@ class PostCell: UITableViewCell {
     }
 
     func configureCell(post: Post) {
-//        profileImage.image =
-        displayNameLabel.text = post.uid
+        let url = URL(string: post.user.imageUrlProfile)
+        profileImage.kf.setImage(with: url)
+        displayNameLabel.text = post.user.displayName
         postDateLabel.text = post.postDate
         statusLabel.text = post.status
         likeCountLabel.text = "\(post.likeCount) Likes"

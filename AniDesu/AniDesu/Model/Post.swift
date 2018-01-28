@@ -14,4 +14,5 @@ struct Post {
     public private(set) var status: String
     public private(set) var postDate: String
     public private(set) var likeCount: Int
+    public private(set) var user: User
 }

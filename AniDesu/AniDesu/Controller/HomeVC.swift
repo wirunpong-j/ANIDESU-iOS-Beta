@@ -41,38 +41,56 @@ class HomeVC: UIViewController {
         }
     }
     
-    @IBAction func menuBtnPressed(_ sender: Any) {
-        let ac = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "New Post", style: .default, handler: createPost))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-        present(ac, animated: true)
-    }
+//    @IBAction func menuBtnPressed(_ sender: Any) {
+//        let ac = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
+//        ac.addAction(UIAlertAction(title: "New Post", style: .default, handler: createPost))
+//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+//        present(ac, animated: true)
+//    }
     
-    func createPost(action: UIAlertAction) {
-        performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
-    }
+//    func createPost(action: UIAlertAction) {
+//        performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
+//    }
 }
 
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
-            let post = allPost[indexPath.row]
-            cell.configureCell(post: post)
-            
-            return cell
+        switch indexPath.row {
+            case 0:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: PRE_POST_CELL, for: indexPath) as? PrePostCell {
+                    cell.configureCell()
+                    
+                    return cell
+                }
+            default:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
+                    let post = allPost[indexPath.row - 1]
+                    cell.configureCell(post: post)
+                    
+                    return cell
+                }
         }
         
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allPost.count
+        return allPost.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+            case 0:
+                performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
+            default:
+                break
+        }
     }
 }
 

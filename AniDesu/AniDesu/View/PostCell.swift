@@ -17,9 +17,11 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var bgView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpView()
     }
 
     func configureCell(post: Post) {
@@ -35,6 +37,13 @@ class PostCell: UITableViewCell {
     }
     
     @IBAction func commentBtnPressed(_ sender: Any) {
+    }
+    
+    func setUpView() {
+        bgView.layer.shadowColor = UIColor.black.cgColor
+        bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        bgView.layer.shadowOpacity = 0.1
+        bgView.layer.shadowRadius = 5
     }
     
     

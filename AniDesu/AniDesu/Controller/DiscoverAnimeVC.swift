@@ -82,6 +82,7 @@ extension DiscoverAnimeVC: UICollectionViewDelegate {
                 case 3: updateUI(seasonType: .SUMMER)
                 default: break
             }
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         } else {
             
         }

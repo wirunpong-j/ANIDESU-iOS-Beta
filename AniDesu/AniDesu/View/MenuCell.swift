@@ -10,6 +10,7 @@ import UIKit
 
 class MenuCell: UICollectionViewCell {
     @IBOutlet weak var menuLabel: UILabel!
+    @IBOutlet weak var underlineView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,9 +20,11 @@ class MenuCell: UICollectionViewCell {
         menuLabel.text = menuText
     }
     
+    
     override var isSelected: Bool {
         didSet {
-            self.menuLabel.textColor = isSelected ? UIColor.red : UIColor.white
+            self.underlineView.backgroundColor = isSelected ? #colorLiteral(red: 0.2648853064, green: 0.8780197501, blue: 0.07720620185, alpha: 1) : UIColor.clear
+            self.menuLabel.textColor = isSelected ? #colorLiteral(red: 0.2648853064, green: 0.8780197501, blue: 0.07720620185, alpha: 1) : UIColor.white
         }
     }
 }

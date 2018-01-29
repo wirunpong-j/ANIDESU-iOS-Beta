@@ -70,10 +70,6 @@ extension MyAnimeListVC: UICollectionViewDelegate {
     }
 }
 
-extension MyAnimeListVC: UICollectionViewDataSource {
-    
-}
-
 extension MyAnimeListVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (self.view.bounds.width / 2) - 5, height: 300)
@@ -90,4 +86,8 @@ extension MyAnimeListVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+}
+
+extension MyAnimeListVC: UICollectionViewDataSource {
+    
 }

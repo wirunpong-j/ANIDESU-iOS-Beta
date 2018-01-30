@@ -69,7 +69,12 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Pageboy (2.2.0)
+  - PureLayout (3.0.2)
   - SwiftyJSON (4.0.0)
+  - Tabman (1.2.0):
+    - Pageboy (~> 2.2.0)
+    - PureLayout (~> 3.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -80,6 +85,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Kingfisher (~> 4.0)
   - SwiftyJSON
+  - Tabman (~> 1.0)
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -101,8 +107,11 @@ SPEC CHECKSUMS:
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Pageboy: 50db8fffaa6d4d004249b7b6b19e33464dd7505b
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
 
-PODFILE CHECKSUM: ac29c065c025f66a442a7aa741416e5d58a93da3
+PODFILE CHECKSUM: 93cd8eef38343ee404d4abe2722ac52149cdf8d5
 
 COCOAPODS: 1.1.1

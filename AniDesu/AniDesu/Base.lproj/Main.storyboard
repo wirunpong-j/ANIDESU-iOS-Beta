@@ -52,6 +52,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="jun-YU-kgl" kind="show" identifier="toHome" id="0sS-1V-Cn3"/>
                     </connections>
@@ -699,6 +702,9 @@
                         <color key="barTintColor" red="0.13368907570838928" green="0.19126266241073608" blue="0.24622952938079834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="hHv-gd-SiL" kind="relationship" relationship="viewControllers" id="Syr-DL-RMa"/>
                         <segue destination="SY9-Zp-nOn" kind="relationship" relationship="viewControllers" id="t2u-Lm-KDh"/>
@@ -751,6 +757,7 @@
         <!--REVIEW-->
         <scene sceneID="c4p-xK-y2m">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DsS-AJ-7kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K03-zd-AZW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="REVIEW" image="icon-review" id="NTi-AA-ncD"/>
                     <toolbarItems/>
@@ -759,41 +766,189 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="D07-P3-NIe" kind="relationship" relationship="rootViewController" id="sPc-Ve-O9K"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DsS-AJ-7kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3295" y="931"/>
+        </scene>
+        <!--Review-->
+        <scene sceneID="ULZ-D8-d5T">
+            <objects>
+                <viewController id="RRY-E7-yy5" customClass="ReviewDetailVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CN8-MQ-lzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BM7-pm-ikh">
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Danganronpa V3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaG-GP-1xd">
+                                        <rect key="frame" x="69" y="230.5" width="237.5" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14614641666412354" green="0.19160768389701843" blue="0.24315044283866882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-4C-CyR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="za6-3V-u9w"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="reviewCellHero"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cA-t8-SCT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqW-Id-Gg6">
+                                        <rect key="frame" x="12" y="12" width="49" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="RRY-E7-yy5" eventType="touchUpInside" id="Otk-HI-Ztt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="YqW-Id-Gg6" firstAttribute="leading" secondItem="2cA-t8-SCT" secondAttribute="leading" constant="12" id="DAX-4J-bA9"/>
+                                    <constraint firstItem="YqW-Id-Gg6" firstAttribute="top" secondItem="2cA-t8-SCT" secondAttribute="top" constant="12" id="oKB-Le-I6T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14614641666412354" green="0.19160768389701843" blue="0.24315044283866882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="BM7-pm-ikh" firstAttribute="top" secondItem="7Ce-4C-CyR" secondAttribute="bottom" id="38T-Vl-9fS"/>
+                            <constraint firstItem="7Ce-4C-CyR" firstAttribute="trailing" secondItem="BR4-69-dGW" secondAttribute="trailing" id="5su-ce-XFt"/>
+                            <constraint firstItem="7Ce-4C-CyR" firstAttribute="top" secondItem="CN8-MQ-lzZ" secondAttribute="top" id="8dg-1i-Wt7"/>
+                            <constraint firstItem="BM7-pm-ikh" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="94w-VS-sgY"/>
+                            <constraint firstItem="7Ce-4C-CyR" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="L9s-Jm-wBC"/>
+                            <constraint firstItem="BM7-pm-ikh" firstAttribute="top" secondItem="2cA-t8-SCT" secondAttribute="bottom" id="N9M-JL-G0h"/>
+                            <constraint firstItem="2cA-t8-SCT" firstAttribute="top" secondItem="CN8-MQ-lzZ" secondAttribute="top" id="PWV-ny-HiV"/>
+                            <constraint firstItem="2cA-t8-SCT" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="cYJ-5R-Sat"/>
+                            <constraint firstItem="BR4-69-dGW" firstAttribute="trailing" secondItem="2cA-t8-SCT" secondAttribute="trailing" id="gek-5l-sCw"/>
+                            <constraint firstItem="BM7-pm-ikh" firstAttribute="trailing" secondItem="BR4-69-dGW" secondAttribute="trailing" id="v5K-52-jbw"/>
+                            <constraint firstItem="BM7-pm-ikh" firstAttribute="bottom" secondItem="BR4-69-dGW" secondAttribute="bottom" id="x3C-lI-Igh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BR4-69-dGW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Review" id="puc-4G-f4l"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="animeBannerImageView" destination="7Ce-4C-CyR" id="fku-qd-fkq"/>
+                        <outlet property="animeTitleLabel" destination="WaG-GP-1xd" id="Fa0-3y-y62"/>
+                        <outlet property="bgImageView" destination="2cA-t8-SCT" id="dtW-N0-TCx"/>
+                        <outlet property="bgView" destination="BM7-pm-ikh" id="T43-4s-uss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m1O-cI-1Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3656.8000000000002" y="1610.6446776611695"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="Cht-1Q-v2x">
             <objects>
-                <viewController id="D07-P3-NIe" sceneMemberID="viewController">
+                <viewController id="D07-P3-NIe" customClass="ReviewVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2V-nx-Eum">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-k4-JtK">
-                                <rect key="frame" x="166" y="299" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EsZ-51-mFj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="150" id="rwn-3u-6Oy" customClass="ReviewCell" customModule="AniDesu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rwn-3u-6Oy" id="qbO-UV-Ls3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="gY3-qr-DT6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-wc-olD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJc-rE-zhT">
+                                                            <rect key="frame" x="154" y="59" width="65.5" height="30"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="kJc-rE-zhT" firstAttribute="centerX" secondItem="jeY-wc-olD" secondAttribute="centerX" id="IG9-KZ-Fht"/>
+                                                        <constraint firstItem="kJc-rE-zhT" firstAttribute="centerY" secondItem="jeY-wc-olD" secondAttribute="centerY" id="RaS-4P-ms6"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gY3-qr-DT6" secondAttribute="trailing" id="4ce-qg-0kd"/>
+                                                <constraint firstItem="jeY-wc-olD" firstAttribute="top" secondItem="qbO-UV-Ls3" secondAttribute="top" id="Bqo-gh-4EH"/>
+                                                <constraint firstAttribute="trailing" secondItem="jeY-wc-olD" secondAttribute="trailing" id="OYA-wF-Zgx"/>
+                                                <constraint firstAttribute="bottom" secondItem="gY3-qr-DT6" secondAttribute="bottom" id="YYj-I4-tkV"/>
+                                                <constraint firstItem="gY3-qr-DT6" firstAttribute="top" secondItem="qbO-UV-Ls3" secondAttribute="top" id="c1d-ki-AnH"/>
+                                                <constraint firstAttribute="bottom" secondItem="jeY-wc-olD" secondAttribute="bottom" id="k6h-NS-wgv"/>
+                                                <constraint firstItem="jeY-wc-olD" firstAttribute="leading" secondItem="qbO-UV-Ls3" secondAttribute="leading" id="k89-JE-Jqg"/>
+                                                <constraint firstItem="gY3-qr-DT6" firstAttribute="leading" secondItem="qbO-UV-Ls3" secondAttribute="leading" id="vSk-fV-gDE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="reviewCellHero"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="animeImageView" destination="gY3-qr-DT6" id="78a-gF-cr6"/>
+                                            <outlet property="animeTitleLabel" destination="kJc-rE-zhT" id="25u-xh-yjh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jzK-k4-JtK" firstAttribute="centerY" secondItem="a2V-nx-Eum" secondAttribute="centerY" id="4jm-y0-zBE"/>
-                            <constraint firstItem="jzK-k4-JtK" firstAttribute="centerX" secondItem="a2V-nx-Eum" secondAttribute="centerX" id="eSy-ud-7t7"/>
+                            <constraint firstItem="Kyo-SA-cDi" firstAttribute="trailing" secondItem="EsZ-51-mFj" secondAttribute="trailing" id="ayb-Zu-csG"/>
+                            <constraint firstItem="EsZ-51-mFj" firstAttribute="leading" secondItem="Kyo-SA-cDi" secondAttribute="leading" id="fa8-SV-iLb"/>
+                            <constraint firstItem="EsZ-51-mFj" firstAttribute="top" secondItem="Kyo-SA-cDi" secondAttribute="top" id="hgK-86-7WD"/>
+                            <constraint firstItem="Kyo-SA-cDi" firstAttribute="bottom" secondItem="EsZ-51-mFj" secondAttribute="bottom" id="lfh-24-Fnu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kyo-SA-cDi"/>
                     </view>
                     <navigationItem key="navigationItem" title="ANIDESU" id="uaa-DD-7gh"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="reviewTableView" destination="EsZ-51-mFj" id="lyL-wp-ZB2"/>
+                        <segue destination="RRY-E7-yy5" kind="presentation" identifier="toReviewDetail" id="Xiu-kj-cCu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sp-5L-bYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4059" y="927"/>
+            <point key="canvasLocation" x="4058.4000000000001" y="926.98650674662679"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Tsf-Yo-F1C">
@@ -837,6 +992,7 @@
     <resources>
         <image name="anidesu_logo" width="500" height="500"/>
         <image name="animeImage" width="230" height="324"/>
+        <image name="banner" width="820" height="448"/>
         <image name="icon-animelist" width="25" height="25"/>
         <image name="icon-discover" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>

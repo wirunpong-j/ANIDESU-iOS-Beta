@@ -40,18 +40,6 @@ class HomeVC: UIViewController {
             self.postTableView.reloadData()
         }
     }
-    
-//    @IBAction func menuBtnPressed(_ sender: Any) {
-//        let ac = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
-//        ac.addAction(UIAlertAction(title: "New Post", style: .default, handler: createPost))
-//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-//        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-//        present(ac, animated: true)
-//    }
-    
-//    func createPost(action: UIAlertAction) {
-//        performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
-//    }
 }
 
 extension HomeVC: UITableViewDelegate {

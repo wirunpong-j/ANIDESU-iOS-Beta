@@ -15,4 +15,5 @@ pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'Kingfisher', '~> 4.0'
 pod 'Tabman', '~> 1.0'
+pod 'Hero'
 end

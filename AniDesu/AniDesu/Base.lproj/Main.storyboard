@@ -349,63 +349,6 @@
             </objects>
             <point key="canvasLocation" x="2535" y="931"/>
         </scene>
-        <!--ANIDESU-->
-        <scene sceneID="pBO-vX-oMd">
-            <objects>
-                <viewController id="9xD-lK-nMe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0t5-0w-jEu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-v4-TYL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="s4g-xz-QJ7">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s4g-xz-QJ7" id="sp6-An-LZs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-bd-2cG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
-                                                </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v07-AD-7l2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="v07-AD-7l2" secondAttribute="trailing" id="D4z-Pi-Iu7"/>
-                                                <constraint firstAttribute="trailing" secondItem="C9l-bd-2cG" secondAttribute="trailing" id="PBv-w1-u4C"/>
-                                                <constraint firstItem="C9l-bd-2cG" firstAttribute="top" secondItem="sp6-An-LZs" secondAttribute="top" id="TGO-nk-CfG"/>
-                                                <constraint firstItem="v07-AD-7l2" firstAttribute="top" secondItem="sp6-An-LZs" secondAttribute="top" id="WX2-3h-bDD"/>
-                                                <constraint firstItem="v07-AD-7l2" firstAttribute="leading" secondItem="sp6-An-LZs" secondAttribute="leading" id="cFd-Ys-IMu"/>
-                                                <constraint firstAttribute="bottom" secondItem="C9l-bd-2cG" secondAttribute="bottom" id="cyK-RC-5vY"/>
-                                                <constraint firstItem="C9l-bd-2cG" firstAttribute="leading" secondItem="sp6-An-LZs" secondAttribute="leading" id="q0d-N8-tH4"/>
-                                                <constraint firstAttribute="bottom" secondItem="v07-AD-7l2" secondAttribute="bottom" id="y3n-JL-N0g"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="vu1-PJ-zg9" firstAttribute="trailing" secondItem="Xf2-v4-TYL" secondAttribute="trailing" id="4RU-M6-WcO"/>
-                            <constraint firstItem="Xf2-v4-TYL" firstAttribute="leading" secondItem="vu1-PJ-zg9" secondAttribute="leading" id="NuR-k8-gf3"/>
-                            <constraint firstItem="Xf2-v4-TYL" firstAttribute="top" secondItem="vu1-PJ-zg9" secondAttribute="top" id="asK-Dz-taD"/>
-                            <constraint firstItem="vu1-PJ-zg9" firstAttribute="bottom" secondItem="Xf2-v4-TYL" secondAttribute="bottom" id="d73-Pc-wcO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vu1-PJ-zg9"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="ANIDESU" id="bSb-3V-JEb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WDH-Pn-OSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3970.4000000000001" y="930.58470764617698"/>
-        </scene>
         <!--PROFILE-->
         <scene sceneID="OVD-cP-ZUw">
             <objects>
@@ -817,12 +760,40 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9xD-lK-nMe" kind="relationship" relationship="rootViewController" id="zbk-aX-30d"/>
+                        <segue destination="D07-P3-NIe" kind="relationship" relationship="rootViewController" id="sPc-Ve-O9K"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DsS-AJ-7kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3295" y="931"/>
+        </scene>
+        <!--ANIDESU-->
+        <scene sceneID="Cht-1Q-v2x">
+            <objects>
+                <viewController id="D07-P3-NIe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2V-nx-Eum">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-k4-JtK">
+                                <rect key="frame" x="166" y="299" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jzK-k4-JtK" firstAttribute="centerY" secondItem="a2V-nx-Eum" secondAttribute="centerY" id="4jm-y0-zBE"/>
+                            <constraint firstItem="jzK-k4-JtK" firstAttribute="centerX" secondItem="a2V-nx-Eum" secondAttribute="centerX" id="eSy-ud-7t7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kyo-SA-cDi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ANIDESU" id="uaa-DD-7gh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sp-5L-bYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4059" y="927"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Tsf-Yo-F1C">
@@ -866,7 +837,6 @@
     <resources>
         <image name="anidesu_logo" width="500" height="500"/>
         <image name="animeImage" width="230" height="324"/>
-        <image name="banner" width="820" height="448"/>
         <image name="icon-animelist" width="25" height="25"/>
         <image name="icon-discover" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>

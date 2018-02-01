@@ -9,15 +9,10 @@
 import Foundation
 
 struct Review {
-    public private(set) var message: String
-}
+    public private(set) var rating: Double
+    public private(set) var reviewDate: String
+    public private(set) var text: String
+    public private(set) var anime: Anime
+    public private(set) var user: User
 
-extension Review {
-    static var testData: [Review] {
-        return [
-            Review(message: "Danganronpa V3"),
-            Review(message: "Date A Live 2"),
-            Review(message: "Monokumaaaaaa")
-        ]
-    }
 }

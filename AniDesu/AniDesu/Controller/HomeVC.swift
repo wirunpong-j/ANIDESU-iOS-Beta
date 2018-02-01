@@ -42,28 +42,30 @@ class HomeVC: UIViewController {
     }
 }
 
-extension HomeVC: UITableViewDelegate {
+extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
-            case 0:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: PRE_POST_CELL, for: indexPath) as? PrePostCell {
-                    cell.configureCell()
-                    
-                    return cell
-                }
-            default:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
-                    let post = allPost[indexPath.row - 1]
-                    cell.configureCell(post: post)
-                    
-                    return cell
-                }
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: PRE_POST_CELL, for: indexPath) as? PrePostCell {
+                cell.configureCell()
+                
+                return cell
+            }
+        default:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
+                let post = allPost[indexPath.row - 1]
+                cell.configureCell(post: post)
+                
+                return cell
+            }
         }
         
         return UITableViewCell()
     }
-    
+}
+
+extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allPost.count + 1
     }
@@ -74,14 +76,10 @@ extension HomeVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-            case 0:
-                performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
-            default:
-                break
+        case 0:
+            performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
+        default:
+            break
         }
     }
-}
-
-extension HomeVC: UITableViewDataSource {
-    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import Kingfisher
 
 class ReviewDetailVC: UIViewController {
     
@@ -26,8 +27,11 @@ class ReviewDetailVC: UIViewController {
     }
     
     func setUpView() {
-        animeBannerImageView.image = UIImage(named: "banner")
-        animeTitleLabel.text = review?.message
+        let imageUrl = review?.anime.image_url_banner != "" ? review?.anime.image_url_banner : review?.anime.image_url_lge
+        let url = URL(string: imageUrl!)
+        
+        animeBannerImageView.kf.setImage(with: url)
+        animeTitleLabel.text = review?.anime.title_romaji
         bgView.heroModifiers = [.fade, .scale(0.5)]
 
     }

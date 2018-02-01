@@ -43,7 +43,7 @@ struct Anime {
 //    public private(set) var ArrayList<CharactersSmall> characters;
 //    public private(set) var ArrayList<StaffSmall> staff;
 //    public private(set) var ArrayList<Studio> studio;
-//    public private(set) var ArrayList<ExternalLinks> external_links;
+//    public private(set) var ArrayList<ExternalLinks> external_links
     
     init(anime: JSON) {
         self.id = anime["id"].intValue

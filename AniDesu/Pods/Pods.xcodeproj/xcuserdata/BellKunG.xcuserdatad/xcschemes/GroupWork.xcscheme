@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '19A993B5D4A6C192D3BF976B59B0F990'
-               BlueprintName = 'PureLayout'
+               BlueprintIdentifier = 'D9DDE315342889E8B4C401BD6B1C94B8'
+               BlueprintName = 'GroupWork'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PureLayout.framework'>
+               BuildableName = 'GroupWork.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -13,7 +13,6 @@ import Firebase
 
 class ProfileVC: UIViewController {
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
@@ -39,5 +38,5 @@ class ProfileVC: UIViewController {
         }
         
     }
-    
 }
+

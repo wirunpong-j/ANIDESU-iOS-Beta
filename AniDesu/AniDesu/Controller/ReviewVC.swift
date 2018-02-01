@@ -1,27 +1,27 @@
-//
-//  ReviewVC.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 31/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import UIKit
 import Hero
 
 class ReviewVC: UIViewController {
     
     @IBOutlet weak var reviewTableView: UITableView!
-    var allReview: [Review] = Review.testData
+    var allReview = [Review]()
+    let cellHeight: CGFloat = 180
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
+        reviewTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: REVIEW_CELL)
+        
         
         isHeroEnabled = true
         setUpView()
+        
+        ReviewService.instance.fetchAllReview { (allReview) in
+            self.allReview = allReview!
+            self.reviewTableView.reloadData()
+        }
     }
     
     func setUpView() {
@@ -56,14 +56,18 @@ extension ReviewVC: UITableViewDataSource {
 extension ReviewVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allReview.count
+        return self.allReview.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(150)
+        return cellHeight
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: SEGUE_REVIEW_DETAIL, sender: allReview[indexPath.row])
     }
+    
 }
+

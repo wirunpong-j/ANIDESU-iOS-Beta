@@ -14,4 +14,5 @@ struct User {
     public private(set) var email = ""
     public private(set) var about = ""
     public private(set) var imageUrlProfile = ""
+    
 }

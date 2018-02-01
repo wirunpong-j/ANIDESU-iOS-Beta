@@ -31,8 +31,46 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SJ-9O-WMn">
                         <rect key="frame" x="0.0" y="2" width="375" height="175.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-3j-TpX">
-                                <rect key="frame" x="87.5" y="120.5" width="200" height="35"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G73-C6-lh5" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="112.5" y="20" width="150" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="ZZ9-su-cpj"/>
+                                    <constraint firstAttribute="height" constant="25" id="fNP-2O-wa5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3.7000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="diB-rB-QEo">
+                                <rect key="frame" x="88" y="120.5" width="198" height="35"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:Ogd-ff-Brv:image" translatesAutoresizingMaskIntoConstraints="NO" id="Ogd-ff-Brv" customClass="CircleImage" customModule="AniDesu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="35.5" height="35"/>
@@ -42,15 +80,15 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review by B'Bell Kung Desu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGE-Cm-jas">
-                                        <rect key="frame" x="47.5" y="0.0" width="152.5" height="35"/>
+                                        <rect key="frame" x="45.5" y="0.0" width="152.5" height="35"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danganronpa V3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-Hg-3Pq">
-                                <rect key="frame" x="108.5" y="76.5" width="158.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Dangan Ronpa V3: Everyone's New Semester of Killing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-Hg-3Pq">
+                                <rect key="frame" x="20" y="64" width="335" height="48"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -58,10 +96,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3XH-3j-TpX" firstAttribute="centerX" secondItem="9SJ-9O-WMn" secondAttribute="centerX" id="2pF-x9-RsI"/>
-                            <constraint firstItem="PhA-Hg-3Pq" firstAttribute="centerX" secondItem="9SJ-9O-WMn" secondAttribute="centerX" id="5oO-Ta-iho"/>
-                            <constraint firstAttribute="bottom" secondItem="3XH-3j-TpX" secondAttribute="bottom" constant="20" id="EeF-8o-PXs"/>
-                            <constraint firstItem="3XH-3j-TpX" firstAttribute="top" secondItem="PhA-Hg-3Pq" secondAttribute="bottom" constant="20" id="nHR-ym-7Qq"/>
+                            <constraint firstItem="PhA-Hg-3Pq" firstAttribute="centerY" secondItem="9SJ-9O-WMn" secondAttribute="centerY" id="BKv-R3-4q0"/>
+                            <constraint firstItem="diB-rB-QEo" firstAttribute="centerX" secondItem="9SJ-9O-WMn" secondAttribute="centerX" id="Fzy-wt-Yuq"/>
+                            <constraint firstItem="G73-C6-lh5" firstAttribute="centerX" secondItem="9SJ-9O-WMn" secondAttribute="centerX" id="HGC-PL-Z73"/>
+                            <constraint firstItem="G73-C6-lh5" firstAttribute="top" secondItem="9SJ-9O-WMn" secondAttribute="top" constant="20" id="NTf-c6-FTP"/>
+                            <constraint firstAttribute="trailing" secondItem="PhA-Hg-3Pq" secondAttribute="trailing" constant="20" id="QL6-2L-vkD"/>
+                            <constraint firstAttribute="bottom" secondItem="diB-rB-QEo" secondAttribute="bottom" constant="20" id="jgk-LM-t4N"/>
+                            <constraint firstItem="PhA-Hg-3Pq" firstAttribute="leading" secondItem="9SJ-9O-WMn" secondAttribute="leading" constant="20" id="yDN-ii-hOH"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -83,13 +124,16 @@
             <connections>
                 <outlet property="animeImageView" destination="mT9-G1-iPf" id="Nzt-Wi-nxJ"/>
                 <outlet property="animeTitleLabel" destination="PhA-Hg-3Pq" id="my1-BJ-DLC"/>
+                <outlet property="ratingView" destination="G73-C6-lh5" id="y4m-ll-Dff"/>
                 <outlet property="userImageView" destination="Ogd-ff-Brv" id="Ogg-vf-S11"/>
                 <outlet property="userNameLabel" destination="OGE-Cm-jas" id="RKV-2H-DgQ"/>
             </connections>
-            <point key="canvasLocation" x="55" y="126"/>
+            <point key="canvasLocation" x="54.5" y="126"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="GoldStar" width="53" height="51"/>
+        <image name="GoldStarEmpty" width="53" height="51"/>
         <image name="banner" width="820" height="448"/>
         <image name="imageView:Ogd-ff-Brv:image" width="192" height="192">
             <mutableData key="keyedArchiveRepresentation">

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class ReviewCell: UITableViewCell {
 
@@ -15,6 +16,7 @@ class ReviewCell: UITableViewCell {
     @IBOutlet weak var animeTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: CircleImage!
+    @IBOutlet weak var ratingView: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,7 @@ class ReviewCell: UITableViewCell {
         animeTitleLabel.text = review.anime.title_romaji
         userNameLabel.text = "Review by \(review.user.displayName)"
         userImageView.kf.setImage(with: getUrl(stringUrl: review.user.imageUrlProfile))
+        ratingView.rating = review.rating
     }
     
     func getUrl(stringUrl: String) -> URL {

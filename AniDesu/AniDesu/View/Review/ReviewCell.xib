@@ -72,7 +72,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="diB-rB-QEo">
                                 <rect key="frame" x="88" y="120.5" width="198" height="35"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:Ogd-ff-Brv:image" translatesAutoresizingMaskIntoConstraints="NO" id="Ogd-ff-Brv" customClass="CircleImage" customModule="AniDesu" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:Ogd-ff-Brv:image" translatesAutoresizingMaskIntoConstraints="NO" id="Ogd-ff-Brv" customClass="CircleImage" customModule="AniDesu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="35.5" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="LsG-mZ-StB"/>

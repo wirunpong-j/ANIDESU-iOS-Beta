@@ -74,6 +74,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - Pageboy (2.2.0)
   - PureLayout (3.0.2)
+  - ScrollingFollowView (1.1.1)
   - SwiftyJSON (4.0.0)
   - Tabman (1.2.0):
     - Pageboy (~> 2.2.0)
@@ -90,6 +91,7 @@ DEPENDENCIES:
   - GroupWork (~> 0.0)
   - Hero
   - Kingfisher (~> 4.0)
+  - ScrollingFollowView
   - SwiftyJSON
   - Tabman (~> 1.0)
 
@@ -118,9 +120,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Pageboy: 50db8fffaa6d4d004249b7b6b19e33464dd7505b
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  ScrollingFollowView: 135102baad0e35fb34b2a2eaeabcb60c4d0955c8
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
 
-PODFILE CHECKSUM: aae2ffc945c12f4b286f658d1dc66a8e29bcda93
+PODFILE CHECKSUM: 8559230eb7a829f97c5e0fb6ec7bbc535c32982e
 
 COCOAPODS: 1.1.1

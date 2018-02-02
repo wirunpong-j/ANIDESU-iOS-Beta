@@ -21,6 +21,7 @@
 		D3AF6D0420208CBC00FB6EC9 /* MyAnimeListMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF6D0320208CBC00FB6EC9 /* MyAnimeListMenuVC.swift */; };
 		D3BC51D82022FAEF00E30526 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC51D62022FAEF00E30526 /* ReviewCell.swift */; };
 		D3BC51D92022FAEF00E30526 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BC51D72022FAEF00E30526 /* ReviewCell.xib */; };
+		D3BC51DB20230E4B00E30526 /* AllFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC51DA20230E4B00E30526 /* AllFormat.swift */; };
 		D3C34A5C20219ABF005B05F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A5B20219ABF005B05F2 /* ReviewVC.swift */; };
 		D3C34A5E20219BB0005B05F2 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A5D20219BB0005B05F2 /* Review.swift */; };
 		D3C34A602021A10C005B05F2 /* ReviewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */; };
@@ -62,6 +63,7 @@
 		D3AF6D0320208CBC00FB6EC9 /* MyAnimeListMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListMenuVC.swift; sourceTree = "<group>"; };
 		D3BC51D62022FAEF00E30526 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		D3BC51D72022FAEF00E30526 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		D3BC51DA20230E4B00E30526 /* AllFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFormat.swift; sourceTree = "<group>"; };
 		D3C34A5B20219ABF005B05F2 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		D3C34A5D20219BB0005B05F2 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailVC.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E736302015E4AB00247976 /* Constants.swift */,
+				D3BC51DA20230E4B00E30526 /* AllFormat.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				D3AF6CFE20206D6900FB6EC9 /* DiscoverAnimeMenuVC.swift in Sources */,
 				D30B7831201C6A6B00F88F92 /* Anime.swift in Sources */,
 				D36483E92019DECD00CC10B5 /* MyAnimeList.swift in Sources */,
+				D3BC51DB20230E4B00E30526 /* AllFormat.swift in Sources */,
 				D3DF3714201F37C800A492AF /* MenuCell.swift in Sources */,
 				D36483EB2019DF4300CC10B5 /* MyAnimeListCell.swift in Sources */,
 				D3C34A5E20219BB0005B05F2 /* Review.swift in Sources */,

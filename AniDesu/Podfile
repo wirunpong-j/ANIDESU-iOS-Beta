@@ -18,4 +18,5 @@ pod 'Tabman', '~> 1.0'
 pod 'Hero'
 pod 'GroupWork', '~> 0.0'
 pod 'Cosmos', '~> 14.0'
+pod "ScrollingFollowView"
 end

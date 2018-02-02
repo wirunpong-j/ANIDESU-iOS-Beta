@@ -42,6 +42,7 @@
 		D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */; };
 		D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891322019CC5F00A50489 /* AnimeCell.swift */; };
 		D3E891372019CF0300A50489 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891362019CF0300A50489 /* AniListService.swift */; };
+		D3F4121220246D5C00145913 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F4121120246D5C00145913 /* UserProfileCell.swift */; };
 		EB144E1F3235C82DC5B94985 /* Pods_AniDesu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		D3E891302019CC1500A50489 /* DiscoverAnimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAnimeVC.swift; sourceTree = "<group>"; };
 		D3E891322019CC5F00A50489 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 		D3E891362019CF0300A50489 /* AniListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
+		D3F4121120246D5C00145913 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				D36483EA2019DF4300CC10B5 /* MyAnimeListCell.swift */,
 				D3DF3711201F2BA600A492AF /* PrePostCell.swift */,
 				D3DF3713201F37C800A492AF /* MenuCell.swift */,
+				D3F4121120246D5C00145913 /* UserProfileCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				D36483F12019EC4F00CC10B5 /* ProfileVC.swift in Sources */,
 				D3AF6D0420208CBC00FB6EC9 /* MyAnimeListMenuVC.swift in Sources */,
 				D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */,
+				D3F4121220246D5C00145913 /* UserProfileCell.swift in Sources */,
 				D30B7833201DF47900F88F92 /* CreatePostVC.swift in Sources */,
 				D3C34A5C20219ABF005B05F2 /* ReviewVC.swift in Sources */,
 				D3E891262019BD6A00A50489 /* PostCell.swift in Sources */,

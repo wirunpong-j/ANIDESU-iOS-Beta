@@ -3,7 +3,7 @@ import Hero
 import Kingfisher
 import Cosmos
 
-class ReviewDetailVC: UIViewController {
+class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
     
     // Outlets
     @IBOutlet weak var animeBannerImageView: UIImageView!
@@ -15,7 +15,12 @@ class ReviewDetailVC: UIViewController {
     @IBOutlet weak var animeImageView: UIImageView!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var reviewDateLabel: UILabel!
     
+    // Constraints
+    @IBOutlet weak var bannerHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var panGestureReconizer: UIPanGestureRecognizer!
     // Variables
     var review: Review?
     
@@ -23,6 +28,7 @@ class ReviewDetailVC: UIViewController {
         super.viewDidLoad()
         isHeroEnabled = true
         setUpView()
+        panGestureReconizer.delegate = self
     }
     
     
@@ -37,7 +43,7 @@ class ReviewDetailVC: UIViewController {
         animeImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review?.anime.image_url_lge)!))
         ratingView.rating = (review?.rating)!
         messageLabel.text = "\" \((review?.text)!) \""
-        
+        reviewDateLabel.text = "Review Date: \((review?.reviewDate)!)"
 
     }
     
@@ -45,5 +51,25 @@ class ReviewDetailVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
+        
+        let currentHeight = self.bannerHeightConstraint.constant
+        var newHeight = currentHeight + (sender.translation(in: self.view).y)
+        
+        if newHeight > 200 {
+            newHeight = 200
+        } else if newHeight < 50 {
+            newHeight = 50
+        }
+        
+        self.bannerHeightConstraint.constant = newHeight
+        self.view.layoutIfNeeded()
+        sender.setTranslation(CGPoint.zero, in: self.view)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
 }

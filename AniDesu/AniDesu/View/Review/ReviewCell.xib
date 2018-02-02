@@ -78,6 +78,9 @@
                                             <constraint firstAttribute="width" constant="35" id="LsG-mZ-StB"/>
                                             <constraint firstAttribute="height" constant="35" id="P4G-8m-f2l"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="userImageHero"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review by B'Bell Kung Desu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGE-Cm-jas">
                                         <rect key="frame" x="45.5" y="0.0" width="152.5" height="35"/>

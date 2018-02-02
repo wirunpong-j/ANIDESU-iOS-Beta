@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Firebase
-import GroupWork
 
 class ReviewService {
     static let instance = ReviewService()

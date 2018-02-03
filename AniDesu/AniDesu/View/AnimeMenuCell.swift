@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuCell: UICollectionViewCell {
+class AnimeMenuCell: UICollectionViewCell {
     @IBOutlet weak var menuLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     

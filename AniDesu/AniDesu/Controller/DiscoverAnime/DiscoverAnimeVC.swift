@@ -23,28 +23,14 @@ class DiscoverAnimeVC: UIViewController {
         animeCollection.dataSource = self
     }
     
-}
-
-extension DiscoverAnimeVC: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == animeCollection {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ANIME_CELL, for: indexPath) as? AnimeCell {
-                let anime = allAnime[indexPath.row]
-                cell.configureCell(anime: anime)
-                
-                return cell
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_ANIME_DETAIL {
+            if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
+                animeDetailVC.anime = sender as! Anime
             }
         }
-        return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return allAnime.count
-    }
 }
 
 extension DiscoverAnimeVC: UICollectionViewDelegateFlowLayout {
@@ -68,5 +54,25 @@ extension DiscoverAnimeVC: UICollectionViewDelegateFlowLayout {
 }
 
 extension DiscoverAnimeVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ANIME_CELL, for: indexPath) as? AnimeCell {
+            let anime = allAnime[indexPath.row]
+            cell.configureCell(anime: anime)
+            
+            return cell
+        }
+        return UICollectionViewCell()
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: SEGUE_ANIME_DETAIL, sender: allAnime[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return allAnime.count
+    }
+}
+
+extension DiscoverAnimeVC: UICollectionViewDelegate {
 }

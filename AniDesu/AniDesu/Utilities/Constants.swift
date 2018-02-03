@@ -14,16 +14,16 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let SEGUE_HOME = "toHome"
 let SEGUE_CREATE_POST = "toCreatePost"
 let SEGUE_REVIEW_DETAIL = "toReviewDetail"
+let SEGUE_ANIME_DETAIL = "toAnimeDetail"
 
 // Reuse Cell
 let POST_CELL = "postCell"
 let ANIME_CELL = "animeCell"
 let MY_ANIME_LIST_CELL = "myAnimeListCell"
 let PRE_POST_CELL = "prePostCell"
-let MENU_CELL = "menuCell"
-let MY_ANIME_LIST_MENU_CELL = "myAnimeListMenuCell"
 let REVIEW_CELL = "reviewCell"
 let USER_PROFILE_CELL = "userProfileCell"
+let ANIME_MENU_CELL = "animeMenuCell"
 
 // User default key
 let LOGGED_IN_KEY = "logged"

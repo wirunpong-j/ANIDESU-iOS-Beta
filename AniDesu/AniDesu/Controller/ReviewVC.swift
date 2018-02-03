@@ -32,7 +32,7 @@ class ReviewVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SEGUE_REVIEW_DETAIL {
             if let reviewDetailVC = segue.destination as? ReviewDetailVC {
-                reviewDetailVC.review = sender as! Review
+                reviewDetailVC.review = sender as? Review
             }
         }
     }
@@ -62,8 +62,6 @@ extension ReviewVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: SEGUE_REVIEW_DETAIL, sender: allReview[indexPath.row])

@@ -186,14 +186,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="animeCollection" destination="Vnl-Xf-7Ce" id="TYS-NU-a41"/>
-                        <segue destination="doY-hK-375" kind="presentation" identifier="toAnimeDetail" id="HeH-Ey-97k"/>
+                        <segue destination="doY-hK-375" kind="presentation" identifier="toAnimeDetail" id="Irv-dT-pQe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-CX-9hL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="326" y="1646"/>
         </scene>
-        <!--Discover Anime DetailVC-->
+        <!--Danganronpa V3-->
         <scene sceneID="IaY-MO-UXA">
             <objects>
                 <viewController id="doY-hK-375" customClass="DiscoverAnimeDetailVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,93 +202,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jln-NP-XPk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="180"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-Rf-x4M">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-Rf-x4M">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aSf-pQ-oSf">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="lNP-1k-D0L"/>
-                                        </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X2D-FT-MmA">
-                                            <size key="itemSize" width="100" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="animeMenuCell" id="zWV-zD-wCF" customClass="AnimeMenuCell" customModule="AniDesu" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orI-fG-qCn">
-                                                            <rect key="frame" x="13" y="17" width="74" height="18"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-Db-z2H">
-                                                            <rect key="frame" x="8" y="46" width="84" height="4"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="4" id="F8R-lN-tI3"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstItem="PPi-Db-z2H" firstAttribute="leading" secondItem="zWV-zD-wCF" secondAttribute="leading" constant="8" id="5ku-eg-LyJ"/>
-                                                    <constraint firstItem="orI-fG-qCn" firstAttribute="centerY" secondItem="zWV-zD-wCF" secondAttribute="centerY" id="8mk-Uk-HBT"/>
-                                                    <constraint firstAttribute="bottom" secondItem="PPi-Db-z2H" secondAttribute="bottom" id="CJX-0e-C0Z"/>
-                                                    <constraint firstItem="orI-fG-qCn" firstAttribute="centerX" secondItem="zWV-zD-wCF" secondAttribute="centerX" id="Kgd-sd-w5c"/>
-                                                    <constraint firstAttribute="trailing" secondItem="PPi-Db-z2H" secondAttribute="trailing" constant="8" id="OZc-dd-y6J"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="orI-fG-qCn" secondAttribute="trailing" constant="5" id="dHs-ox-zvu"/>
-                                                    <constraint firstItem="orI-fG-qCn" firstAttribute="leading" secondItem="zWV-zD-wCF" secondAttribute="leadingMargin" constant="5" id="vMU-pW-9ld"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="menuLabel" destination="orI-fG-qCn" id="my8-xS-zu0"/>
-                                                    <outlet property="underlineView" destination="PPi-Db-z2H" id="1b8-ci-ETD"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ffG-Rf-x4M" secondAttribute="bottom" id="6le-rb-ClV"/>
-                                    <constraint firstItem="aSf-pQ-oSf" firstAttribute="bottom" secondItem="ffG-Rf-x4M" secondAttribute="bottom" id="Dhj-wl-7T0"/>
-                                    <constraint firstAttribute="trailing" secondItem="aSf-pQ-oSf" secondAttribute="trailing" id="EbX-SS-EbM"/>
-                                    <constraint firstItem="aSf-pQ-oSf" firstAttribute="leading" secondItem="jln-NP-XPk" secondAttribute="leading" id="SI7-4u-7gc"/>
-                                    <constraint firstAttribute="bottom" secondItem="aSf-pQ-oSf" secondAttribute="bottom" id="XJa-Gn-MNM"/>
-                                    <constraint firstAttribute="height" constant="200" id="aNs-dq-FOr"/>
-                                    <constraint firstItem="ffG-Rf-x4M" firstAttribute="top" secondItem="jln-NP-XPk" secondAttribute="top" id="cYY-k2-dfE"/>
-                                    <constraint firstItem="ffG-Rf-x4M" firstAttribute="leading" secondItem="jln-NP-XPk" secondAttribute="leading" id="lQR-uS-FUT"/>
-                                    <constraint firstAttribute="trailing" secondItem="ffG-Rf-x4M" secondAttribute="trailing" id="o8n-NH-zgG"/>
+                                    <constraint firstAttribute="height" constant="180" id="eoZ-21-b12"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWG-oq-0em">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.1461464167" green="0.19160768389999999" blue="0.24315044280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Danganronpa V3" id="jGb-ET-Nce">
+                                        <barButtonItem key="leftBarButtonItem" image="icon-back" id="Lnt-gc-alH">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backBtnPressed:" destination="doY-hK-375" id="aTf-0E-iEy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jln-NP-XPk" firstAttribute="leading" secondItem="Tnz-95-caa" secondAttribute="leading" id="WWT-ru-ste"/>
-                            <constraint firstItem="Tnz-95-caa" firstAttribute="trailing" secondItem="jln-NP-XPk" secondAttribute="trailing" id="kK2-UW-x5M"/>
-                            <constraint firstItem="jln-NP-XPk" firstAttribute="top" secondItem="jJV-bB-WGB" secondAttribute="top" id="oUm-UE-ARe"/>
+                            <constraint firstItem="jln-NP-XPk" firstAttribute="leading" secondItem="Tnz-95-caa" secondAttribute="leading" id="BAL-Ws-iQJ"/>
+                            <constraint firstItem="jln-NP-XPk" firstAttribute="trailing" secondItem="Tnz-95-caa" secondAttribute="trailing" id="HK9-a6-LQ1"/>
+                            <constraint firstItem="eWG-oq-0em" firstAttribute="top" secondItem="Tnz-95-caa" secondAttribute="top" id="HTE-1F-inP"/>
+                            <constraint firstItem="eWG-oq-0em" firstAttribute="leading" secondItem="Tnz-95-caa" secondAttribute="leading" id="Yvm-Sk-UGd"/>
+                            <constraint firstItem="jln-NP-XPk" firstAttribute="top" secondItem="eWG-oq-0em" secondAttribute="bottom" id="hMe-wx-Mzx"/>
+                            <constraint firstItem="eWG-oq-0em" firstAttribute="trailing" secondItem="Tnz-95-caa" secondAttribute="trailing" id="llt-mL-H68"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tnz-95-caa"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Danganronpa V3" id="aUw-gB-BAm"/>
                     <connections>
-                        <outlet property="animeBannerImageView" destination="ffG-Rf-x4M" id="z1Z-RL-d2Q"/>
-                        <outlet property="animeMenuCollection" destination="aSf-pQ-oSf" id="DlI-NN-aSB"/>
+                        <outlet property="animeBannerImageView" destination="ffG-Rf-x4M" id="buw-ue-6bO"/>
+                        <outlet property="customNavigationBar" destination="eWG-oq-0em" id="euS-9C-hpd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwA-wt-K4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="1649.3253373313344"/>
+            <point key="canvasLocation" x="1017" y="1646"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="op1-IK-eP2">
@@ -432,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBu-pp-WQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="1596"/>
+            <point key="canvasLocation" x="2544.8000000000002" y="1595.352323838081"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="MiY-ZN-HWI">
@@ -1118,7 +1082,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3688.8000000000002" y="1795.5022488755624"/>
+            <point key="canvasLocation" x="4028" y="1795.5022488755624"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="Cht-1Q-v2x">
@@ -1220,6 +1184,7 @@
         <image name="animeImage" width="230" height="324"/>
         <image name="banner" width="820" height="448"/>
         <image name="icon-animelist" width="25" height="25"/>
+        <image name="icon-back" width="25" height="25"/>
         <image name="icon-discover" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>
         <image name="icon-profile" width="25" height="25"/>

@@ -25,8 +25,9 @@ class DiscoverAnimeVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SEGUE_ANIME_DETAIL {
+            print(segue.destination)
             if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
-                animeDetailVC.anime = sender as! Anime
+                animeDetailVC.anime = sender as? Anime
             }
         }
     }

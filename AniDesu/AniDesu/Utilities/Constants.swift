@@ -23,7 +23,6 @@ let MY_ANIME_LIST_CELL = "myAnimeListCell"
 let PRE_POST_CELL = "prePostCell"
 let REVIEW_CELL = "reviewCell"
 let USER_PROFILE_CELL = "userProfileCell"
-let ANIME_MENU_CELL = "animeMenuCell"
 
 // User default key
 let LOGGED_IN_KEY = "logged"

@@ -27,6 +27,9 @@
 		D3C34A5E20219BB0005B05F2 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A5D20219BB0005B05F2 /* Review.swift */; };
 		D3C34A602021A10C005B05F2 /* ReviewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */; };
 		D3C34A622021C54A005B05F2 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C34A612021C54A005B05F2 /* ReviewService.swift */; };
+		D3CE82C0202719E6006DBB6D /* ExternalLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE82BF202719E6006DBB6D /* ExternalLinkCell.swift */; };
+		D3CE82C320271E0F006DBB6D /* ExternalLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE82C220271E0F006DBB6D /* ExternalLink.swift */; };
+		D3CE82C5202740E5006DBB6D /* Airing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE82C4202740E5006DBB6D /* Airing.swift */; };
 		D3DF3712201F2BA600A492AF /* PrePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF3711201F2BA600A492AF /* PrePostCell.swift */; };
 		D3DF3714201F37C800A492AF /* AnimeMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF3713201F37C800A492AF /* AnimeMenuCell.swift */; };
 		D3E7361E2015D5FC00247976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7361D2015D5FC00247976 /* AppDelegate.swift */; };
@@ -71,6 +74,9 @@
 		D3C34A5D20219BB0005B05F2 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailVC.swift; sourceTree = "<group>"; };
 		D3C34A612021C54A005B05F2 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		D3CE82BF202719E6006DBB6D /* ExternalLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkCell.swift; sourceTree = "<group>"; };
+		D3CE82C220271E0F006DBB6D /* ExternalLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLink.swift; sourceTree = "<group>"; };
+		D3CE82C4202740E5006DBB6D /* Airing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airing.swift; sourceTree = "<group>"; };
 		D3DF3711201F2BA600A492AF /* PrePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePostCell.swift; sourceTree = "<group>"; };
 		D3DF3713201F37C800A492AF /* AnimeMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeMenuCell.swift; sourceTree = "<group>"; };
 		D3E7361A2015D5FC00247976 /* AniDesu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDesu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +146,23 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
+		D3CE82BE202719C5006DBB6D /* DiscoverAnime */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE82BF202719E6006DBB6D /* ExternalLinkCell.swift */,
+			);
+			path = DiscoverAnime;
+			sourceTree = "<group>";
+		};
+		D3CE82C120271DF0006DBB6D /* DiscoverAnime */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE82C220271E0F006DBB6D /* ExternalLink.swift */,
+				D3CE82C4202740E5006DBB6D /* Airing.swift */,
+			);
+			path = DiscoverAnime;
+			sourceTree = "<group>";
+		};
 		D3E736112015D5FC00247976 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +211,7 @@
 		D3E891222019B8BB00A50489 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3CE82BE202719C5006DBB6D /* DiscoverAnime */,
 				D3BC51D52022FADF00E30526 /* Review */,
 				D3E891232019B8E200A50489 /* CircleImage.swift */,
 				D3E891252019BD6A00A50489 /* PostCell.swift */,
@@ -203,6 +227,7 @@
 		D3E891272019BE9F00A50489 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3CE82C120271DF0006DBB6D /* DiscoverAnime */,
 				D3E891282019BEAA00A50489 /* Post.swift */,
 				D36483E82019DECD00CC10B5 /* MyAnimeList.swift */,
 				D30B7830201C6A6B00F88F92 /* Anime.swift */,
@@ -376,6 +401,8 @@
 				D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */,
 				D3E891242019B8E200A50489 /* CircleImage.swift in Sources */,
 				D3E891372019CF0300A50489 /* AniListService.swift in Sources */,
+				D3CE82C0202719E6006DBB6D /* ExternalLinkCell.swift in Sources */,
+				D3CE82C5202740E5006DBB6D /* Airing.swift in Sources */,
 				D3AB86122025F0530072CACC /* DiscoverAnimeDetailVC.swift in Sources */,
 				D30B7835201E1EB800F88F92 /* User.swift in Sources */,
 				D3E8912C2019BF4800A50489 /* PostService.swift in Sources */,
@@ -396,6 +423,7 @@
 				D3F4121220246D5C00145913 /* UserProfileCell.swift in Sources */,
 				D30B7833201DF47900F88F92 /* CreatePostVC.swift in Sources */,
 				D3C34A5C20219ABF005B05F2 /* ReviewVC.swift in Sources */,
+				D3CE82C320271E0F006DBB6D /* ExternalLink.swift in Sources */,
 				D3E891262019BD6A00A50489 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

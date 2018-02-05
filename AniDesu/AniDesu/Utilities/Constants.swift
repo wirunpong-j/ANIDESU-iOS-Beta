@@ -24,6 +24,8 @@ let PRE_POST_CELL = "prePostCell"
 let REVIEW_CELL = "reviewCell"
 let USER_PROFILE_CELL = "userProfileCell"
 let EXTERNAL_LINK_CELL = "externalLinkCell"
+let CHARACTER_CELL = "characterCell"
+let STAFF_CELL = "staffCell"
 
 // User default key
 let LOGGED_IN_KEY = "logged"

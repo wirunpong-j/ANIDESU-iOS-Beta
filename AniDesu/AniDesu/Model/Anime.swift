@@ -33,8 +33,8 @@ struct Anime {
     public private(set) var source: String
     public private(set) var tags: String
     public private(set) var airing: Airing
-//    public private(set) var ArrayList<CharactersSmall> characters;
-//    public private(set) var ArrayList<StaffSmall> staff;
+    public private(set) var characters: [CharacterStaff];
+    public private(set) var staffs: [CharacterStaff];
     public private(set) var studio: String
     public private(set) var external_links: [ExternalLink]
     
@@ -69,29 +69,47 @@ struct Anime {
         self.source = anime["source"].stringValue
         self.airing = Airing(airingJSON: anime["airing"])
         
+        // set external links
         self.external_links = []
         for link in anime["external_links"].arrayValue {
             let externalLink = ExternalLink(exLink: link)
             self.external_links.append(externalLink)
         }
         
+        // set tags
         var tagsArray = [String]()
         for tags in anime["tags"].arrayValue {
             tagsArray.append(tags["name"].stringValue)
         }
         self.tags = tagsArray != [] ? tagsArray.joined(separator: ", ") : "N/A"
         
+        // set genres
         var genresArray = [String]()
         for gen in anime["genres"].arrayValue {
             genresArray.append(gen.stringValue)
         }
         self.genres = genresArray != [] ? genresArray.joined(separator: ", ") : "N/A"
         
+        // set main studio
         var studioArray = [String]()
         for stu in anime["studio"].arrayValue {
             studioArray.append(stu["studio_name"].stringValue)
         }
         self.studio = studioArray != [] ? studioArray.joined(separator: ", ") : "N/A"
+        
+        // set characters
+        self.characters = []
+        for char in anime["characters"].arrayValue {
+            let character = CharacterStaff(charJSON: char)
+            self.characters.append(character)
+        }
+        
+        // set staffs
+        self.staffs = []
+        for staff in anime["staff"].arrayValue {
+            let staff = CharacterStaff(charJSON: staff)
+            self.staffs.append(staff)
+        }
     }
     
 }

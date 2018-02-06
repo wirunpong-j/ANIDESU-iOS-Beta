@@ -350,7 +350,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZb-OA-9jl">
                                         <rect key="frame" x="0.0" y="200" width="375" height="697"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2z-Ht-GII">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2z-Ht-GII" customClass="BorderView" customModule="AniDesu" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="12" width="351" height="673"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm0-6U-xnE">
@@ -501,7 +501,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyb-UD-zpU">
                                         <rect key="frame" x="0.0" y="897" width="375" height="301"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVM-31-JHe">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVM-31-JHe" customClass="BorderView" customModule="AniDesu" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="12" width="351" height="277"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGS-m6-3DB">
@@ -652,7 +652,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AF3-FV-iOh">
                                         <rect key="frame" x="0.0" y="1198" width="375" height="552"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-jX-Cem">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-jX-Cem" customClass="BorderView" customModule="AniDesu" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="12" width="351" height="528"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXTRAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIG-s8-FzL">
@@ -674,7 +674,7 @@
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-Pc-cZ8">
                                                         <rect key="frame" x="8" y="78" width="335" height="200"/>
-                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.034090141480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lie-gx-Fkb"/>
                                                             <constraint firstAttribute="height" constant="200" id="nAr-g8-Iq7"/>
@@ -750,7 +750,7 @@
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xyD-aF-Htl">
                                                         <rect key="frame" x="8" y="316" width="335" height="200"/>
-                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.034090141480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="hcF-CB-GwM"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="n27-62-v6n"/>
@@ -846,6 +846,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.94118285179138184" green="0.94116520881652832" blue="0.94117718935012817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="jyb-UD-zpU" firstAttribute="top" secondItem="jZb-OA-9jl" secondAttribute="bottom" id="0DG-rL-O90"/>

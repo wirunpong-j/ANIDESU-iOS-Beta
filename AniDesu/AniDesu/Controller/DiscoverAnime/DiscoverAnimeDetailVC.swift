@@ -81,10 +81,21 @@ class DiscoverAnimeDetailVC: UIViewController {
         mainStudioLabel.text = anime?.studio
         animeDescLabel.text = anime?.description
         
-//         set external links table view
+        // set external links table view
         let newLinkHeight = linkHeight * CGFloat((anime?.external_links.count)!)
         linkConstraints.constant = newLinkHeight
         externalLinkTableView.reloadData()
+        
+//        // set border table view
+        charactersCollection.layer.shadowColor = UIColor.black.cgColor
+        charactersCollection.layer.shadowOffset = CGSize(width: 0, height: 5)
+        charactersCollection.layer.shadowOpacity = 0.1
+        charactersCollection.layer.shadowRadius = 5
+
+        staffCollection.layer.shadowColor = UIColor.black.cgColor
+        staffCollection.layer.shadowOffset = CGSize(width: 0, height: 5)
+        staffCollection.layer.shadowOpacity = 0.1
+        staffCollection.layer.shadowRadius = 5
         
 //        completedLabel
 //        droppedLabel

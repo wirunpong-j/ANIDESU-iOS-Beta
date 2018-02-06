@@ -17,4 +17,5 @@ pod 'Kingfisher', '~> 4.0'
 pod 'Tabman', '~> 1.0'
 pod 'Hero'
 pod 'Cosmos', '~> 14.0'
+pod 'Eureka'
 end

@@ -15,9 +15,14 @@ class MyAnimeListMenuVC: TabmanViewController, PageboyViewControllerDataSource {
 
         self.dataSource = self
         setUpView()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchAllData()
+    }
+    
+    private func fetchAllData() {
         var responseCount = 0
-        
         for statusType in [StatusType.PLAN_TO_WATCH, StatusType.WATCHING, StatusType.COMPLETED, StatusType.DROPPED] {
             
             UserDataService.instance.fetchMyAnimeList(statusType: statusType) { (data) in

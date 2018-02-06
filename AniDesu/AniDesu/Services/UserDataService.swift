@@ -32,6 +32,7 @@ class UserDataService {
         ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             // get my anime list
             let value = snapshot.value as? NSDictionary
+            print(snapshot.value)
             
             var allMyAnimeList = [MyAnimeList]()
             if let allValues = value?.allValues {
@@ -51,9 +52,9 @@ class UserDataService {
                         }
                     }
                 }
+            } else {
+                completion(nil)
             }
-            completion(nil)
-            
         }) { (error) in
             print(error.localizedDescription)
             print("Not Show Data")
@@ -61,6 +62,19 @@ class UserDataService {
             completion(nil)
         }
         
+    }
+    
+    func addMyAnimeList(myAnimeList: MyAnimeList, statusType: StatusType, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let myAnime: [String: Any] = [
+            "anime_id": myAnimeList.anime_id,
+            "note": myAnimeList.note,
+            "progress": myAnimeList.progress,
+            "score": myAnimeList.score
+        ]
+        ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).setValue(myAnime)
+        
+        completion(true)
     }
     
     func logoutUser() {

@@ -117,7 +117,25 @@ class DiscoverAnimeDetailVC: UIViewController {
         self.view.layoutIfNeeded()
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_ANIME_DETAIL {
+            if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
+                animeDetailVC.anime = sender as? Anime
+            }
+        } else if segue.identifier == SEGUE_ADD_MY_ANIME_LIST {
+            let navVC = segue.destination as? UINavigationController
+            if let addToMyAnimeVC = navVC?.viewControllers.first as? AddToMyAnimeListVC {
+                addToMyAnimeVC.myAnime = sender as? MyAnimeList
+            }
+        }
+    }
+    
+    @IBAction func addToMyAnimeListBtnPressed(_ sender: Any) {
+        var myAnimeList = MyAnimeList(anime_id: (anime?.id)!, score: 3, progress: 2, note: "Wowwwww", anime: anime!)
+        self.performSegue(withIdentifier: SEGUE_ADD_MY_ANIME_LIST, sender: myAnimeList)
+    }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

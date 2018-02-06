@@ -7,6 +7,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - Cosmos (14.0.0)
+  - Eureka (4.0.1)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -81,6 +82,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 14.0)
+  - Eureka
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -95,6 +97,7 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: 6dd44b65d587033e690ae1c350c875d262a23fda
+  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
@@ -118,6 +121,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
 
-PODFILE CHECKSUM: 442dc2dda2fbc98ccd49598957345a21027dd0fe
+PODFILE CHECKSUM: dc6ee9eb2e464a978103769a4037c71dfd91070c
 
 COCOAPODS: 1.1.1

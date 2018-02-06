@@ -15,6 +15,7 @@ let SEGUE_HOME = "toHome"
 let SEGUE_CREATE_POST = "toCreatePost"
 let SEGUE_REVIEW_DETAIL = "toReviewDetail"
 let SEGUE_ANIME_DETAIL = "toAnimeDetail"
+let SEGUE_ADD_MY_ANIME_LIST = "toAddMyAnimeList"
 
 // Reuse Cell
 let POST_CELL = "postCell"
@@ -70,4 +71,11 @@ enum StatusType: String {
     case WATCHING = "watching"
     case COMPLETED = "completed"
     case DROPPED = "dropped"
+}
+
+enum StatusTypeUpper: String {
+    case PLAN_TO_WATCH = "Plan To Watch"
+    case WATCHING = "Watching"
+    case COMPLETED = "Completed"
+    case DROPPED = "Dropped"
 }

@@ -36,6 +36,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     
     // Variables
     var anime: Anime?
+    var isAdded = false
     let linkHeight: CGFloat = 50
     let extraCellWidth = 120
     let extraCellHeight = 200
@@ -49,9 +50,8 @@ class DiscoverAnimeDetailVC: UIViewController {
         charactersCollection.dataSource = self
         staffCollection.delegate = self
         staffCollection.dataSource = self
-        
         panGesture.delegate = self
-        
+        print(isAdded)
         setUpView()
     }
     
@@ -86,7 +86,7 @@ class DiscoverAnimeDetailVC: UIViewController {
         linkConstraints.constant = newLinkHeight
         externalLinkTableView.reloadData()
         
-//        // set border table view
+        // set border table view
         charactersCollection.layer.shadowColor = UIColor.black.cgColor
         charactersCollection.layer.shadowOffset = CGSize(width: 0, height: 5)
         charactersCollection.layer.shadowOpacity = 0.1
@@ -131,15 +131,34 @@ class DiscoverAnimeDetailVC: UIViewController {
         }
     }
     
-    @IBAction func addToMyAnimeListBtnPressed(_ sender: Any) {
+    @IBAction func optionsBtnPressed(_ sender: Any) {
+        let ac = UIAlertController(title: "Choose Options", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Add to My Anime List", style: .default, handler: addToMyAnimeList))
+        ac.addAction(UIAlertAction(title: "Review", style: .default, handler: reviewAnime))
+        ac.addAction(UIAlertAction(title: "Share", style: .default, handler: shareAnime))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func addToMyAnimeList(action: UIAlertAction) {
         var myAnimeList = MyAnimeList(anime_id: (anime?.id)!, score: 3, progress: 2, note: "Wowwwww", anime: anime!)
         self.performSegue(withIdentifier: SEGUE_ADD_MY_ANIME_LIST, sender: myAnimeList)
     }
+    
+    func reviewAnime(action: UIAlertAction) {
+        
+    }
+    
+    func shareAnime(action: UIAlertAction) {
+        
+    }
+    
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 
 extension DiscoverAnimeDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

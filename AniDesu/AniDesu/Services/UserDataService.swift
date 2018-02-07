@@ -1,11 +1,3 @@
-//
-//  UserDataService.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 25/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 import Firebase
 import Alamofire
@@ -32,7 +24,6 @@ class UserDataService {
         ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             // get my anime list
             let value = snapshot.value as? NSDictionary
-            print(snapshot.value)
             
             var allMyAnimeList = [MyAnimeList]()
             if let allValues = value?.allValues {
@@ -72,9 +63,37 @@ class UserDataService {
             "progress": myAnimeList.progress,
             "score": myAnimeList.score
         ]
-        ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).setValue(myAnime)
+        ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).childByAutoId().setValue(myAnime)
         
         completion(true)
+    }
+    
+    func isAnimeInMyList(animeID: Int, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        ref.child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in
+            // get my anime list
+            let value = snapshot.value as? NSDictionary
+            
+            for status in (value?.allValues)! {
+                let statusValue = status as? NSDictionary
+                for item in statusValue! {
+                    let myAnime = item.value as? NSDictionary
+                    let id = myAnime!["anime_id"] as? Int
+                    
+                    if animeID == id! {
+                        completion(true)
+                        return
+                    }
+                }
+            }
+            completion(false)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            print("isAnimeInMyList ERROR!")
+            
+            completion(false)
+        }
     }
     
     func logoutUser() {

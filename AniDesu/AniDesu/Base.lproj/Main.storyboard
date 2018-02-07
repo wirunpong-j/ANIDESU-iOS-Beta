@@ -247,38 +247,26 @@
                                                     <constraint firstAttribute="height" constant="200" id="raw-nz-uWB"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zal-Kt-tOr">
-                                                <rect key="frame" x="275" y="-30" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="0U3-0P-nm4"/>
-                                                    <constraint firstAttribute="height" constant="50" id="EQd-Z0-ilw"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <state key="normal" image="icon-bookmark"/>
-                                                <connections>
-                                                    <action selector="addToMyAnimeListBtnPressed:" destination="s5o-ps-Lfm" eventType="touchUpInside" id="75D-Gd-2w7"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danganronpa V3: Killing Harmony" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hF-ko-4Zg">
-                                                <rect key="frame" x="152" y="32" width="203" height="43"/>
+                                                <rect key="frame" x="152" y="20" width="203" height="43"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINISHED AIRING" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhZ-u9-QeJ">
-                                                <rect key="frame" x="152" y="79" width="203" height="16.5"/>
+                                                <rect key="frame" x="152" y="67" width="203" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Episode :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1e-y2-J32">
-                                                <rect key="frame" x="152" y="107.5" width="203" height="18"/>
+                                                <rect key="frame" x="152" y="95.5" width="203" height="18"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EP 10: 22:22" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ion-hl-t8t">
-                                                <rect key="frame" x="152" y="129.5" width="203" height="15.5"/>
+                                                <rect key="frame" x="152" y="117.5" width="203" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -328,22 +316,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Zal-Kt-tOr" firstAttribute="top" secondItem="9g1-ae-Lfv" secondAttribute="top" constant="-30" id="11O-cG-rdH"/>
                                             <constraint firstAttribute="trailing" secondItem="q1e-y2-J32" secondAttribute="trailing" constant="20" id="AUH-xA-fez"/>
                                             <constraint firstAttribute="height" constant="200" id="FF7-Hv-AGx"/>
                                             <constraint firstItem="q1e-y2-J32" firstAttribute="leading" secondItem="ksf-1h-SQO" secondAttribute="trailing" constant="12" id="Gyo-W0-hFi"/>
                                             <constraint firstAttribute="trailing" secondItem="Ion-hl-t8t" secondAttribute="trailing" constant="20" id="KGq-yo-tPV"/>
+                                            <constraint firstItem="8hF-ko-4Zg" firstAttribute="top" secondItem="9g1-ae-Lfv" secondAttribute="top" constant="20" id="LKi-MR-a5C"/>
                                             <constraint firstAttribute="trailing" secondItem="8hF-ko-4Zg" secondAttribute="trailing" constant="20" id="NM1-oV-bqk"/>
                                             <constraint firstItem="ZjJ-Bt-Mc9" firstAttribute="leading" secondItem="9g1-ae-Lfv" secondAttribute="leading" constant="20" id="Oa2-X7-8L2"/>
                                             <constraint firstItem="ksf-1h-SQO" firstAttribute="leading" secondItem="9g1-ae-Lfv" secondAttribute="leading" constant="20" id="QBB-Rz-lea"/>
                                             <constraint firstAttribute="trailing" secondItem="ZjJ-Bt-Mc9" secondAttribute="trailing" constant="20" id="ZlR-lz-v0w"/>
-                                            <constraint firstAttribute="trailing" secondItem="Zal-Kt-tOr" secondAttribute="trailing" constant="50" id="dks-mi-YOG"/>
                                             <constraint firstItem="Ion-hl-t8t" firstAttribute="top" secondItem="q1e-y2-J32" secondAttribute="bottom" constant="4" id="gQq-QZ-dPc"/>
                                             <constraint firstItem="yhZ-u9-QeJ" firstAttribute="top" secondItem="8hF-ko-4Zg" secondAttribute="bottom" constant="4" id="jV0-nH-mx3"/>
                                             <constraint firstItem="8hF-ko-4Zg" firstAttribute="leading" secondItem="ksf-1h-SQO" secondAttribute="trailing" constant="12" id="lmC-Mt-cZU"/>
                                             <constraint firstItem="Ion-hl-t8t" firstAttribute="leading" secondItem="ksf-1h-SQO" secondAttribute="trailing" constant="12" id="o9u-JA-u0x"/>
                                             <constraint firstAttribute="bottom" secondItem="ZjJ-Bt-Mc9" secondAttribute="bottom" id="qGg-kU-dw7"/>
-                                            <constraint firstItem="8hF-ko-4Zg" firstAttribute="top" secondItem="Zal-Kt-tOr" secondAttribute="bottom" constant="12" id="rKT-Tx-vJ9"/>
                                             <constraint firstAttribute="trailing" secondItem="yhZ-u9-QeJ" secondAttribute="trailing" constant="20" id="rls-ok-ceg"/>
                                             <constraint firstItem="q1e-y2-J32" firstAttribute="top" secondItem="yhZ-u9-QeJ" secondAttribute="bottom" constant="12" id="scN-Lw-yBX"/>
                                             <constraint firstItem="yhZ-u9-QeJ" firstAttribute="leading" secondItem="ksf-1h-SQO" secondAttribute="trailing" constant="12" id="uP9-CX-IHx"/>
@@ -890,6 +876,12 @@
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="backBtnPressed:" destination="s5o-ps-Lfm" id="X9x-N4-jsC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="icon-menu" id="UvJ-RP-bzK">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="optionsBtnPressed:" destination="s5o-ps-Lfm" id="rb4-s0-u8N"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1898,7 +1890,6 @@
         <!--Navigation Controller-->
         <scene sceneID="fSd-W7-Pss">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ty2-bB-ucb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1FD-zR-Wez" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mNd-Fu-a7S">
@@ -1910,6 +1901,7 @@
                         <segue destination="q1y-vE-Qwv" kind="relationship" relationship="rootViewController" id="hBM-aT-ot5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ty2-bB-ucb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2553" y="931"/>
         </scene>
@@ -1922,9 +1914,9 @@
         <image name="banner" width="820" height="448"/>
         <image name="icon-animelist" width="25" height="25"/>
         <image name="icon-back" width="25" height="25"/>
-        <image name="icon-bookmark" width="500" height="500"/>
         <image name="icon-discover" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>
+        <image name="icon-menu" width="25" height="25"/>
         <image name="icon-profile" width="25" height="25"/>
         <image name="icon-review" width="25" height="25"/>
         <image name="icon-search" width="25" height="25"/>

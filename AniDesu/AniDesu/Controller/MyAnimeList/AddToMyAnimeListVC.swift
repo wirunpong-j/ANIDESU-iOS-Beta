@@ -19,12 +19,12 @@ class AddToMyAnimeListVC: FormViewController {
     
     func setForm() {
         
-        form +++ Section("Add To My Anime List")
+        form +++ Section("Add To My Anime List *")
             <<< PickerInputRow<String>() {
                 $0.tag = "Status"
                 $0.title = "Status"
                 $0.options = ALL_STATUS
-                $0.value = ""
+                $0.value = ALL_STATUS[0]
             }
             <<< PickerInputRow<Int>() {
                 $0.tag = "Progress"
@@ -37,6 +37,11 @@ class AddToMyAnimeListVC: FormViewController {
                 $0.title = "Score"
                 $0.options = numberArray(end: HIGH_SCORE)
                 $0.value = 0
+            }
+            +++ Section("Notes (Optional)")
+            <<< TextAreaRow() {
+                $0.tag = "Notes"
+                $0.placeholder = "Write your notes"
             }
         
         navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
@@ -55,7 +60,32 @@ class AddToMyAnimeListVC: FormViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
-        print(form.values())
+        let result = form.values()
+        let status = result["Status"] as? String ?? ""
+        let progress = result["Progress"] as? Int ?? 0
+        let score = result["Score"] as? Int ?? 0
+        let notes = result["Notes"] as? String ?? ""
+        
+        var statusType = StatusType.PLAN_TO_WATCH
+        switch status {
+            case StatusTypeUpper.WATCHING.rawValue:
+                statusType = StatusType.WATCHING
+            case StatusTypeUpper.COMPLETED.rawValue:
+                statusType = StatusType.COMPLETED
+            case StatusTypeUpper.DROPPED.rawValue:
+                statusType = StatusType.DROPPED
+            default:
+                break
+        }
+        
+        let newMyAnime = MyAnimeList(anime_id: (myAnime?.anime_id)!, score: score, progress: progress, note: notes, anime: (myAnime?.anime)!)
+        
+        UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime, statusType: statusType) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {

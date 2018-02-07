@@ -11,7 +11,6 @@ class AddToMyAnimeListVC: FormViewController {
     // Variables
     var myAnime: MyAnimeList?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setForm()
@@ -29,7 +28,7 @@ class AddToMyAnimeListVC: FormViewController {
             <<< PickerInputRow<Int>() {
                 $0.tag = "Progress"
                 $0.title = "Progress (EP)"
-                $0.options = numberArray(end: (myAnime?.anime.total_episodes)!)
+                $0.options = numberArray(end: 0)
                 $0.value = 0
             }
             <<< PickerInputRow<Int>() {
@@ -43,11 +42,20 @@ class AddToMyAnimeListVC: FormViewController {
                 $0.tag = "Notes"
                 $0.placeholder = "Write your notes"
             }
+            +++ Section()
+            <<< ButtonRow ("Delete") {
+                $0.title = "Delete"
+            }.cellUpdate { cell, row in
+                cell.isHidden = false
+                cell.textLabel?.textColor = UIColor.red
+            }.onCellSelection { cell, row in
+                print("eiei")
+            }
         
         navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
         animateScroll = true
         rowKeyboardSpacing = 20
-        navigationItem.title = "Add: \((myAnime?.anime.title_romaji)!)"
+//        navigationItem.title = "Add: \((myAnime?.anime.title_romaji)!)"
     }
     
     private func numberArray(end: Int) -> [Int] {

@@ -18,4 +18,5 @@ pod 'Tabman', '~> 1.0'
 pod 'Hero'
 pod 'Cosmos', '~> 14.0'
 pod 'Eureka'
+pod 'WCLShineButton'
 end

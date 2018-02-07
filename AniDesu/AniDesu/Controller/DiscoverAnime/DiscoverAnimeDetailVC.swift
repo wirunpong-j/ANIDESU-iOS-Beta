@@ -1,5 +1,6 @@
 import UIKit
 import Kingfisher
+import WCLShineButton
 
 class DiscoverAnimeDetailVC: UIViewController {
 
@@ -29,6 +30,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     @IBOutlet weak var planToWatchLabel: UILabel!
     @IBOutlet weak var watchingLabel: UILabel!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
+    @IBOutlet weak var shineButton: WCLShineButton!
     
     // Constraints
     @IBOutlet weak var bannerViewHeightConstraint: NSLayoutConstraint!
@@ -36,6 +38,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     
     // Variables
     var anime: Anime?
+    var myAnimeList: MyAnimeList?
     var isAdded = false
     let linkHeight: CGFloat = 50
     let extraCellWidth = 120
@@ -51,8 +54,20 @@ class DiscoverAnimeDetailVC: UIViewController {
         staffCollection.delegate = self
         staffCollection.dataSource = self
         panGesture.delegate = self
-        print(isAdded)
+        
         setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UserDataService.instance.isAnimeInMyList(anime: anime!) { (currentMyAnime) in
+            if currentMyAnime != nil {
+                self.isAdded = true
+            } else {
+                self.isAdded = false
+            }
+            self.myAnimeList = currentMyAnime
+            self.updateView()
+        }
     }
     
     private func setUpView() {
@@ -103,6 +118,12 @@ class DiscoverAnimeDetailVC: UIViewController {
 //        watchingLabel
     }
     
+    func updateView() {
+        shineButton.fillColor = #colorLiteral(red: 0.9450980392, green: 0.768627451, blue: 0.05882352941, alpha: 1)
+        shineButton.image = .star
+        shineButton.isSelected = isAdded
+    }
+    
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         let currentHeight = self.bannerViewHeightConstraint.constant
         var newHeight = currentHeight + (sender.translation(in: self.view).y)
@@ -132,8 +153,12 @@ class DiscoverAnimeDetailVC: UIViewController {
     }
     
     @IBAction func optionsBtnPressed(_ sender: Any) {
+        var addTitle = "Add to My Anime List"
+        if isAdded {
+            addTitle = "Edit to My Anime List"
+        }
         let ac = UIAlertController(title: "Choose Options", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Add to My Anime List", style: .default, handler: addToMyAnimeList))
+            ac.addAction(UIAlertAction(title: addTitle, style: .default, handler: addToMyAnimeList))
         ac.addAction(UIAlertAction(title: "Review", style: .default, handler: reviewAnime))
         ac.addAction(UIAlertAction(title: "Share", style: .default, handler: shareAnime))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -141,7 +166,6 @@ class DiscoverAnimeDetailVC: UIViewController {
     }
     
     func addToMyAnimeList(action: UIAlertAction) {
-        var myAnimeList = MyAnimeList(anime_id: (anime?.id)!, score: 3, progress: 2, note: "Wowwwww", anime: anime!)
         self.performSegue(withIdentifier: SEGUE_ADD_MY_ANIME_LIST, sender: myAnimeList)
     }
     

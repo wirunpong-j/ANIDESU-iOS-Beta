@@ -223,11 +223,21 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-Rf-x4M">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                     </imageView>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0v-ar-8Y4" customClass="WCLShineButton" customModule="WCLShineButton">
+                                        <rect key="frame" x="323" y="12" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="GEF-uD-6eI"/>
+                                            <constraint firstAttribute="height" constant="40" id="qGt-gy-5a6"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ffG-Rf-x4M" secondAttribute="bottom" id="4Wr-jT-vtU"/>
+                                    <constraint firstItem="W0v-ar-8Y4" firstAttribute="top" secondItem="jln-NP-XPk" secondAttribute="top" constant="12" id="5Qi-xM-6zj"/>
+                                    <constraint firstAttribute="trailing" secondItem="W0v-ar-8Y4" secondAttribute="trailing" constant="12" id="AeO-tR-Mzr"/>
                                     <constraint firstAttribute="height" constant="180" id="T3D-EH-cbv"/>
                                     <constraint firstItem="ffG-Rf-x4M" firstAttribute="leading" secondItem="jln-NP-XPk" secondAttribute="leading" id="Ui6-fJ-Yf4"/>
                                     <constraint firstItem="ffG-Rf-x4M" firstAttribute="top" secondItem="jln-NP-XPk" secondAttribute="top" id="e1d-bA-4mX"/>
@@ -939,6 +949,7 @@
                         <outlet property="nextEPLabel" destination="Ion-hl-t8t" id="1lT-Ac-4gZ"/>
                         <outlet property="panGesture" destination="Lnw-lY-gUm" id="mfI-J6-IO2"/>
                         <outlet property="planToWatchLabel" destination="vHj-DC-XjG" id="Yq8-tM-YwO"/>
+                        <outlet property="shineButton" destination="W0v-ar-8Y4" id="Ynp-nC-rb8"/>
                         <outlet property="staffCollection" destination="xyD-aF-Htl" id="a6n-6d-fNW"/>
                         <outlet property="totalEPLabel" destination="kES-ab-Dsv" id="T7V-vK-Og3"/>
                         <outlet property="watchingLabel" destination="F3M-3n-3Ib" id="YPH-ZY-ytY"/>
@@ -952,7 +963,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1746" y="1755"/>
+            <point key="canvasLocation" x="1744.8" y="1754.1229385307347"/>
         </scene>
         <!--Add Danganronpa V3-->
         <scene sceneID="2xX-0x-wxL">
@@ -979,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haY-vC-6f3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="1646"/>
+            <point key="canvasLocation" x="2552.8000000000002" y="1645.7271364317842"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="OSx-Nt-xgR">

@@ -78,6 +78,7 @@ PODS:
   - Tabman (1.2.0):
     - Pageboy (~> 2.2.0)
     - PureLayout (~> 3.0)
+  - WCLShineButton (1.0.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - SwiftyJSON
   - Tabman (~> 1.0)
+  - WCLShineButton
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -120,7 +122,8 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
+  WCLShineButton: d8b979b6f6f9f6709f9e241e6e1a4712a1a9b36b
 
-PODFILE CHECKSUM: dc6ee9eb2e464a978103769a4037c71dfd91070c
+PODFILE CHECKSUM: 02d34d6749fe6a6feed0cfb97798bd314ecab302
 
 COCOAPODS: 1.1.1

@@ -26,9 +26,7 @@ class DiscoverAnimeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SEGUE_ANIME_DETAIL {
             if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
-                let senderList = sender as? [Any]
-                animeDetailVC.anime = senderList![0] as? Anime
-                animeDetailVC.isAdded = (senderList![1] as? Bool)!
+                animeDetailVC.anime = sender as? Anime
             }
         }
     }
@@ -69,9 +67,7 @@ extension DiscoverAnimeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         AniListService.instance.fetchAnimePage(animeID: allAnime[indexPath.item].id) { (anime) in
             if anime != nil {
-                UserDataService.instance.isAnimeInMyList(animeID: (anime?.id)!) { (isAdded) in
-                    self.performSegue(withIdentifier: SEGUE_ANIME_DETAIL, sender: [anime, isAdded])
-                }
+                self.performSegue(withIdentifier: SEGUE_ANIME_DETAIL, sender: anime)
             }
         }
         

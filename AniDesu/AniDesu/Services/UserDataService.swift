@@ -68,7 +68,7 @@ class UserDataService {
         completion(true)
     }
     
-    func isAnimeInMyList(animeID: Int, completion: @escaping CompletionHandler) {
+    func isAnimeInMyList(anime: Anime, completion: @escaping (MyAnimeList?) -> ()) {
         let ref = Database.database().reference()
         ref.child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in
             // get my anime list
@@ -80,19 +80,24 @@ class UserDataService {
                     let myAnime = item.value as? NSDictionary
                     let id = myAnime!["anime_id"] as? Int
                     
-                    if animeID == id! {
-                        completion(true)
+                    if anime.id == id! {
+                        let progress = myAnime!["progress"] as? Int
+                        let score = myAnime!["score"] as? Int
+                        let note = myAnime!["note"] as? String
+                        let currentMyAnime = MyAnimeList(anime_id: anime.id, score: score!, progress: progress!, note: note!, anime: anime)
+                        
+                        completion(currentMyAnime)
                         return
                     }
                 }
             }
-            completion(false)
+            completion(nil)
             
         }) { (error) in
             print(error.localizedDescription)
             print("isAnimeInMyList ERROR!")
             
-            completion(false)
+            completion(nil)
         }
     }
     

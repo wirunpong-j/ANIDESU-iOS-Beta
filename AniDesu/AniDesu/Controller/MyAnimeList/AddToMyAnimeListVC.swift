@@ -50,7 +50,12 @@ class AddToMyAnimeListVC: FormViewController {
                 cell.isHidden = !(self.myAnimeList?.isAdded)!
                 cell.textLabel?.textColor = UIColor.red
             }.onCellSelection { cell, row in
-                print("eiei")
+                let alert = UIAlertController(title: "Alert", message: "Are you sure you want to remove this form your list ?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    self.removeThisAnimeFormList()
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         
         if (myAnimeList?.isAdded)! {
@@ -94,6 +99,14 @@ class AddToMyAnimeListVC: FormViewController {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                 }
+            }
+        }
+    }
+    
+    private func removeThisAnimeFormList() {
+        UserDataService.instance.removeAnimeFormMyList(myAnimeList: myAnimeList!) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

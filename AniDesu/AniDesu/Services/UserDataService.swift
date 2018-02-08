@@ -88,6 +88,15 @@ class UserDataService {
         completion(true)
     }
     
+    func removeAnimeFormMyList(myAnimeList: MyAnimeList, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("users").child(uid).child("list_anime").child(myAnimeList.key!).removeValue() { (error, _) in
+            print(error)
+            completion(false)
+        }
+        completion(true)
+    }
+    
     func isAnimeInMyList(anime: Anime, completion: @escaping (MyAnimeList?) -> ()) {
         let ref = Database.database().reference()
         ref.child("ios").child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in

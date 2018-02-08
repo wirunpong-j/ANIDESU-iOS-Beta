@@ -67,13 +67,6 @@ enum SeasonType: String {
     case SUMMER = "SUMMER"
 }
 enum StatusType: String {
-    case PLAN_TO_WATCH = "plan_to_watch"
-    case WATCHING = "watching"
-    case COMPLETED = "completed"
-    case DROPPED = "dropped"
-}
-
-enum StatusTypeUpper: String {
     case PLAN_TO_WATCH = "Plan To Watch"
     case WATCHING = "Watching"
     case COMPLETED = "Completed"

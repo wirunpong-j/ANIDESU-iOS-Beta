@@ -50,7 +50,7 @@ class AuthService {
     
     func loginUser(uid: String, completion: @escaping CompletionHandler) {
         let ref = Database.database().reference()
-        ref.child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
             // get user data
             let value = snapshot.value as? NSDictionary
             
@@ -84,7 +84,7 @@ class AuthService {
             "image_url_profile": imageUrl,
             "about": "Welcome To AniDesu."
         ]
-        ref.child("users").child(uid).child("profile").setValue(info)
+        ref.child("ios").child("users").child(uid).child("profile").setValue(info)
         UserDataService.instance.setUserData(uid: uid, displayName: displayName, email: email, about: about, imageUrlProfile: imageUrl)
         
         completion(true)

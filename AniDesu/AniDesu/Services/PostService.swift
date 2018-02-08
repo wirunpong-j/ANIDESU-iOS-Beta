@@ -1,11 +1,3 @@
-//
-//  PostService.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 25/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 import Firebase
 
@@ -14,7 +6,7 @@ class PostService {
     
     func fetchAllPost(completion: @escaping ([Post]?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("posts").queryOrdered(byChild: "post_date").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("posts").queryOrdered(byChild: "post_date").observeSingleEvent(of: .value, with: { (snapshot) in
             // get all post
             let value = snapshot.value as? NSDictionary
             
@@ -50,7 +42,7 @@ class PostService {
     
     func fetchUserInfo(uid: String, completion: @escaping (User?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("users").child(uid).child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
             // get user data
             let value = snapshot.value as? NSDictionary
             

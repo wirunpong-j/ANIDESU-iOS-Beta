@@ -1114,6 +1114,7 @@
                     <navigationItem key="navigationItem" title="ANIDESU" id="oNH-Hw-exF"/>
                     <connections>
                         <outlet property="myAnimeListCollection" destination="7CH-84-VFW" id="0KJ-yF-ONY"/>
+                        <segue destination="s5o-ps-Lfm" kind="presentation" identifier="toAnimeDetail" id="ept-EG-8G9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBu-pp-WQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4499,4 +4500,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
         </image>
         <image name="profileDefault" width="192" height="192"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ept-EG-8G9"/>
+    </inferredMetricsTieBreakers>
 </document>

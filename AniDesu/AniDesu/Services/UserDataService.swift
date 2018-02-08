@@ -19,27 +19,32 @@ class UserDataService {
         self.imageUrlProfile = imageUrlProfile
     }
     
-    func fetchMyAnimeList(statusType: StatusType, completion: @escaping ([MyAnimeList]?) -> ()) {
+    func fetchMyAnimeList(completion: @escaping ([MyAnimeList]?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in
             // get my anime list
-            let value = snapshot.value as? NSDictionary
+            let allValue = snapshot.value as? [String: Any]
             
             var allMyAnimeList = [MyAnimeList]()
-            if let allValues = value?.allValues {
-                for item in allValues {
-                    let myAnime = item as? NSDictionary
-                    let animeID = myAnime!["anime_id"] as? Int ?? 0
-                    let note = myAnime!["note"] as? String ?? ""
-                    let progress = myAnime!["progress"] as? Int ?? 0
-                    let score = myAnime!["score"] as? Int ?? 0
+            if allValue != nil {
+                for key in (allValue?.keys)! {
+                    let myAnimeList = allValue![key] as? [String: Any]
+                    let animeID = myAnimeList!["anime_id"] as? Int ?? 0
+                    let progress = myAnimeList!["progress"] as? Int ?? 0
+                    let score = myAnimeList!["score"] as? Int ?? 0
+                    let note = myAnimeList!["note"] as? String ?? ""
+                    let status = myAnimeList!["status"] as? String ?? ""
                     
                     AniListService.instance.fetchAnimePage(animeID: animeID) { (anime) in
-                        let myAnimeList = MyAnimeList(anime_id: animeID, score: score, progress: progress, note: note, anime: anime!)
+                        var myAnimeList = MyAnimeList(animeID: animeID, score: score, progress: progress, note: note, status: status)
+                        myAnimeList.anime = anime
+                        myAnimeList.isAdded = true
+                        myAnimeList.key = key
                         allMyAnimeList.append(myAnimeList)
                         
-                        if allMyAnimeList.count >= value!.allValues.count {
+                        if allMyAnimeList.count >= allValue!.count {
                             completion(allMyAnimeList)
+                            return
                         }
                     }
                 }
@@ -55,44 +60,52 @@ class UserDataService {
         
     }
     
-    func addMyAnimeList(myAnimeList: MyAnimeList, statusType: StatusType, completion: @escaping CompletionHandler) {
+    func addMyAnimeList(myAnimeList: MyAnimeList, completion: @escaping CompletionHandler) {
         let ref = Database.database().reference()
         let myAnime: [String: Any] = [
-            "anime_id": myAnimeList.anime_id,
+            "anime_id": myAnimeList.animeID,
             "note": myAnimeList.note,
             "progress": myAnimeList.progress,
-            "score": myAnimeList.score
+            "score": myAnimeList.score,
+            "status": myAnimeList.status
         ]
-        ref.child("users").child(uid).child("list_anime").child(statusType.rawValue).childByAutoId().setValue(myAnime)
+        ref.child("ios").child("users").child(uid).child("list_anime").childByAutoId().setValue(myAnime)
         
         completion(true)
     }
     
     func isAnimeInMyList(anime: Anime, completion: @escaping (MyAnimeList?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in
             // get my anime list
-            let value = snapshot.value as? NSDictionary
-            
-            for status in (value?.allValues)! {
-                let statusValue = status as? NSDictionary
-                for item in statusValue! {
-                    let myAnime = item.value as? NSDictionary
-                    let id = myAnime!["anime_id"] as? Int
+            let allValue = snapshot.value as? [String: Any]
+            if allValue != nil {
+                for key in (allValue?.keys)! {
+                    let myAnimeList = allValue![key] as? [String: Any]
+                    let id = myAnimeList!["anime_id"] as? Int ?? 0
                     
-                    if anime.id == id! {
-                        let progress = myAnime!["progress"] as? Int
-                        let score = myAnime!["score"] as? Int
-                        let note = myAnime!["note"] as? String
-                        let currentMyAnime = MyAnimeList(anime_id: anime.id, score: score!, progress: progress!, note: note!, anime: anime)
+                    if anime.id == id {
+                        let progress = myAnimeList!["progress"] as? Int ?? 0
+                        let score = myAnimeList!["score"] as? Int ?? 0
+                        let note = myAnimeList!["note"] as? String ?? ""
+                        let status = myAnimeList!["status"] as? String ?? ""
                         
-                        completion(currentMyAnime)
+                        var currentMyAnimeList = MyAnimeList(animeID: id, score: score, progress: progress, note: note, status: status)
+                        currentMyAnimeList.anime = anime
+                        currentMyAnimeList.isAdded = true
+                        currentMyAnimeList.key = key
+                        
+                        completion(currentMyAnimeList)
                         return
                     }
                 }
             }
-            completion(nil)
             
+            var myAnimeList = MyAnimeList(animeID: anime.id, score: 0, progress: 0, note: "", status: StatusType.PLAN_TO_WATCH.rawValue)
+            myAnimeList.anime = anime
+            myAnimeList.isAdded = false
+            
+            completion(myAnimeList)
         }) { (error) in
             print(error.localizedDescription)
             print("isAnimeInMyList ERROR!")

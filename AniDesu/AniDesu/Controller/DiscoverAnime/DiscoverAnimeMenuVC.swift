@@ -4,6 +4,10 @@ import Pageboy
 
 class DiscoverAnimeMenuVC: TabmanViewController, PageboyViewControllerDataSource {
     
+    // Constance
+    let ALL_SEASON = [SeasonType.WINTER, SeasonType.SPRING, SeasonType.FALL, SeasonType.SUMMER]
+    
+    // Variables
     var viewControllers = [UIViewController]()
     var winter = [Anime]()
     var spring = [Anime]()
@@ -18,7 +22,7 @@ class DiscoverAnimeMenuVC: TabmanViewController, PageboyViewControllerDataSource
         
         var responseCount = 0
         
-        for season in [SeasonType.WINTER, SeasonType.SPRING, SeasonType.FALL, SeasonType.SUMMER] {
+        for season in ALL_SEASON {
             AniListService.instance.fetchAnimeDataBySeason(season: season) { (animeList) in
                 switch season {
                     case .WINTER:

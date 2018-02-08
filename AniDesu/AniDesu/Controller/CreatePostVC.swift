@@ -1,11 +1,3 @@
-//
-//  CreatePostVC.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 28/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import UIKit
 import Kingfisher
 

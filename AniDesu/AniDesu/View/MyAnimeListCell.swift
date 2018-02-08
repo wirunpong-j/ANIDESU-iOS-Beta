@@ -21,10 +21,10 @@ class MyAnimeListCell: UICollectionViewCell {
     }
     
     func configureCell(myAnimeList: MyAnimeList) {
-        episodeLabel.text = "EP : \(myAnimeList.progress) / \(myAnimeList.anime.total_episodes)"
+        episodeLabel.text = "EP : \(myAnimeList.progress) / \((myAnimeList.anime?.total_episodes)!)"
         scoreLabel.text = "Score : \(myAnimeList.score) / 10"
-        animeTitleLabel.text = "\(myAnimeList.anime.title_romaji)"
-        let url = URL(string: myAnimeList.anime.image_url_lge)
+        animeTitleLabel.text = "\((myAnimeList.anime?.title_romaji)!)"
+        let url = URL(string: (myAnimeList.anime?.image_url_lge)!)
         animeImage.kf.setImage(with: url)
     }
 }

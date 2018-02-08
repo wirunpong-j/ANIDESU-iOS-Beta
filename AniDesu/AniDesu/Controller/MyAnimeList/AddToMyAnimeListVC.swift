@@ -5,8 +5,8 @@ class AddToMyAnimeListVC: FormViewController {
     
     // Constance
     let HIGH_SCORE = 10
-    let ALL_STATUS = [StatusTypeUpper.PLAN_TO_WATCH.rawValue, StatusTypeUpper.WATCHING.rawValue,
-                     StatusTypeUpper.COMPLETED.rawValue, StatusTypeUpper.DROPPED.rawValue]
+    let ALL_STATUS = [StatusType.PLAN_TO_WATCH.rawValue, StatusType.WATCHING.rawValue,
+                      StatusType.COMPLETED.rawValue, StatusType.DROPPED.rawValue]
     
     // Variables
     var myAnime: MyAnimeList?
@@ -23,12 +23,12 @@ class AddToMyAnimeListVC: FormViewController {
                 $0.tag = "Status"
                 $0.title = "Status"
                 $0.options = ALL_STATUS
-                $0.value = ALL_STATUS[0]
+                $0.value = myAnime?.status
             }
             <<< PickerInputRow<Int>() {
                 $0.tag = "Progress"
                 $0.title = "Progress (EP)"
-                $0.options = numberArray(end: 0)
+                $0.options = numberArray(end: (myAnime?.anime?.total_episodes)!)
                 $0.value = 0
             }
             <<< PickerInputRow<Int>() {
@@ -55,7 +55,7 @@ class AddToMyAnimeListVC: FormViewController {
         navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
         animateScroll = true
         rowKeyboardSpacing = 20
-//        navigationItem.title = "Add: \((myAnime?.anime.title_romaji)!)"
+        navigationItem.title = "Add: \((myAnime?.anime?.title_romaji)!)"
     }
     
     private func numberArray(end: Int) -> [Int] {
@@ -74,21 +74,9 @@ class AddToMyAnimeListVC: FormViewController {
         let score = result["Score"] as? Int ?? 0
         let notes = result["Notes"] as? String ?? ""
         
-        var statusType = StatusType.PLAN_TO_WATCH
-        switch status {
-            case StatusTypeUpper.WATCHING.rawValue:
-                statusType = StatusType.WATCHING
-            case StatusTypeUpper.COMPLETED.rawValue:
-                statusType = StatusType.COMPLETED
-            case StatusTypeUpper.DROPPED.rawValue:
-                statusType = StatusType.DROPPED
-            default:
-                break
-        }
+        let newMyAnime = MyAnimeList(animeID: (myAnime?.animeID)!, score: score, progress: progress, note: notes, status: status)
         
-        let newMyAnime = MyAnimeList(anime_id: (myAnime?.anime_id)!, score: score, progress: progress, note: notes, anime: (myAnime?.anime)!)
-        
-        UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime, statusType: statusType) { (success) in
+        UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime) { (success) in
             if success {
                 self.dismiss(animated: true, completion: nil)
             }

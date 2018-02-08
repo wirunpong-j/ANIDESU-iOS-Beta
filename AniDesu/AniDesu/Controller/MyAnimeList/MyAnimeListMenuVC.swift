@@ -4,7 +4,13 @@ import Pageboy
 
 class MyAnimeListMenuVC: TabmanViewController, PageboyViewControllerDataSource {
 
+    // Constance
+    let ALL_STATUS = [StatusType.PLAN_TO_WATCH, StatusType.WATCHING,
+                      StatusType.COMPLETED, StatusType.DROPPED]
+    
+    // Variables
     var viewControllers = [UIViewController]()
+    var allData = [MyAnimeList]()
     var planToWatch = [MyAnimeList]()
     var watching = [MyAnimeList]()
     var completed = [MyAnimeList]()
@@ -18,37 +24,43 @@ class MyAnimeListMenuVC: TabmanViewController, PageboyViewControllerDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchAllData()
+        clearData()
+        UserDataService.instance.fetchMyAnimeList { (allData) in
+            self.allData = allData!
+            self.splitAnimeStatusType()
+        }
     }
     
-    private func fetchAllData() {
-        var responseCount = 0
-        for statusType in [StatusType.PLAN_TO_WATCH, StatusType.WATCHING, StatusType.COMPLETED, StatusType.DROPPED] {
-            
-            UserDataService.instance.fetchMyAnimeList(statusType: statusType) { (data) in
-                switch statusType {
-                    case .PLAN_TO_WATCH:
-                        self.planToWatch = data != nil ? data! : [MyAnimeList]()
-                    case .WATCHING:
-                        self.watching = data != nil ? data! : [MyAnimeList]()
-                    case .COMPLETED:
-                        self.completed = data != nil ? data! : [MyAnimeList]()
-                    case .DROPPED:
-                        self.dropped = data != nil ? data! : [MyAnimeList]()
-                }
-                responseCount += 1
-                
-                if responseCount >= 4 {
-                    let planToWatchVC = self.getMyAnimeListVC(myAnimeList: self.planToWatch)
-                    let watchingVC = self.getMyAnimeListVC(myAnimeList: self.watching)
-                    let completedVC = self.getMyAnimeListVC(myAnimeList: self.completed)
-                    let droppedVC = self.getMyAnimeListVC(myAnimeList: self.dropped)
-                    
-                    self.viewControllers = [planToWatchVC, watchingVC, completedVC, droppedVC]
-                    self.reloadPages()
-                }
+    private func splitAnimeStatusType() {
+        for myAnimeList in allData {
+            switch myAnimeList.status {
+                case StatusType.PLAN_TO_WATCH.rawValue:
+                    planToWatch.append(myAnimeList)
+                case StatusType.WATCHING.rawValue:
+                    watching.append(myAnimeList)
+                case StatusType.COMPLETED.rawValue:
+                    completed.append(myAnimeList)
+                case StatusType.DROPPED.rawValue:
+                    dropped.append(myAnimeList)
+                default:
+                    break
             }
         }
+        
+        let planToWatchVC = self.getMyAnimeListVC(myAnimeList: self.planToWatch)
+        let watchingVC = self.getMyAnimeListVC(myAnimeList: self.watching)
+        let completedVC = self.getMyAnimeListVC(myAnimeList: self.completed)
+        let droppedVC = self.getMyAnimeListVC(myAnimeList: self.dropped)
+        
+        self.viewControllers = [planToWatchVC, watchingVC, completedVC, droppedVC]
+        self.reloadPages()
+    }
+    
+    private func clearData() {
+        planToWatch.removeAll()
+        watching.removeAll()
+        completed.removeAll()
+        dropped.removeAll()
     }
     
     private func getMyAnimeListVC(myAnimeList: [MyAnimeList]) -> MyAnimeListVC {
@@ -59,10 +71,10 @@ class MyAnimeListMenuVC: TabmanViewController, PageboyViewControllerDataSource {
     
     private func setUpView() {
         // configure the bar
-        self.bar.items = [Item(title: StatusType.PLAN_TO_WATCH.rawValue.replacingOccurrences(of: "_", with: " ").uppercased()),
-                          Item(title: StatusType.WATCHING.rawValue.uppercased()),
-                          Item(title: StatusType.COMPLETED.rawValue.uppercased()),
-                          Item(title: StatusType.DROPPED.rawValue.uppercased())]
+        self.bar.items = [Item(title: StatusType.PLAN_TO_WATCH.rawValue),
+                          Item(title: StatusType.WATCHING.rawValue),
+                          Item(title: StatusType.COMPLETED.rawValue),
+                          Item(title: StatusType.DROPPED.rawValue)]
         
         self.bar.style = .scrollingButtonBar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in

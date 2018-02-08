@@ -1,11 +1,3 @@
-//
-//  ReviewService.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 31/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -16,7 +8,7 @@ class ReviewService {
     
     func fetchAllReview(completion: @escaping ([Review]?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("series").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("series").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
             var allReview = [Review]()

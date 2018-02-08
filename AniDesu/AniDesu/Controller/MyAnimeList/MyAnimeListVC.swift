@@ -15,6 +15,14 @@ class MyAnimeListVC: UIViewController {
         myAnimeListCollection.dataSource = self
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_ANIME_DETAIL {
+            if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
+                animeDetailVC.anime = sender as? Anime
+            }
+        }
+    }
 }
 
 extension MyAnimeListVC: UICollectionViewDelegate {
@@ -35,7 +43,11 @@ extension MyAnimeListVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        AniListService.instance.fetchAnimePage(animeID: allMyAnimeList[indexPath.item].animeID) { (anime) in
+            if anime != nil {
+                self.performSegue(withIdentifier: SEGUE_ANIME_DETAIL, sender: anime)
+            }
+        }
     }
 }
 

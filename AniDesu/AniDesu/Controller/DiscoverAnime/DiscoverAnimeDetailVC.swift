@@ -39,7 +39,6 @@ class DiscoverAnimeDetailVC: UIViewController {
     // Variables
     var anime: Anime?
     var myAnimeList: MyAnimeList?
-    var isAdded = false
     let linkHeight: CGFloat = 50
     let extraCellWidth = 120
     let extraCellHeight = 200
@@ -60,11 +59,6 @@ class DiscoverAnimeDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UserDataService.instance.isAnimeInMyList(anime: anime!) { (currentMyAnime) in
-            if currentMyAnime != nil {
-                self.isAdded = true
-            } else {
-                self.isAdded = false
-            }
             self.myAnimeList = currentMyAnime
             self.updateView()
         }
@@ -121,7 +115,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     func updateView() {
         shineButton.fillColor = #colorLiteral(red: 0.9450980392, green: 0.768627451, blue: 0.05882352941, alpha: 1)
         shineButton.image = .star
-        shineButton.isSelected = isAdded
+        shineButton.isSelected = (myAnimeList?.isAdded)!
     }
     
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
@@ -154,11 +148,12 @@ class DiscoverAnimeDetailVC: UIViewController {
     
     @IBAction func optionsBtnPressed(_ sender: Any) {
         var addTitle = "Add to My Anime List"
-        if isAdded {
+        if (myAnimeList?.isAdded)! {
             addTitle = "Edit to My Anime List"
         }
+        
         let ac = UIAlertController(title: "Choose Options", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(UIAlertAction(title: addTitle, style: .default, handler: addToMyAnimeList))
+        ac.addAction(UIAlertAction(title: addTitle, style: .default, handler: addToMyAnimeList))
         ac.addAction(UIAlertAction(title: "Review", style: .default, handler: reviewAnime))
         ac.addAction(UIAlertAction(title: "Share", style: .default, handler: shareAnime))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))

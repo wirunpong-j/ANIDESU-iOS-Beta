@@ -9,7 +9,7 @@ class AddToMyAnimeListVC: FormViewController {
                       StatusType.COMPLETED.rawValue, StatusType.DROPPED.rawValue]
     
     // Variables
-    var myAnime: MyAnimeList?
+    var myAnimeList: MyAnimeList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,39 +23,45 @@ class AddToMyAnimeListVC: FormViewController {
                 $0.tag = "Status"
                 $0.title = "Status"
                 $0.options = ALL_STATUS
-                $0.value = myAnime?.status
+                $0.value = myAnimeList?.status
             }
             <<< PickerInputRow<Int>() {
                 $0.tag = "Progress"
                 $0.title = "Progress (EP)"
-                $0.options = numberArray(end: (myAnime?.anime?.total_episodes)!)
-                $0.value = 0
+                $0.options = numberArray(end: (myAnimeList?.anime?.total_episodes)!)
+                $0.value = (myAnimeList?.progress)!
             }
             <<< PickerInputRow<Int>() {
                 $0.tag = "Score"
                 $0.title = "Score"
                 $0.options = numberArray(end: HIGH_SCORE)
-                $0.value = 0
+                $0.value = (myAnimeList?.score)!
             }
             +++ Section("Notes (Optional)")
             <<< TextAreaRow() {
                 $0.tag = "Notes"
                 $0.placeholder = "Write your notes"
+                $0.value = (myAnimeList?.note)!
             }
             +++ Section()
             <<< ButtonRow ("Delete") {
                 $0.title = "Delete"
             }.cellUpdate { cell, row in
-                cell.isHidden = false
+                cell.isHidden = !(self.myAnimeList?.isAdded)!
                 cell.textLabel?.textColor = UIColor.red
             }.onCellSelection { cell, row in
                 print("eiei")
             }
         
+        if (myAnimeList?.isAdded)! {
+            navigationItem.title = "Edit: \((myAnimeList?.anime?.title_romaji)!)"
+        } else {
+            navigationItem.title = "Add: \((myAnimeList?.anime?.title_romaji)!)"
+        }
         navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
         animateScroll = true
         rowKeyboardSpacing = 20
-        navigationItem.title = "Add: \((myAnime?.anime?.title_romaji)!)"
+        
     }
     
     private func numberArray(end: Int) -> [Int] {
@@ -74,14 +80,22 @@ class AddToMyAnimeListVC: FormViewController {
         let score = result["Score"] as? Int ?? 0
         let notes = result["Notes"] as? String ?? ""
         
-        let newMyAnime = MyAnimeList(animeID: (myAnime?.animeID)!, score: score, progress: progress, note: notes, status: status)
+        var newMyAnime = MyAnimeList(animeID: (myAnimeList?.animeID)!, score: score, progress: progress, note: notes, status: status)
         
-        UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime) { (success) in
-            if success {
-                self.dismiss(animated: true, completion: nil)
+        if (myAnimeList?.isAdded)! {
+            newMyAnime.key = myAnimeList?.key
+            UserDataService.instance.updateMyAnimeList(myAnimeList: newMyAnime) { (success) in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        } else {
+            UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime) { (success) in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
-        
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {

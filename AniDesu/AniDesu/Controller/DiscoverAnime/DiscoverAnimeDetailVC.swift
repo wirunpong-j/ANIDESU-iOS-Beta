@@ -141,7 +141,7 @@ class DiscoverAnimeDetailVC: UIViewController {
         } else if segue.identifier == SEGUE_ADD_MY_ANIME_LIST {
             let navVC = segue.destination as? UINavigationController
             if let addToMyAnimeVC = navVC?.viewControllers.first as? AddToMyAnimeListVC {
-                addToMyAnimeVC.myAnime = sender as? MyAnimeList
+                addToMyAnimeVC.myAnimeList = sender as? MyAnimeList
             }
         }
     }

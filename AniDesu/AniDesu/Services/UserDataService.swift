@@ -74,6 +74,20 @@ class UserDataService {
         completion(true)
     }
     
+    func updateMyAnimeList(myAnimeList: MyAnimeList, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let myAnime: [String: Any] = [
+            "anime_id": myAnimeList.animeID,
+            "note": myAnimeList.note,
+            "progress": myAnimeList.progress,
+            "score": myAnimeList.score,
+            "status": myAnimeList.status
+        ]
+        ref.child("ios").child("users").child(uid).child("list_anime").child(myAnimeList.key!).updateChildValues(myAnime)
+        
+        completion(true)
+    }
+    
     func isAnimeInMyList(anime: Anime, completion: @escaping (MyAnimeList?) -> ()) {
         let ref = Database.database().reference()
         ref.child("ios").child("users").child(uid).child("list_anime").observeSingleEvent(of: .value, with: { (snapshot) in

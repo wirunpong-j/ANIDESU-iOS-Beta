@@ -6,7 +6,7 @@ class PostService {
     
     func fetchAllPost(completion: @escaping ([Post]?) -> ()) {
         let ref = Database.database().reference()
-        ref.child("ios").child("posts").queryOrdered(byChild: "post_date").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("ios").child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // get all post
             let allValue = snapshot.value as? [String: Any]
             
@@ -26,6 +26,7 @@ class PostService {
                         
                         posts.append(post)
                         if posts.count >= (allValue?.count)! {
+                            posts = posts.sorted(by: { $0.postDate > $1.postDate })
                             completion(posts)
                         }
                     }
@@ -43,6 +44,62 @@ class PostService {
         }
     }
     
+    func fetchPost(postKey: String, completion: @escaping (Post?) -> ()) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("posts").child(postKey).observeSingleEvent(of: .value, with: { (snapshot) in
+            let postValue = snapshot.value as? [String: Any]
+            
+            var allComment = [Comment]()
+            if postValue != nil {
+                let uid = postValue!["uid"] as? String ?? ""
+                let status = postValue!["status"] as? String ?? ""
+                let postDate = postValue!["post_date"] as? String ?? ""
+                let likeCount = postValue!["like_count"] as? Int ?? 0
+                let commentValue = postValue!["comment"] as? [String: Any]
+                
+                self.fetchUserInfo(uid: uid) { (user) in
+                    var post = Post(uid: uid, status: status, postDate: postDate, likeCount: likeCount)
+                    post.postKey = postKey
+                    post.user = user
+                    
+                    if commentValue != nil {
+                        for commentKey in (commentValue?.keys)! {
+                            let commentInfo = commentValue![commentKey] as? [String: Any]
+                            let commentStatus = commentInfo!["comment_text"] as? String ?? ""
+                            let commentDate = commentInfo!["comment_date"] as? String ?? ""
+                            let uid = commentInfo!["uid"] as? String ?? ""
+                            
+                            var comment = Comment(uid: uid, commentStatus: commentStatus, commentDate: commentDate)
+                            comment.commentKey = commentKey
+                            
+                            self.fetchUserInfo(uid: uid) { (commentOwner) in
+                                comment.user = commentOwner
+                                
+                                allComment.append(comment)
+                                if allComment.count >= (commentValue?.count)! {
+                                    allComment = allComment.sorted(by: { $0.commentDate < $1.commentDate })
+                                    post.comment = allComment
+                                    completion(post)
+                                }
+                            }
+                        }
+                    } else {
+                        post.comment = allComment
+                        completion(post)
+                    }
+                }
+            } else {
+                completion(nil)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            print("Not Show Data")
+            
+            completion(nil)
+        }
+    }
+    
     func postStatus(post: Post, completion: @escaping CompletionHandler) {
         let ref = Database.database().reference()
         let postInfo: [String: Any] = [
@@ -52,6 +109,18 @@ class PostService {
             "like_count": post.likeCount
         ]
         ref.child("ios").child("posts").childByAutoId().setValue(postInfo)
+        
+        completion(true)
+    }
+    
+    func addComment(postKey: String, comment: Comment, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let commentInfo: [String: Any] = [
+            "uid": comment.uid,
+            "comment_text": comment.commentStatus,
+            "comment_date": comment.commentDate
+        ]
+        ref.child("ios").child("posts").child(postKey).child("comment").childByAutoId().setValue(commentInfo)
         
         completion(true)
     }

@@ -39,6 +39,11 @@ class HomeVC: UIViewController {
             if let createPostVC = navVC?.viewControllers.first as? CreatePostVC {
                 createPostVC.delegate = self
             }
+
+        } else if segue.identifier == SEGUE_POST_DETAIL {
+            if let postDetailVC = segue.destination as? PostDetailVC {
+                postDetailVC.postKey = sender as? String
+            }
         }
     }
 }
@@ -80,7 +85,7 @@ extension HomeVC: UITableViewDelegate {
             case 0:
                 performSegue(withIdentifier: SEGUE_CREATE_POST, sender: nil)
             default:
-                break
+                performSegue(withIdentifier: SEGUE_POST_DETAIL, sender: allPost[indexPath.row - 1].postKey)
         }
     }
 }

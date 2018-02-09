@@ -1,11 +1,3 @@
-//
-//  CircleImage.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 25/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import UIKit
 
 @IBDesignable

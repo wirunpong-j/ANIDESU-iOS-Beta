@@ -1,11 +1,3 @@
-//
-//  Post.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 25/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 
 struct Post {
@@ -16,6 +8,7 @@ struct Post {
     
     var user: User?
     var postKey: String?
+    var comment: [Comment]?
     
     init(uid: String, status: String, postDate: String, likeCount: Int) {
         self.uid = uid

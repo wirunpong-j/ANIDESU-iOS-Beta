@@ -1,11 +1,3 @@
-//
-//  Constants.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 22/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
@@ -16,6 +8,7 @@ let SEGUE_CREATE_POST = "toCreatePost"
 let SEGUE_REVIEW_DETAIL = "toReviewDetail"
 let SEGUE_ANIME_DETAIL = "toAnimeDetail"
 let SEGUE_ADD_MY_ANIME_LIST = "toAddMyAnimeList"
+let SEGUE_POST_DETAIL = "toPostDetail"
 
 // Reuse Cell
 let POST_CELL = "postCell"
@@ -27,6 +20,9 @@ let USER_PROFILE_CELL = "userProfileCell"
 let EXTERNAL_LINK_CELL = "externalLinkCell"
 let CHARACTER_CELL = "characterCell"
 let STAFF_CELL = "staffCell"
+let POST_DETAIL_CELL = "postDetailCell"
+let POST_NAV_BAR_CELL = "postNavBarCell"
+let COMMENT_CELL = "commentCell"
 
 // User default key
 let LOGGED_IN_KEY = "logged"

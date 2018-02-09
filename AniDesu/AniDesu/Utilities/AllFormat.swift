@@ -37,7 +37,17 @@ class AllFormat {
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
+        let second = calendar.component(.second, from: date)
         
-        return String(format: "\(year)-%02d-%02d-%02d-%02d", month, day, hour, minutes)
+        return String(format: "\(year)-%02d-%02d-%02d-%02d-%02d", month, day, hour, minutes, second)
+    }
+    
+    func formatDatetime(timeStr: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        let formateDate = dateFormatter.date(from: timeStr)
+        dateFormatter.dateFormat = "dd MMM yyyy - HH:mm"
+        
+        return dateFormatter.string(from: formateDate!)
     }
 }

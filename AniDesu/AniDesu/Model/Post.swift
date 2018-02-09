@@ -9,10 +9,18 @@
 import Foundation
 
 struct Post {
-    public private(set) var postID: String
     public private(set) var uid: String
     public private(set) var status: String
     public private(set) var postDate: String
     public private(set) var likeCount: Int
-    public private(set) var user: User
+    
+    var user: User?
+    var postKey: String?
+    
+    init(uid: String, status: String, postDate: String, likeCount: Int) {
+        self.uid = uid
+        self.status = status
+        self.postDate = postDate
+        self.likeCount = likeCount
+    }
 }

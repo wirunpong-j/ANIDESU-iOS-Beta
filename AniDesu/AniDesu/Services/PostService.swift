@@ -8,29 +8,32 @@ class PostService {
         let ref = Database.database().reference()
         ref.child("ios").child("posts").queryOrdered(byChild: "post_date").observeSingleEvent(of: .value, with: { (snapshot) in
             // get all post
-            let value = snapshot.value as? NSDictionary
+            let allValue = snapshot.value as? [String: Any]
             
-            var allPost = [Post]()
-            if let allValues = value?.allValues {
-                for item in allValues {
-                    let postInfo = item as? NSDictionary
-                    let likeCount = postInfo!["like_count"] as? Int ?? 0
-                    let postDate = postInfo!["post_date"] as? String ?? ""
-                    let postKey = postInfo!["post_key"] as? String ?? ""
-                    let status = postInfo!["status"] as? String ?? ""
+            var posts = [Post]()
+            if allValue != nil {
+                for key in (allValue?.keys)! {
+                    let postInfo = allValue![key] as? [String: Any]
                     let uid = postInfo!["uid"] as? String ?? ""
+                    let status = postInfo!["status"] as? String ?? ""
+                    let postDate = postInfo!["post_date"] as? String ?? ""
+                    let likeCount = postInfo!["like_count"] as? Int ?? 0
                     
                     self.fetchUserInfo(uid: uid) { (user) in
-                        let post = Post(postID: postKey, uid: uid, status: status, postDate: postDate, likeCount: likeCount, user: user!)
-                        allPost.append(post)
+                        var post = Post(uid: uid, status: status, postDate: postDate, likeCount: likeCount)
+                        post.postKey = key
+                        post.user = user
                         
-                        if allPost.count >= value!.allValues.count {
-                            completion(allPost)
+                        posts.append(post)
+                        if posts.count >= (allValue?.count)! {
+                            completion(posts)
                         }
                     }
                 }
+                
+            } else {
+                completion(posts)
             }
-            completion(nil)
             
         }) { (error) in
             print(error.localizedDescription)
@@ -38,6 +41,19 @@ class PostService {
             
             completion(nil)
         }
+    }
+    
+    func postStatus(post: Post, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let postInfo: [String: Any] = [
+            "uid": post.uid,
+            "status": post.status,
+            "post_date": post.postDate,
+            "like_count": post.likeCount
+        ]
+        ref.child("ios").child("posts").childByAutoId().setValue(postInfo)
+        
+        completion(true)
     }
     
     func fetchUserInfo(uid: String, completion: @escaping (User?) -> ()) {

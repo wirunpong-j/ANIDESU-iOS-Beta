@@ -32,6 +32,15 @@ class HomeVC: UIViewController {
             self.postTableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_CREATE_POST {
+            let navVC = segue.destination as? UINavigationController
+            if let createPostVC = navVC?.viewControllers.first as? CreatePostVC {
+                createPostVC.delegate = self
+            }
+        }
+    }
 }
 
 extension HomeVC: UITableViewDataSource {
@@ -73,5 +82,11 @@ extension HomeVC: UITableViewDelegate {
             default:
                 break
         }
+    }
+}
+
+extension HomeVC: CreatePostDelegate {
+    func onPostComplete() {
+        self.setUpView()
     }
 }

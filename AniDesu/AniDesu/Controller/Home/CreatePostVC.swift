@@ -1,6 +1,10 @@
 import UIKit
 import Kingfisher
 
+protocol CreatePostDelegate {
+    func onPostComplete()
+}
+
 class CreatePostVC: UIViewController {
     
     // Outlets
@@ -9,6 +13,9 @@ class CreatePostVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var statusTextView: UITextView!
+    
+    // Variables
+    var delegate: CreatePostDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +35,17 @@ class CreatePostVC: UIViewController {
     }
     
     @IBAction func shareBtnPressed(_ sender: Any) {
+        let status = statusTextView.text
+        let currentTime = AllFormat.instance.getCurrentTime()
+        let post = Post(uid: UserDataService.instance.uid, status: status!, postDate: currentTime, likeCount: 0)
+        
+        PostService.instance.postStatus(post: post) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.onPostComplete()
+                })
+            }
+        }
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {

@@ -1732,6 +1732,7 @@
                     </view>
                     <connections>
                         <outlet property="commentText" destination="3iK-MK-cvX" id="9DK-5U-VJD"/>
+                        <outlet property="optionsBtn" destination="Sih-Im-apE" id="S8G-oM-Iwz"/>
                         <outlet property="postDateLabel" destination="0Hx-9F-eij" id="fnw-6Z-q3t"/>
                         <outlet property="postOwnerImageView" destination="eBU-bx-EEL" id="dOB-cs-sfI"/>
                         <outlet property="postOwnerNameLabel" destination="Jg9-wy-dyU" id="1hN-rp-6gH"/>

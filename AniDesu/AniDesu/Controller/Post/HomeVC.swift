@@ -43,6 +43,7 @@ class HomeVC: UIViewController {
         } else if segue.identifier == SEGUE_POST_DETAIL {
             if let postDetailVC = segue.destination as? PostDetailVC {
                 postDetailVC.postKey = sender as? String
+                postDetailVC.delegate = self
             }
         }
     }
@@ -92,6 +93,12 @@ extension HomeVC: UITableViewDelegate {
 
 extension HomeVC: CreatePostDelegate {
     func onPostComplete() {
+        self.setUpView()
+    }
+}
+
+extension HomeVC: PostDetailDelegate {
+    func onDeletePostComplete() {
         self.setUpView()
     }
 }

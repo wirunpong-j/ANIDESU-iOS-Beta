@@ -113,6 +113,15 @@ class PostService {
         completion(true)
     }
     
+    func deletePost(postKey: String, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("posts").child(postKey).removeValue() { (error, _) in
+            print(error)
+            completion(false)
+        }
+        completion(true)
+    }
+    
     func addComment(postKey: String, comment: Comment, completion: @escaping CompletionHandler) {
         let ref = Database.database().reference()
         let commentInfo: [String: Any] = [

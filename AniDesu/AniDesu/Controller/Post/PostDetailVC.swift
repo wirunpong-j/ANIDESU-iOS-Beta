@@ -1,6 +1,10 @@
 import UIKit
 import Kingfisher
 
+protocol PostDetailDelegate {
+    func onDeletePostComplete()
+}
+
 class PostDetailVC: UIViewController {
     
     // Constance
@@ -14,11 +18,13 @@ class PostDetailVC: UIViewController {
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var optionsBtn: UIButton!
     
     // Variables
     var postKey: String?
     var post: Post?
     var keyboardHeight: CGFloat?
+    var delegate: PostDetailDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +39,15 @@ class PostDetailVC: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(PostDetailVC.handleTap))
         view.addGestureRecognizer(tap)
-
         
         fetchPostInfo(commentIsAdded: false)
 
     }
     
     private func setUpView() {
+        if UserDataService.instance.uid != post?.uid {
+            optionsBtn.isHidden = true
+        }
         commentText.textColor = UIColor.lightGray
         commentText.text = "Write a comment"
         postOwnerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (post?.user?.imageUrlProfile)!))
@@ -75,6 +83,30 @@ class PostDetailVC: UIViewController {
     }
     
     @IBAction func optionsBtnPressed(_ sender: Any) {
+        let ac = UIAlertController(title: "Choose Options", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Edit Post", style: .default, handler: editPost))
+        ac.addAction(UIAlertAction(title: "Delete Post", style: .default, handler: deletePost))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func editPost(action: UIAlertAction) {
+        
+    }
+    
+    func deletePost(action: UIAlertAction) {
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete this post ?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            PostService.instance.deletePost(postKey: (self.post?.postKey)!) { (success) in
+                if success {
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onDeletePostComplete()
+                    })
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -104,6 +136,10 @@ class PostDetailVC: UIViewController {
             }
         }
     }
+    
+}
+
+extension PostDetailVC: UIActionSheetDelegate {
     
 }
 

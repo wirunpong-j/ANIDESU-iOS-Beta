@@ -13,6 +13,7 @@ class PostDetailVC: UIViewController {
     @IBOutlet weak var postOwnerNameLabel: UILabel!
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var commentText: UITextView!
+    @IBOutlet weak var sendBtn: UIButton!
     
     // Variables
     var postKey: String?
@@ -25,6 +26,7 @@ class PostDetailVC: UIViewController {
         postTableView.delegate = self
         postTableView.dataSource = self
         postTableView.tableFooterView = UIView()
+        commentText.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(PostDetailVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(PostDetailVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -38,6 +40,8 @@ class PostDetailVC: UIViewController {
     }
     
     private func setUpView() {
+        commentText.textColor = UIColor.lightGray
+        commentText.text = "Write a comment"
         postOwnerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (post?.user?.imageUrlProfile)!))
         postOwnerNameLabel.text = (post?.user?.displayName)!
         postDateLabel.text = AllFormat.instance.formatDatetime(timeStr: (post?.postDate)!)
@@ -64,7 +68,8 @@ class PostDetailVC: UIViewController {
         PostService.instance.addComment(postKey: (post?.postKey)!, comment: comment) { success in
             if success {
                 self.fetchPostInfo(commentIsAdded: true)
-                self.view.endEditing(true)
+                self.handleTap()
+                self.sendBtn.isEnabled = false
             }
         }
     }
@@ -100,6 +105,31 @@ class PostDetailVC: UIViewController {
         }
     }
     
+}
+
+extension PostDetailVC: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            sendBtn.isEnabled = false
+        } else {
+            sendBtn.isEnabled = true
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Write a comment"
+            textView.textColor = UIColor.lightGray
+        }
+    }
 }
 
 extension PostDetailVC: UITableViewDataSource {

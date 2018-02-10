@@ -9,6 +9,7 @@ struct Post {
     var user: User?
     var postKey: String?
     var comment: [Comment]?
+    var likes: [String]?
     
     init(uid: String, status: String, postDate: String, likeCount: Int) {
         self.uid = uid

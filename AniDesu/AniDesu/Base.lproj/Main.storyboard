@@ -1355,24 +1355,24 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn8-Jp-mhA">
-                                                            <rect key="frame" x="20" y="85" width="319" height="40"/>
+                                                            <rect key="frame" x="20" y="85" width="319" height="29"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kK6-9N-5Hy">
-                                                            <rect key="frame" x="20" y="140" width="112" height="19"/>
+                                                            <rect key="frame" x="20" y="129" width="112" height="30"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMt-hI-zSR">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="19"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                    <state key="normal" title="Like"/>
-                                                                    <connections>
-                                                                        <action selector="likeBtnPressed:" destination="xma-Sl-ABt" eventType="touchUpInside" id="nOd-Dw-Ful"/>
-                                                                    </connections>
-                                                                </button>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wV9-TL-N7k" customClass="WCLShineButton" customModule="WCLShineButton">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="1sX-Mk-cjE"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="Md3-4s-NhU"/>
+                                                                    </constraints>
+                                                                </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TY-Uc-yPG">
-                                                                    <rect key="frame" x="50" y="0.0" width="62" height="19"/>
+                                                                    <rect key="frame" x="50" y="0.0" width="62" height="30"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                     <state key="normal" title="Comment"/>
                                                                     <connections>
@@ -1382,7 +1382,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1069 Likes" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-gn-vIP">
-                                                            <rect key="frame" x="273.5" y="142.5" width="65.5" height="15.5"/>
+                                                            <rect key="frame" x="273.5" y="137" width="65.5" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1418,7 +1418,9 @@
                                         <color key="backgroundColor" red="0.94118285180000005" green="0.94116520879999999" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="bgView" destination="NOv-GV-C5K" id="pyl-J6-DpJ"/>
+                                            <outlet property="commentBtn" destination="2TY-Uc-yPG" id="Hlm-36-MHh"/>
                                             <outlet property="displayNameLabel" destination="VuT-uO-TfV" id="fjD-Iv-UfO"/>
+                                            <outlet property="likeBtn" destination="wV9-TL-N7k" id="geC-pT-fPO"/>
                                             <outlet property="likeCountLabel" destination="m3P-gn-vIP" id="Ktu-Ad-xuJ"/>
                                             <outlet property="postDateLabel" destination="XoU-oF-7iU" id="GeV-JF-Zbj"/>
                                             <outlet property="profileImage" destination="rzW-jz-qk4" id="qDh-k9-EbP"/>

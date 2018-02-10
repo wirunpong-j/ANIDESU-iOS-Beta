@@ -18,11 +18,18 @@ class PostService {
                     let status = postInfo!["status"] as? String ?? ""
                     let postDate = postInfo!["post_date"] as? String ?? ""
                     let likeCount = postInfo!["like_count"] as? Int ?? 0
+                    let allLike = postInfo!["like"] as? [String: Any] ?? [:]
+                    
+                    var allKey = [String]()
+                    for key in allLike.keys {
+                        allKey.append(key)
+                    }
                     
                     self.fetchUserInfo(uid: uid) { (user) in
                         var post = Post(uid: uid, status: status, postDate: postDate, likeCount: likeCount)
                         post.postKey = key
                         post.user = user
+                        post.likes = allKey
                         
                         posts.append(post)
                         if posts.count >= (allValue?.count)! {
@@ -120,6 +127,42 @@ class PostService {
             completion(false)
         }
         completion(true)
+    }
+    
+    func likePost(postKey: String, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference().child("ios").child("posts").child(postKey)
+        ref.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+            
+            var isLike = true
+            let uid = UserDataService.instance.uid
+            if var post = currentData.value as? [String: Any] {
+                
+                var like: [String: Bool]
+                like = post["like"] as? [String : Bool] ?? [:]
+                var likeCount = post["like_count"] as? Int ?? 0
+                
+                if let _ = like[uid] {
+                    likeCount -= 1
+                    like.removeValue(forKey: uid)
+                    isLike = false
+                } else {
+                    likeCount += 1
+                    like[uid] = true
+                }
+                post["like_count"] = likeCount as Int?
+                post["like"] = like as Any?
+
+                currentData.value = post
+                completion(isLike)
+                return TransactionResult.success(withValue: currentData)
+            }
+            
+            return TransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func addComment(postKey: String, comment: Comment, completion: @escaping CompletionHandler) {

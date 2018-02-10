@@ -13,16 +13,17 @@ class HomeVC: UIViewController {
         
         postTableView.delegate = self
         postTableView.dataSource = self
-        setUpView()
         
-    }
-    
-    func setUpView() {
         postTableView.rowHeight = UITableViewAutomaticDimension
         postTableView.estimatedRowHeight = UITableViewAutomaticDimension
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
+        setUpView()
+        
+    }
+    
+    func setUpView() {
         PostService.instance.fetchAllPost { (allPost) in
             if allPost != nil {
                 self.allPost = allPost!
@@ -62,6 +63,7 @@ extension HomeVC: UITableViewDataSource {
             default:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: POST_CELL, for: indexPath) as? PostCell {
                     let post = allPost[indexPath.row - 1]
+                    cell.delegate = self
                     cell.configureCell(post: post)
                     
                     return cell
@@ -100,5 +102,17 @@ extension HomeVC: CreatePostDelegate {
 extension HomeVC: PostDetailDelegate {
     func onDeletePostComplete() {
         self.setUpView()
+    }
+}
+
+extension HomeVC: PostCellDelegate {
+    func onLikeBtnPressed(postKey: String) {
+        PostService.instance.likePost(postKey: postKey) { (success) in
+            self.setUpView()
+        }
+    }
+    
+    func onCommentBtnPressed(postKey: String) {
+        performSegue(withIdentifier: SEGUE_POST_DETAIL, sender: postKey)
     }
 }

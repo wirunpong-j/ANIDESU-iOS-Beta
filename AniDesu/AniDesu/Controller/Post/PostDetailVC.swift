@@ -17,6 +17,7 @@ class PostDetailVC: UIViewController {
     // Variables
     var postKey: String?
     var post: Post?
+    var keyboardHeight: CGFloat?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,12 @@ class PostDetailVC: UIViewController {
         postTableView.dataSource = self
         postTableView.tableFooterView = UIView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(PostDetailVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PostDetailVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(PostDetailVC.handleTap))
         view.addGestureRecognizer(tap)
+
         
         fetchPostInfo(commentIsAdded: false)
 
@@ -59,6 +64,7 @@ class PostDetailVC: UIViewController {
         PostService.instance.addComment(postKey: (post?.postKey)!, comment: comment) { success in
             if success {
                 self.fetchPostInfo(commentIsAdded: true)
+                self.view.endEditing(true)
             }
         }
     }
@@ -72,6 +78,26 @@ class PostDetailVC: UIViewController {
     
     @objc func handleTap() {
         view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if var keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if keyboardHeight == nil {
+                keyboardHeight = keyboardSize.height
+            }
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardHeight!
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print(keyboardSize)
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
     }
     
 }

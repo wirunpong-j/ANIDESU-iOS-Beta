@@ -1054,14 +1054,31 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1j-Qt-Zyn">
+                                <rect key="frame" x="0.0" y="401" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KQc-bP-V4b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteReviewBtnPressed:" destination="XMa-90-2uv" eventType="touchUpInside" id="1ao-oa-Fqt"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94118285179138184" green="0.94116520881652832" blue="0.94117718935012817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="p78-BA-s7G" firstAttribute="trailing" secondItem="iVc-Sh-zkc" secondAttribute="trailing" constant="20" id="2hi-x5-Yq3"/>
                             <constraint firstItem="UMj-ig-U4U" firstAttribute="top" secondItem="p78-BA-s7G" secondAttribute="top" constant="50" id="ATC-Ru-xTs"/>
                             <constraint firstItem="RJi-Fa-OBl" firstAttribute="top" secondItem="UMj-ig-U4U" secondAttribute="bottom" constant="12" id="Kb6-hZ-MzX"/>
+                            <constraint firstItem="p78-BA-s7G" firstAttribute="trailing" secondItem="k1j-Qt-Zyn" secondAttribute="trailing" id="N85-1T-STP"/>
                             <constraint firstItem="RJi-Fa-OBl" firstAttribute="leading" secondItem="p78-BA-s7G" secondAttribute="leading" constant="20" id="R4N-bQ-GVP"/>
+                            <constraint firstItem="k1j-Qt-Zyn" firstAttribute="top" secondItem="iVc-Sh-zkc" secondAttribute="bottom" constant="30" id="k1b-kv-2ze"/>
                             <constraint firstItem="UMj-ig-U4U" firstAttribute="centerX" secondItem="qi4-DU-bKd" secondAttribute="centerX" id="mR6-iU-ObY"/>
+                            <constraint firstItem="k1j-Qt-Zyn" firstAttribute="leading" secondItem="p78-BA-s7G" secondAttribute="leading" id="opt-xa-kWT"/>
                             <constraint firstItem="iVc-Sh-zkc" firstAttribute="leading" secondItem="p78-BA-s7G" secondAttribute="leading" constant="20" id="tsF-1E-yFs"/>
                             <constraint firstItem="RJi-Fa-OBl" firstAttribute="centerX" secondItem="qi4-DU-bKd" secondAttribute="centerX" id="ve3-BL-eiz"/>
                             <constraint firstItem="iVc-Sh-zkc" firstAttribute="top" secondItem="RJi-Fa-OBl" secondAttribute="bottom" constant="20" id="wGN-7A-hUi"/>
@@ -1083,6 +1100,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteBtn" destination="k1j-Qt-Zyn" id="uyw-O6-q9V"/>
                         <outlet property="ratingLabel" destination="RJi-Fa-OBl" id="XxP-dx-uXv"/>
                         <outlet property="ratingView" destination="UMj-ig-U4U" id="X3V-gQ-Tnb"/>
                         <outlet property="reviewTextView" destination="iVc-Sh-zkc" id="i0f-tS-shW"/>

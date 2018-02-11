@@ -1,6 +1,10 @@
 import UIKit
 import Eureka
 
+protocol AddToMyAnimeListDelegate {
+    func onUpdateCompleted()
+}
+
 class AddToMyAnimeListVC: FormViewController {
     
     // Constance
@@ -10,6 +14,7 @@ class AddToMyAnimeListVC: FormViewController {
     
     // Variables
     var myAnimeList: MyAnimeList?
+    var delegate: AddToMyAnimeListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,13 +96,17 @@ class AddToMyAnimeListVC: FormViewController {
             newMyAnime.key = myAnimeList?.key
             UserDataService.instance.updateMyAnimeList(myAnimeList: newMyAnime) { (success) in
                 if success {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onUpdateCompleted()
+                    })
                 }
             }
         } else {
             UserDataService.instance.addMyAnimeList(myAnimeList: newMyAnime) { (success) in
                 if success {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onUpdateCompleted()
+                    })
                 }
             }
         }
@@ -106,7 +115,9 @@ class AddToMyAnimeListVC: FormViewController {
     private func removeThisAnimeFormList() {
         UserDataService.instance.removeAnimeFormMyList(myAnimeList: myAnimeList!) { (success) in
             if success {
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.onUpdateCompleted()
+                })
             }
         }
     }

@@ -7,6 +7,7 @@ struct Review {
     public private(set) var anime: Anime
 
     var user: User?
+    var isReview: Bool?
     
     init(rating: Double, reviewDate: String, text: String, anime: Anime) {
         self.rating = rating

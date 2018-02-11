@@ -39,6 +39,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     // Variables
     var anime: Anime?
     var myAnimeList: MyAnimeList?
+    var myReview: Review?
     let linkHeight: CGFloat = 50
     let extraCellWidth = 120
     let extraCellHeight = 200
@@ -54,13 +55,17 @@ class DiscoverAnimeDetailVC: UIViewController {
         staffCollection.dataSource = self
         panGesture.delegate = self
         
-        setUpView()
+        fetchAllData()
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    private func fetchAllData() {
         UserDataService.instance.isAnimeInMyList(anime: anime!) { (currentMyAnime) in
             self.myAnimeList = currentMyAnime
-            self.updateView()
+            ReviewService.instance.fetchThisReview(anime: self.anime!) { (review) in
+                self.myReview = review
+                self.setUpView()
+            }
         }
     }
     
@@ -110,9 +115,7 @@ class DiscoverAnimeDetailVC: UIViewController {
 //        droppedLabel
 //        planToWatchLabel
 //        watchingLabel
-    }
-    
-    func updateView() {
+        
         shineButton.fillColor = #colorLiteral(red: 0.9450980392, green: 0.768627451, blue: 0.05882352941, alpha: 1)
         shineButton.image = .star
         shineButton.isSelected = (myAnimeList?.isAdded)!
@@ -133,33 +136,20 @@ class DiscoverAnimeDetailVC: UIViewController {
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SEGUE_ANIME_DETAIL {
-            if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
-                animeDetailVC.anime = sender as? Anime
-            }
-        } else if segue.identifier == SEGUE_ADD_MY_ANIME_LIST {
-            let navVC = segue.destination as? UINavigationController
-            if let addToMyAnimeVC = navVC?.viewControllers.first as? AddToMyAnimeListVC {
-                addToMyAnimeVC.myAnimeList = sender as? MyAnimeList
-            }
-        } else if segue.identifier == SEGUE_REVIEW_ANIME {
-            let navVC = segue.destination as? UINavigationController
-            if let reviewAnimeVC = navVC?.viewControllers.first as? ReviewAnimeVC {
-                reviewAnimeVC.anime = sender as? Anime
-            }
-        }
-    }
-    
     @IBAction func optionsBtnPressed(_ sender: Any) {
         var addTitle = "Add to My Anime List"
         if (myAnimeList?.isAdded)! {
             addTitle = "Edit to My Anime List"
         }
         
+        var reviewTitle = "Review"
+        if (myReview?.isReview)! {
+            reviewTitle = "Edit Review"
+        }
+        
         let ac = UIAlertController(title: "Choose Options", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: addTitle, style: .default, handler: addToMyAnimeList))
-        ac.addAction(UIAlertAction(title: "Review", style: .default, handler: reviewAnime))
+        ac.addAction(UIAlertAction(title: reviewTitle, style: .default, handler: reviewAnime))
         ac.addAction(UIAlertAction(title: "Share", style: .default, handler: shareAnime))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -170,7 +160,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     }
     
     func reviewAnime(action: UIAlertAction) {
-        self.performSegue(withIdentifier: SEGUE_REVIEW_ANIME, sender: anime)
+        self.performSegue(withIdentifier: SEGUE_REVIEW_ANIME, sender: myReview)
     }
     
     func shareAnime(action: UIAlertAction) {
@@ -182,6 +172,38 @@ class DiscoverAnimeDetailVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_ANIME_DETAIL {
+            if let animeDetailVC = segue.destination as? DiscoverAnimeDetailVC {
+                animeDetailVC.anime = sender as? Anime
+            }
+        } else if segue.identifier == SEGUE_ADD_MY_ANIME_LIST {
+            let navVC = segue.destination as? UINavigationController
+            if let addToMyAnimeVC = navVC?.viewControllers.first as? AddToMyAnimeListVC {
+                addToMyAnimeVC.delegate = self
+                addToMyAnimeVC.myAnimeList = sender as? MyAnimeList
+            }
+        } else if segue.identifier == SEGUE_REVIEW_ANIME {
+            let navVC = segue.destination as? UINavigationController
+            if let reviewAnimeVC = navVC?.viewControllers.first as? ReviewAnimeVC {
+                reviewAnimeVC.delegate = self
+                reviewAnimeVC.review = sender as? Review
+            }
+        }
+    }
+}
+
+extension DiscoverAnimeDetailVC: ReviewAnimeDelegate {
+    func onCompleted() {
+        self.fetchAllData()
+    }
+}
+
+extension DiscoverAnimeDetailVC: AddToMyAnimeListDelegate {
+    func onUpdateCompleted() {
+        self.fetchAllData()
     }
 }
 

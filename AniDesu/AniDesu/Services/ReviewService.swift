@@ -56,8 +56,31 @@ class ReviewService {
         }
     }
     
-    func fetchThisReview(animeID: Int, completion: @escaping (Review?) -> ()) {
-        
+    func fetchThisReview(anime: Anime, completion: @escaping (Review?) -> ()) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("series").child("\(anime.id)").child("review").child(UserDataService.instance.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            let allValue = snapshot.value as? [String: Any]
+            
+            if allValue != nil {
+                let rating = allValue!["rating"] as? Double ?? 0.0
+                let reviewDate = allValue!["review_date"] as? String ?? ""
+                let text = allValue!["text"] as? String ?? ""
+                var currentReview = Review(rating: rating, reviewDate: reviewDate, text: text, anime: anime)
+                currentReview.isReview = true
+                
+                completion(currentReview)
+            } else {
+                var newReview = Review(rating: 0.0, reviewDate: "", text: "", anime: anime)
+                newReview.isReview = false
+                
+                completion(newReview)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+            print("fetchReview ERROR")
+            
+            completion(nil)
+        }
     }
     
     func fetchCountReview(completion: @escaping (Int?) -> ()) {
@@ -94,6 +117,27 @@ class ReviewService {
         ]
         ref.child("ios").child("series").child("\(review.anime.id)").child("review").child(UserDataService.instance.uid).setValue(reviewInfo)
         
+        completion(true)
+    }
+    
+    func updateReview(review: Review, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let reviewInfo: [String: Any] = [
+            "rating": review.rating,
+            "review_date": review.reviewDate,
+            "text": review.text
+        ]
+        ref.child("ios").child("series").child("\(review.anime.id)").child("review").child(UserDataService.instance.uid).updateChildValues(reviewInfo)
+        
+        completion(true)
+    }
+    
+    func removeReview(animeID: Int, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("series").child("\(animeID)").child("review").child(UserDataService.instance.uid).removeValue() { (error, _) in
+            print(error)
+            completion(false)
+        }
         completion(true)
     }
 }

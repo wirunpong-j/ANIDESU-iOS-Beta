@@ -26,8 +26,7 @@ class CreatePostVC: UIViewController {
     }
     
     func setUpView() {
-        let url = URL(string: UserDataService.instance.imageUrlProfile)
-        profileImageView.kf.setImage(with: url)
+        profileImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: UserDataService.instance.imageUrlProfile))
         nameLabel.text = UserDataService.instance.displayName
         aboutLabel.text = UserDataService.instance.about
         statusTextView.textColor = UIColor.lightGray

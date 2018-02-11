@@ -1,11 +1,3 @@
-//
-//  Review.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 31/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import Foundation
 
 struct Review {
@@ -13,6 +5,14 @@ struct Review {
     public private(set) var reviewDate: String
     public private(set) var text: String
     public private(set) var anime: Anime
-    public private(set) var user: User
+
+    var user: User?
+    
+    init(rating: Double, reviewDate: String, text: String, anime: Anime) {
+        self.rating = rating
+        self.reviewDate = reviewDate
+        self.text = text
+        self.anime = anime
+    }
 
 }

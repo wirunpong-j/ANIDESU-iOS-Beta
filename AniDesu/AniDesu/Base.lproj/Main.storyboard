@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-CX-9hL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664.79999999999995" y="1645.7271364317842"/>
+            <point key="canvasLocation" x="806" y="1664"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="op1-IK-eP2">
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou1-MB-lMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1336.8" y="930.58470764617698"/>
+            <point key="canvasLocation" x="806" y="930"/>
         </scene>
         <!--Discover Anime DetailVC-->
         <scene sceneID="Wqx-ri-mmg">
@@ -954,6 +954,7 @@
                         <outlet property="totalEPLabel" destination="kES-ab-Dsv" id="T7V-vK-Og3"/>
                         <outlet property="watchingLabel" destination="F3M-3n-3Ib" id="YPH-ZY-ytY"/>
                         <segue destination="1FD-zR-Wez" kind="presentation" identifier="toAddMyAnimeList" id="uLv-Ci-jXt"/>
+                        <segue destination="95F-9x-1Ta" kind="presentation" identifier="toReviewAnime" id="j1p-Jn-koz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVx-pm-b5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -963,7 +964,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2084" y="1754.1229385307347"/>
+            <point key="canvasLocation" x="1610" y="1754"/>
         </scene>
         <!--Add Danganronpa V3-->
         <scene sceneID="2xX-0x-wxL">
@@ -990,7 +991,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haY-vC-6f3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="1645.7271364317842"/>
+            <point key="canvasLocation" x="2524" y="1646"/>
+        </scene>
+        <!--Review: Danganronpa V3-->
+        <scene sceneID="8Ti-7c-seJ">
+            <objects>
+                <viewController id="XMa-90-2uv" customClass="ReviewAnimeVC" customModule="AniDesu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qi4-DU-bKd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMj-ig-U4U" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="44.5" y="114" width="286" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="286" id="av1-GZ-13b"/>
+                                    <constraint firstAttribute="height" constant="55" id="vPr-ow-Xc9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="textMargin">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJi-Fa-OBl">
+                                <rect key="frame" x="20" y="181" width="335" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write review." translatesAutoresizingMaskIntoConstraints="NO" id="iVc-Sh-zkc">
+                                <rect key="frame" x="20" y="221" width="335" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="q49-LO-5jo"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p78-BA-s7G" firstAttribute="trailing" secondItem="iVc-Sh-zkc" secondAttribute="trailing" constant="20" id="2hi-x5-Yq3"/>
+                            <constraint firstItem="UMj-ig-U4U" firstAttribute="top" secondItem="p78-BA-s7G" secondAttribute="top" constant="50" id="ATC-Ru-xTs"/>
+                            <constraint firstItem="RJi-Fa-OBl" firstAttribute="top" secondItem="UMj-ig-U4U" secondAttribute="bottom" constant="12" id="Kb6-hZ-MzX"/>
+                            <constraint firstItem="RJi-Fa-OBl" firstAttribute="leading" secondItem="p78-BA-s7G" secondAttribute="leading" constant="20" id="R4N-bQ-GVP"/>
+                            <constraint firstItem="UMj-ig-U4U" firstAttribute="centerX" secondItem="qi4-DU-bKd" secondAttribute="centerX" id="mR6-iU-ObY"/>
+                            <constraint firstItem="iVc-Sh-zkc" firstAttribute="leading" secondItem="p78-BA-s7G" secondAttribute="leading" constant="20" id="tsF-1E-yFs"/>
+                            <constraint firstItem="RJi-Fa-OBl" firstAttribute="centerX" secondItem="qi4-DU-bKd" secondAttribute="centerX" id="ve3-BL-eiz"/>
+                            <constraint firstItem="iVc-Sh-zkc" firstAttribute="top" secondItem="RJi-Fa-OBl" secondAttribute="bottom" constant="20" id="wGN-7A-hUi"/>
+                            <constraint firstItem="p78-BA-s7G" firstAttribute="trailing" secondItem="RJi-Fa-OBl" secondAttribute="trailing" constant="20" id="yLC-55-o30"/>
+                            <constraint firstItem="iVc-Sh-zkc" firstAttribute="centerX" secondItem="qi4-DU-bKd" secondAttribute="centerX" id="ylU-oa-0rK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p78-BA-s7G"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Review: Danganronpa V3" id="4wY-d8-TLJ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ZN8-1b-d1f">
+                            <connections>
+                                <action selector="cancelBtnPressed:" destination="XMa-90-2uv" id="hrI-As-6LF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="faB-qH-zr4">
+                            <connections>
+                                <action selector="saveBtnPressed:" destination="XMa-90-2uv" id="rap-ZS-vUZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ratingLabel" destination="RJi-Fa-OBl" id="XxP-dx-uXv"/>
+                        <outlet property="ratingView" destination="UMj-ig-U4U" id="X3V-gQ-Tnb"/>
+                        <outlet property="reviewTextView" destination="iVc-Sh-zkc" id="i0f-tS-shW"/>
+                        <outlet property="saveBtn" destination="faB-qH-zr4" id="6wy-jU-1OQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vx5-SW-lGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="2324.8875562218891"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="OSx-Nt-xgR">
@@ -2101,7 +2202,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6346.3999999999996" y="1795.5022488755624"/>
+            <point key="canvasLocation" x="6685.6000000000004" y="1795.5022488755624"/>
         </scene>
         <!--ANIDESU-->
         <scene sceneID="Cht-1Q-v2x">
@@ -2155,7 +2256,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wv3-hr-VNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664.79999999999995" y="930.58470764617698"/>
+            <point key="canvasLocation" x="-1" y="931"/>
         </scene>
         <!--My Anime-->
         <scene sceneID="Zi1-Ub-iH7">
@@ -2211,7 +2312,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ty2-bB-ucb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="930.58470764617698"/>
+            <point key="canvasLocation" x="2524" y="930"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MaU-Pt-Peb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="95F-9x-1Ta" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8OH-VS-HGZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XMa-90-2uv" kind="relationship" relationship="rootViewController" id="PDY-Ya-itN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zw-XO-Ze3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="3043"/>
         </scene>
     </scenes>
     <resources>
@@ -4800,6 +4919,6 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
         <image name="profileDefault" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ept-EG-8G9"/>
+        <segue reference="sv0-Bf-bqL"/>
     </inferredMetricsTieBreakers>
 </document>

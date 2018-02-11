@@ -58,6 +58,7 @@
 		D3E891332019CC5F00A50489 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891322019CC5F00A50489 /* AnimeCell.swift */; };
 		D3E891372019CF0300A50489 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891362019CF0300A50489 /* AniListService.swift */; };
 		D3F4121220246D5C00145913 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F4121120246D5C00145913 /* UserProfileCell.swift */; };
+		D3F5293820301D3A0041C2A7 /* ReviewAnimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */; };
 		EB144E1F3235C82DC5B94985 /* Pods_AniDesu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,7 @@
 		D3E891322019CC5F00A50489 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 		D3E891362019CF0300A50489 /* AniListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
 		D3F4121120246D5C00145913 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAnimeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 			children = (
 				D3C34A5B20219ABF005B05F2 /* ReviewVC.swift */,
 				D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */,
+				D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F5293820301D3A0041C2A7 /* ReviewAnimeVC.swift in Sources */,
 				D3E736202015D5FC00247976 /* LoginVC.swift in Sources */,
 				D3BC51D82022FAEF00E30526 /* ReviewCell.swift in Sources */,
 				D3C34A602021A10C005B05F2 /* ReviewDetailVC.swift in Sources */,

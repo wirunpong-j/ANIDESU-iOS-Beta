@@ -143,6 +143,11 @@ class DiscoverAnimeDetailVC: UIViewController {
             if let addToMyAnimeVC = navVC?.viewControllers.first as? AddToMyAnimeListVC {
                 addToMyAnimeVC.myAnimeList = sender as? MyAnimeList
             }
+        } else if segue.identifier == SEGUE_REVIEW_ANIME {
+            let navVC = segue.destination as? UINavigationController
+            if let reviewAnimeVC = navVC?.viewControllers.first as? ReviewAnimeVC {
+                reviewAnimeVC.anime = sender as? Anime
+            }
         }
     }
     
@@ -165,7 +170,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     }
     
     func reviewAnime(action: UIAlertAction) {
-        
+        self.performSegue(withIdentifier: SEGUE_REVIEW_ANIME, sender: anime)
     }
     
     func shareAnime(action: UIAlertAction) {

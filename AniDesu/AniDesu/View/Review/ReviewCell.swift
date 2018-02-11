@@ -24,15 +24,11 @@ class ReviewCell: UITableViewCell {
     
     func configureCell(review: Review) {
         let animeUrl = review.anime.image_url_banner != "" ? review.anime.image_url_banner : review.anime.image_url_lge
-        animeImageView.kf.setImage(with: getUrl(stringUrl: animeUrl))
-        animeTitleLabel.text = review.anime.title_romaji
-        userNameLabel.text = "Review by \(review.user.displayName)"
-        userImageView.kf.setImage(with: getUrl(stringUrl: review.user.imageUrlProfile))
+        animeImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: animeUrl))
+        animeTitleLabel.text = (review.anime.title_romaji)
+        userNameLabel.text = "Review by \((review.user?.displayName)!)"
+        userImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review.user?.imageUrlProfile)!))
         ratingView.rating = review.rating
-    }
-    
-    func getUrl(stringUrl: String) -> URL {
-        return URL(string: stringUrl)!
     }
     
 }

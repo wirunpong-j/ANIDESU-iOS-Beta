@@ -38,8 +38,8 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
         
         let animeBannerUrl = review?.anime.image_url_banner != "" ? review?.anime.image_url_banner : review?.anime.image_url_lge
         animeBannerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: animeBannerUrl!))
-        userNameLabel.text = "Review By \((review?.user.displayName)!)"
-        userImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review?.user.imageUrlProfile)!))
+        userNameLabel.text = "Review By \((review?.user?.displayName)!)"
+        userImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review?.user?.imageUrlProfile)!))
         animeImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review?.anime.image_url_lge)!))
         ratingView.rating = (review?.rating)!
         messageLabel.text = "\" \((review?.text)!) \""

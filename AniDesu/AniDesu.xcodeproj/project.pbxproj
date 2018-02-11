@@ -319,15 +319,23 @@
 		D3E8912D2019C13E00A50489 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D3F52936203016FA0041C2A7 /* Review */,
 				D3DC6BDC202D7D88005EDA42 /* Post */,
 				D3D284FE20299D8300800DF3 /* MyAnimeList */,
 				D3AB86102025F0110072CACC /* DiscoverAnime */,
 				D3E7361F2015D5FC00247976 /* LoginVC.swift */,
 				D36483F02019EC4F00CC10B5 /* ProfileVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D3F52936203016FA0041C2A7 /* Review */ = {
+			isa = PBXGroup;
+			children = (
 				D3C34A5B20219ABF005B05F2 /* ReviewVC.swift */,
 				D3C34A5F2021A10C005B05F2 /* ReviewDetailVC.swift */,
 			);
-			path = Controller;
+			path = Review;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

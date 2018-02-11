@@ -169,7 +169,9 @@ class DiscoverAnimeDetailVC: UIViewController {
     }
     
     func shareAnime(action: UIAlertAction) {
-        
+        let linkToShare = ["\(ANILIST_LINK)\((anime?.id)!)"]
+        let activityController = UIActivityViewController(activityItems: linkToShare, applicationActivities: nil)
+        self.present(activityController, animated: true, completion: nil)
     }
     
     

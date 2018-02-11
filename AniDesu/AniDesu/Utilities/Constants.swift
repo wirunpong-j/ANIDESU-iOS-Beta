@@ -35,6 +35,7 @@ let BASE_URL = "https://anilist.co/api"
 let AUTHORIZE_URL = "\(BASE_URL)/auth/access_token"
 let ANIME_BROWSE_URL = "\(BASE_URL)/browse/anime"
 let ANIME_PAGE_URL = "\(BASE_URL)/anime"
+let ANILIST_LINK = "https://anilist.co/anime/"
 
 let AUTHORIZE_BODY = [
     "grant_type": "client_credentials",

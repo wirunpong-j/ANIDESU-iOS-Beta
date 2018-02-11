@@ -10,43 +10,44 @@ class ReviewService {
         let ref = Database.database().reference()
         ref.child("ios").child("series").observeSingleEvent(of: .value, with: { (snapshot) in
             let allValue = snapshot.value as? [String: Any]
-            for item in (allValue?.keys)! {
-                print(item)
-            }
             
-//            var allReview = [Review]()
-//            for allItem in (value?.allValues)! {
-//                let item = (allItem as? NSDictionary)
-//
-//                for review in (item?.allValues)! {
-//                    let reviewKey = review as? NSDictionary
-//
-//                    for key in (reviewKey?.allKeys)! {
-//                        let userID = key as? String ?? ""
-//                        let reviewInfo = reviewKey![userID] as? NSDictionary
-//                        let animeId = reviewInfo!["anime_id"] as? String ?? ""
-//                        let rating = reviewInfo!["rating"] as? Double ?? 0
-//                        let reviewDate = reviewInfo!["review_date"] as? String ?? "-"
-//                        let text = reviewInfo!["text"] as? String ?? "-"
-//
-//                        PostService.instance.fetchUserInfo(uid: userID) { (user) in
-//                            if user != nil {
-//                                AniListService.instance.fetchAnimePage(animeID: Int(animeId)!) { (anime) in
-//                                    if anime != nil {
-//                                        var review = Review(rating: rating, reviewDate: reviewDate, text: text, anime: anime!)
-//                                        review.user = user
-//
-//                                        allReview.append(review)
-//                                        if allReview.count >= (reviewKey?.count)! {
-//                                            completion(allReview)
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            var allReview = [Review]()
+            if allValue != nil {
+                self.fetchCountReview { count in
+                    for anime in allValue! {
+                        let animeID = anime.key
+                        let animeValue = anime.value as? [String: Any]
+                        let allUserReview = animeValue!["review"] as? [String: Any]
+                        
+                        for userReview in allUserReview! {
+                            let uid = userReview.key
+                            let reviewInfo = userReview.value as? [String: Any]
+                            let rating = reviewInfo!["rating"] as? Double ?? 0.0
+                            let reviewDate = reviewInfo!["review_date"] as? String ?? ""
+                            let text = reviewInfo!["text"] as? String ?? ""
+                            
+                            PostService.instance.fetchUserInfo(uid: uid) { (user) in
+                                if user != nil {
+                                    AniListService.instance.fetchAnimePage(animeID: Int(animeID)!) { (anime) in
+                                        if anime != nil {
+                                            var review = Review(rating: rating, reviewDate: reviewDate, text: text, anime: anime!)
+                                            review.user = user
+                                            
+                                            allReview.append(review)
+                                            if allReview.count >= count! {
+                                                allReview = allReview.sorted(by: { $0.reviewDate > $1.reviewDate })
+                                                completion(allReview)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                completion([Review]())
+            }
         }) { (error) in
             print(error.localizedDescription)
             print("fetchReview ERROR")
@@ -57,6 +58,31 @@ class ReviewService {
     
     func fetchThisReview(animeID: Int, completion: @escaping (Review?) -> ()) {
         
+    }
+    
+    func fetchCountReview(completion: @escaping (Int?) -> ()) {
+        let ref = Database.database().reference()
+        ref.child("ios").child("series").observeSingleEvent(of: .value, with: { (snapshot) in
+            let allValue = snapshot.value as? [String: Any]
+            
+            var count = 0
+            if allValue != nil {
+                for anime in allValue! {
+                    let animeValue = anime.value as? [String: Any]
+                    let allUserReview = animeValue!["review"] as? [String: Any]
+                    count += (allUserReview?.count)!
+                }
+                
+                completion(count)
+            } else {
+                completion(0)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+            print("fetchReview ERROR")
+            
+            completion(0)
+        }
     }
     
     func saveReview(review: Review, completion: @escaping CompletionHandler) {

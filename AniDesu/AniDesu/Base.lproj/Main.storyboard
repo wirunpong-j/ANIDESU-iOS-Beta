@@ -2047,16 +2047,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="reviewCellHero"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9U-IW-jKR">
-                                <rect key="frame" x="16" y="20" width="49" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="backBtnPressed:" destination="RRY-E7-yy5" eventType="touchUpInside" id="p0Q-p0-Hcs"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avp-jA-wHr">
                                 <rect key="frame" x="0.0" y="300" width="375" height="700"/>
                                 <subviews>
@@ -2129,6 +2119,30 @@
                                     <outletCollection property="gestureRecognizers" destination="eSU-lO-qdu" appends="YES" id="Luw-Ed-HdE"/>
                                 </connections>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbL-oN-N2e">
+                                <rect key="frame" x="0.0" y="16" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VpY-ym-Y9g"/>
+                                </constraints>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="CC8-je-pKu">
+                                        <barButtonItem key="leftBarButtonItem" image="icon-back" id="WUi-2b-GyI">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backBtnPressed:" destination="RRY-E7-yy5" id="wCZ-oo-pGe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="icon-edit" id="P27-Xu-a2z">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="editReviewBtnPressed:" destination="RRY-E7-yy5" id="zOE-oA-MFz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-gy-euW">
                                 <rect key="frame" x="0.0" y="200" width="375" height="100"/>
                                 <subviews>
@@ -2185,12 +2199,13 @@
                             <constraint firstItem="BR4-69-dGW" firstAttribute="bottom" secondItem="avp-jA-wHr" secondAttribute="bottom" id="Jq2-JH-n54"/>
                             <constraint firstItem="7Ce-4C-CyR" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="L9s-Jm-wBC"/>
                             <constraint firstItem="avp-jA-wHr" firstAttribute="top" secondItem="t9O-gy-euW" secondAttribute="bottom" id="czv-HN-p2r"/>
+                            <constraint firstItem="SbL-oN-N2e" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="gBZ-d2-eKb"/>
                             <constraint firstItem="t9O-gy-euW" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" id="jEs-Xl-bvr"/>
                             <constraint firstItem="BR4-69-dGW" firstAttribute="trailing" secondItem="avp-jA-wHr" secondAttribute="trailing" id="l1T-RR-VJJ"/>
-                            <constraint firstItem="K9U-IW-jKR" firstAttribute="leading" secondItem="BR4-69-dGW" secondAttribute="leading" constant="16" id="mET-w0-x3x"/>
-                            <constraint firstItem="K9U-IW-jKR" firstAttribute="top" secondItem="BR4-69-dGW" secondAttribute="top" id="nhF-T5-Zhr"/>
                             <constraint firstItem="t9O-gy-euW" firstAttribute="top" secondItem="7Ce-4C-CyR" secondAttribute="bottom" id="qw0-xr-gIC"/>
+                            <constraint firstItem="SbL-oN-N2e" firstAttribute="top" secondItem="CN8-MQ-lzZ" secondAttribute="top" constant="16" id="tDq-np-zpH"/>
                             <constraint firstItem="t9O-gy-euW" firstAttribute="trailing" secondItem="BR4-69-dGW" secondAttribute="trailing" id="wlJ-zS-xeW"/>
+                            <constraint firstItem="SbL-oN-N2e" firstAttribute="trailing" secondItem="BR4-69-dGW" secondAttribute="trailing" id="yZN-ZP-PlI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BR4-69-dGW"/>
                     </view>
@@ -2205,12 +2220,15 @@
                         <outlet property="animeTitleLabel" destination="oM2-bR-QPh" id="zoX-J3-j6G"/>
                         <outlet property="bannerHeightConstraint" destination="za6-3V-u9w" id="sko-7y-trR"/>
                         <outlet property="bgScrollView" destination="avp-jA-wHr" id="50u-Mt-AM5"/>
+                        <outlet property="customNavBar" destination="SbL-oN-N2e" id="8Dm-kN-iFH"/>
+                        <outlet property="editBtn" destination="P27-Xu-a2z" id="d3s-II-nns"/>
                         <outlet property="messageLabel" destination="qaB-Nu-DBa" id="YfQ-hM-r1n"/>
                         <outlet property="panGestureReconizer" destination="eSU-lO-qdu" id="qHe-Sm-kCT"/>
                         <outlet property="ratingView" destination="aVh-hE-6iC" id="3m5-bd-o24"/>
                         <outlet property="reviewDateLabel" destination="ykt-zW-gUr" id="Jce-Mm-oIh"/>
                         <outlet property="userImageView" destination="TDg-aV-Fow" id="jiz-Rx-JRQ"/>
                         <outlet property="userNameLabel" destination="tJI-3k-eml" id="80r-eH-3Ga"/>
+                        <segue destination="95F-9x-1Ta" kind="presentation" identifier="detailToReviewAnime" id="I4F-NU-pzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1O-cI-1Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2362,6 +2380,7 @@
         <image name="icon-back" width="25" height="25"/>
         <image name="icon-back-black" width="25" height="25"/>
         <image name="icon-discover" width="25" height="25"/>
+        <image name="icon-edit" width="25" height="25"/>
         <image name="icon-home" width="25" height="25"/>
         <image name="icon-menu" width="25" height="25"/>
         <image name="icon-profile" width="25" height="25"/>
@@ -4937,6 +4956,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
         <image name="profileDefault" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="I4F-NU-pzh"/>
         <segue reference="sv0-Bf-bqL"/>
     </inferredMetricsTieBreakers>
 </document>

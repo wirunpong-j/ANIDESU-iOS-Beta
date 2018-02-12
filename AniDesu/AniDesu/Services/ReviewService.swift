@@ -32,6 +32,7 @@ class ReviewService {
                                         if anime != nil {
                                             var review = Review(rating: rating, reviewDate: reviewDate, text: text, anime: anime!)
                                             review.user = user
+                                            review.isReview = UserDataService.instance.uid == (user?.uid)! ? true : false
                                             
                                             allReview.append(review)
                                             if allReview.count >= count! {

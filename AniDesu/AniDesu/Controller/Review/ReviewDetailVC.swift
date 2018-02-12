@@ -3,7 +3,11 @@ import Hero
 import Kingfisher
 import Cosmos
 
-class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
+protocol ReviewDetailDelegate {
+    func onReviewUpdated()
+}
+
+class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate {
     
     // Outlets
     @IBOutlet weak var animeBannerImageView: UIImageView!
@@ -16,21 +20,23 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var reviewDateLabel: UILabel!
+    @IBOutlet weak var customNavBar: UINavigationBar!
+    @IBOutlet weak var editBtn: UIBarButtonItem!
     
     // Constraints
     @IBOutlet weak var bannerHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet var panGestureReconizer: UIPanGestureRecognizer!
+    
     // Variables
     var review: Review?
+    var delegate: ReviewDetailDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         isHeroEnabled = true
-        setUpView()
         panGestureReconizer.delegate = self
+        setUpView()
     }
-    
     
     func setUpView() {
         animeTitleLabel.text = review?.anime.title_romaji
@@ -44,14 +50,28 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
         ratingView.rating = (review?.rating)!
         messageLabel.text = "\" \((review?.text)!) \""
         reviewDateLabel.text = "Review Date: \((review?.reviewDate)!)"
-
+        
+        // set nav bar
+        customNavBar.setBackgroundImage(UIImage(), for: .default)
+        customNavBar.shadowImage = UIImage()
+        customNavBar.isTranslucent = true
+        customNavBar.backgroundColor = .clear
+        
+        if (review?.isReview)! {
+            editBtn.isEnabled = true
+        } else {
+            editBtn.isEnabled = false
+        }
+    }
+    
+    @IBAction func editReviewBtnPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: SEGUE_DETAIL_REVIEW_ANIME, sender: self.review)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
+
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         
         let currentHeight = self.bannerHeightConstraint.constant
@@ -72,4 +92,26 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate{
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_DETAIL_REVIEW_ANIME {
+            let navVC = segue.destination as? UINavigationController
+            if let reviewAnimeVC = navVC?.viewControllers.first as? ReviewAnimeVC {
+                reviewAnimeVC.delegate = self
+                reviewAnimeVC.review = sender as? Review
+            }
+        }
+    }
+    
+}
+
+extension ReviewDetailVC: ReviewAnimeDelegate {
+    func onReviewDeleted() {
+        self.delegate?.onReviewUpdated()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func onCompleted() {
+        self.delegate?.onReviewUpdated()
+        self.dismiss(animated: true, completion: nil)
+    }
 }

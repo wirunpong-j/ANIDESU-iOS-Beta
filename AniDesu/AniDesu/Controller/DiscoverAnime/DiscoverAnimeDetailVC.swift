@@ -196,6 +196,10 @@ class DiscoverAnimeDetailVC: UIViewController {
 }
 
 extension DiscoverAnimeDetailVC: ReviewAnimeDelegate {
+    func onReviewDeleted() {
+        self.fetchAllData()
+    }
+    
     func onCompleted() {
         self.fetchAllData()
     }

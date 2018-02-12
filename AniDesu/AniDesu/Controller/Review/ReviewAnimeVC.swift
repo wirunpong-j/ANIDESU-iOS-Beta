@@ -3,6 +3,7 @@ import Cosmos
 
 protocol ReviewAnimeDelegate {
     func onCompleted()
+    func onReviewDeleted()
 }
 
 class ReviewAnimeVC: UIViewController {
@@ -80,7 +81,7 @@ class ReviewAnimeVC: UIViewController {
             ReviewService.instance.removeReview(animeID: (self.review?.anime.id)!) { (success) in
                 if success {
                     self.dismiss(animated: true, completion: {
-                        self.delegate?.onCompleted()
+                        self.delegate?.onReviewDeleted()
                     })
                 }
             }

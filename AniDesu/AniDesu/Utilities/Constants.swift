@@ -10,6 +10,7 @@ let SEGUE_ANIME_DETAIL = "toAnimeDetail"
 let SEGUE_ADD_MY_ANIME_LIST = "toAddMyAnimeList"
 let SEGUE_POST_DETAIL = "toPostDetail"
 let SEGUE_REVIEW_ANIME = "toReviewAnime"
+let SEGUE_DETAIL_REVIEW_ANIME = "detailToReviewAnime"
 
 // Reuse Cell
 let POST_CELL = "postCell"

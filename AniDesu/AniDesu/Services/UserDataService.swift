@@ -1,6 +1,8 @@
 import Foundation
 import Firebase
 import Alamofire
+import FacebookLogin
+import FBSDKLoginKit
 
 class UserDataService {
     static let instance = UserDataService()
@@ -137,17 +139,31 @@ class UserDataService {
         }
     }
     
-    func logoutUser() {
-        uid = ""
-        displayName = ""
-        email = ""
-        about = ""
-        imageUrlProfile = ""
+    func logoutUser() -> Bool {
+        let loginManager = LoginManager()
+        loginManager.logOut()
         
-        AuthService.instance.uid = ""
-        AuthService.instance.isLoggedIn = false
-        AuthService.instance.authToken = ""
-        AuthService.instance.anilistToken = ""
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        if FBSDKAccessToken.current() == nil {
+            uid = ""
+            displayName = ""
+            email = ""
+            about = ""
+            imageUrlProfile = ""
+            
+            AuthService.instance.uid = ""
+            AuthService.instance.isLoggedIn = false
+            AuthService.instance.authToken = ""
+            AuthService.instance.anilistToken = ""
+            
+            return true
+        }
+         return false
     }
-    
 }

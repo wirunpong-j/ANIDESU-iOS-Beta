@@ -19,11 +19,21 @@ class HomeVC: UIViewController {
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        setUpView()
+        // set refresh control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            postTableView.refreshControl = refreshControl
+        } else {
+            postTableView.backgroundView = refreshControl
+        }
+        
+        self.fetchAllData()
         
     }
     
-    func setUpView() {
+    func fetchAllData() {
         PostService.instance.fetchAllPost { (allPost) in
             if allPost != nil {
                 self.allPost = allPost!
@@ -47,6 +57,11 @@ class HomeVC: UIViewController {
                 postDetailVC.delegate = self
             }
         }
+    }
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        self.fetchAllData()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -95,20 +110,20 @@ extension HomeVC: UITableViewDelegate {
 
 extension HomeVC: CreatePostDelegate {
     func onPostComplete() {
-        self.setUpView()
+        self.fetchAllData()
     }
 }
 
 extension HomeVC: PostDetailDelegate {
     func onDeletePostComplete() {
-        self.setUpView()
+        self.fetchAllData()
     }
 }
 
 extension HomeVC: PostCellDelegate {
     func onLikeBtnPressed(postKey: String) {
         PostService.instance.likePost(postKey: postKey) { (success) in
-            self.setUpView()
+            self.fetchAllData()
         }
     }
     

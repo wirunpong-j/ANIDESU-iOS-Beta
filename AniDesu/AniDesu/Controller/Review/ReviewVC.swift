@@ -15,14 +15,22 @@ class ReviewVC: UIViewController {
         reviewTableView.dataSource = self
         reviewTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: REVIEW_CELL)
         
-        setUpView()
-        fetchAllData()
+        // set navbar
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-    }
-    
-    func setUpView() {
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        // set refresh control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            reviewTableView.refreshControl = refreshControl
+        } else {
+            reviewTableView.backgroundView = refreshControl
+        }
+        
+        self.fetchAllData()
+        
     }
     
     func fetchAllData() {
@@ -39,6 +47,11 @@ class ReviewVC: UIViewController {
                 reviewDetailVC.review = sender as? Review
             }
         }
+    }
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        self.fetchAllData()
+        refreshControl.endRefreshing()
     }
 
 }

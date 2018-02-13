@@ -63,11 +63,18 @@ class PostService {
                 let postDate = postValue!["post_date"] as? String ?? ""
                 let likeCount = postValue!["like_count"] as? Int ?? 0
                 let commentValue = postValue!["comment"] as? [String: Any]
+                let allLike = postValue!["like"] as? [String: Any] ?? [:]
+                
+                var allKey = [String]()
+                for key in allLike.keys {
+                    allKey.append(key)
+                }
                 
                 self.fetchUserInfo(uid: uid) { (user) in
                     var post = Post(uid: uid, status: status, postDate: postDate, likeCount: likeCount)
                     post.postKey = postKey
                     post.user = user
+                    post.likes = allKey
                     
                     if commentValue != nil {
                         for commentKey in (commentValue?.keys)! {

@@ -1519,7 +1519,7 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1069 Likes" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-gn-vIP">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1069 Likes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-gn-vIP">
                                                             <rect key="frame" x="273.5" y="137" width="65.5" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -1715,7 +1715,7 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postDetailCell" rowHeight="109" id="rfg-eq-uNk" customClass="StatusCell" customModule="AniDesu" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="postDetailCell" rowHeight="109" id="rfg-eq-uNk" customClass="StatusCell" customModule="AniDesu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rfg-eq-uNk" id="EHJ-sk-fVg">
@@ -1742,41 +1742,8 @@
                                             <outlet property="statusLabel" destination="AV9-cD-EaF" id="kHf-5T-If9"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postNavBarCell" rowHeight="30" id="0eM-Td-D3w" customClass="PostNavBarCell" customModule="AniDesu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="137" width="375" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0eM-Td-D3w" id="xT9-Wy-MX5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="29.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6B-I1-6C3">
-                                                    <rect key="frame" x="20" y="1" width="50" height="28"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="rvZ-v2-vMi"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <state key="normal" title="Like"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJa-2I-tNe">
-                                                    <rect key="frame" x="100" y="1" width="70" height="28"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="O0Q-cr-avM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <state key="normal" title="Comment"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="G6B-I1-6C3" firstAttribute="leading" secondItem="xT9-Wy-MX5" secondAttribute="leading" constant="20" id="4qS-ql-bjm"/>
-                                                <constraint firstItem="G6B-I1-6C3" firstAttribute="centerY" secondItem="xT9-Wy-MX5" secondAttribute="centerY" id="avb-yG-uFS"/>
-                                                <constraint firstItem="iJa-2I-tNe" firstAttribute="centerY" secondItem="xT9-Wy-MX5" secondAttribute="centerY" id="le8-dU-Kix"/>
-                                                <constraint firstItem="iJa-2I-tNe" firstAttribute="leading" secondItem="G6B-I1-6C3" secondAttribute="trailing" constant="30" id="zsn-6Q-GOK"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="commentCell" rowHeight="149" id="kUe-MX-zIR" customClass="CommentCell" customModule="AniDesu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="167" width="375" height="149"/>
+                                        <rect key="frame" x="0.0" y="137" width="375" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kUe-MX-zIR" id="Zul-u0-n1r">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
@@ -1861,7 +1828,7 @@
                             <constraint firstItem="iWD-Mz-Kfl" firstAttribute="bottom" secondItem="Kxe-nN-lBs" secondAttribute="bottom" id="Bzn-ap-tQt"/>
                             <constraint firstItem="Kxe-nN-lBs" firstAttribute="trailing" secondItem="iWD-Mz-Kfl" secondAttribute="trailing" id="E8z-He-LJZ"/>
                             <constraint firstItem="NR9-cn-dzB" firstAttribute="leading" secondItem="Kxe-nN-lBs" secondAttribute="leading" id="N5x-Qy-ioY"/>
-                            <constraint firstItem="iWD-Mz-Kfl" firstAttribute="top" secondItem="NR9-cn-dzB" secondAttribute="bottom" id="SNm-GD-gEq"/>
+                            <constraint firstItem="iWD-Mz-Kfl" firstAttribute="top" secondItem="NR9-cn-dzB" secondAttribute="bottom" id="RuB-pU-bSj"/>
                             <constraint firstItem="IkI-n7-h47" firstAttribute="leading" secondItem="Kxe-nN-lBs" secondAttribute="leading" id="VI9-iI-rF5"/>
                             <constraint firstItem="IkI-n7-h47" firstAttribute="top" secondItem="Kxe-nN-lBs" secondAttribute="top" id="ZDk-kp-6oN"/>
                             <constraint firstItem="NR9-cn-dzB" firstAttribute="top" secondItem="IkI-n7-h47" secondAttribute="bottom" constant="8" id="h9F-4V-7CP"/>
@@ -1962,7 +1929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8R-vH-ub3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1889" y="1685"/>
+            <point key="canvasLocation" x="-1890.4000000000001" y="1684.4077961019491"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t4q-Vd-vfS">
@@ -4975,7 +4942,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
         <image name="profileDefault" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I4F-NU-pzh"/>
+        <segue reference="j1p-Jn-koz"/>
         <segue reference="sv0-Bf-bqL"/>
     </inferredMetricsTieBreakers>
 </document>

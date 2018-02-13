@@ -9,7 +9,7 @@ class PostDetailVC: UIViewController {
     
     // Constance
     let HEADER_ROWS = 2
-    let NAV_BAR_HEIGHT = CGFloat(30)
+    let NAV_BAR_HEIGHT = CGFloat(40)
     
     // Outlets
     @IBOutlet weak var postTableView: UITableView!
@@ -44,17 +44,6 @@ class PostDetailVC: UIViewController {
 
     }
     
-    private func setUpView() {
-        if UserDataService.instance.uid != post?.uid {
-            optionsBtn.isHidden = true
-        }
-        commentText.textColor = UIColor.lightGray
-        commentText.text = "Write a comment"
-        postOwnerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (post?.user?.imageUrlProfile)!))
-        postOwnerNameLabel.text = (post?.user?.displayName)!
-        postDateLabel.text = AllFormat.instance.formatDatetime(timeStr: (post?.postDate)!)
-    }
-    
     private func fetchPostInfo(commentIsAdded: Bool) {
         PostService.instance.fetchPost(postKey: postKey!) { (post) in
             self.post = post
@@ -66,6 +55,17 @@ class PostDetailVC: UIViewController {
                 self.postTableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
             }
         }
+    }
+    
+    private func setUpView() {
+        if UserDataService.instance.uid != post?.uid {
+            optionsBtn.isHidden = true
+        }
+        commentText.textColor = UIColor.lightGray
+        commentText.text = "Write a comment"
+        postOwnerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (post?.user?.imageUrlProfile)!))
+        postOwnerNameLabel.text = (post?.user?.displayName)!
+        postDateLabel.text = AllFormat.instance.formatDatetime(timeStr: (post?.postDate)!)
     }
     
     @IBAction func commentBtnPressed(_ sender: Any) {
@@ -139,8 +139,11 @@ class PostDetailVC: UIViewController {
     
 }
 
-extension PostDetailVC: UIActionSheetDelegate {
-    
+extension PostDetailVC: PostNavBarCellDelegate {
+    func onLikeBtnPressed(postKey: String) {
+        self.postKey = postKey
+        self.fetchPostInfo(commentIsAdded: false)
+    }
 }
 
 extension PostDetailVC: UITextViewDelegate {
@@ -175,11 +178,6 @@ extension PostDetailVC: UITableViewDataSource {
             case 0:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: POST_DETAIL_CELL) as? StatusCell {
                     cell.configureCell(status: (post?.status)!)
-                    
-                    return cell
-                }
-            case 1:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: POST_NAV_BAR_CELL) as? PostNavBarCell {
                     
                     return cell
                 }

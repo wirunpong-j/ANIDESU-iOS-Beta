@@ -1,6 +1,7 @@
 import UIKit
 import Kingfisher
 import WCLShineButton
+import SkeletonView
 
 class DiscoverAnimeDetailVC: UIViewController {
 
@@ -55,6 +56,7 @@ class DiscoverAnimeDetailVC: UIViewController {
         staffCollection.dataSource = self
         panGesture.delegate = self
         
+        self.view.showAnimatedGradientSkeleton()
         fetchAllData()
         
     }
@@ -65,6 +67,7 @@ class DiscoverAnimeDetailVC: UIViewController {
             ReviewService.instance.fetchThisReview(anime: self.anime!) { (review) in
                 self.myReview = review
                 self.setUpView()
+                self.view.hideSkeleton()
             }
         }
     }

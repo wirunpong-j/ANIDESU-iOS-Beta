@@ -2,6 +2,7 @@ import UIKit
 import Hero
 import Kingfisher
 import Cosmos
+import SkeletonView
 
 protocol ReviewDetailDelegate {
     func onReviewUpdated()
@@ -35,6 +36,7 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         isHeroEnabled = true
         panGestureReconizer.delegate = self
+        self.view.showAnimatedGradientSkeleton()
         setUpView()
     }
     
@@ -62,6 +64,8 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate {
         } else {
             editBtn.isEnabled = false
         }
+        
+        self.view.hideSkeleton()
     }
     
     @IBAction func editReviewBtnPressed(_ sender: UIBarButtonItem) {

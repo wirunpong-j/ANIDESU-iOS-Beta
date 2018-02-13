@@ -19,4 +19,6 @@ pod 'Hero'
 pod 'Cosmos', '~> 14.0'
 pod 'Eureka'
 pod 'WCLShineButton'
+pod 'EasySocialButton'
+pod 'NVActivityIndicatorView'
 end

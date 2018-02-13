@@ -2,12 +2,23 @@ import UIKit
 import FacebookLogin
 import Firebase
 import FBSDKLoginKit
+import EasySocialButton
+import NVActivityIndicatorView
 
 class LoginVC: UIViewController {
 
+    // Outlets
+    @IBOutlet weak var loginBtn: AZSocialButton!
+    @IBOutlet weak var indicatorView: NVActivityIndicatorView!
+    @IBOutlet weak var indicatorBGView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loginBtn.onClickAction = { (button) in
+            self.loginBtnPressed()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +37,7 @@ class LoginVC: UIViewController {
         }
     }
     
-    @IBAction func loginBtnPressed(_ sender: Any) {
+    private func loginBtnPressed() {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [ .publicProfile ], viewController: self) { (result) in
             switch result {
@@ -36,6 +47,7 @@ class LoginVC: UIViewController {
                     print("User cancelled login.")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     
+                    self.showIndicatorView()
                     let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                     
                     Auth.auth().signIn(with: credential) { (user, error) in
@@ -54,6 +66,8 @@ class LoginVC: UIViewController {
                                                 AuthService.instance.isLoggedIn = true
                                                 AuthService.instance.authToken = accessToken.authenticationToken
                                                 print("facebook login success")
+                                                
+                                                self.hideIndicatorView()
                                                 self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
                                             }
                                         }
@@ -66,6 +80,8 @@ class LoginVC: UIViewController {
                                         AuthService.instance.isLoggedIn = true
                                         AuthService.instance.authToken = accessToken.authenticationToken
                                         print("facebook login success")
+                                        
+                                        self.hideIndicatorView()
                                         self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
                                     }
                                 }
@@ -74,6 +90,16 @@ class LoginVC: UIViewController {
                 }
             }
         }
+    }
+    
+    private func showIndicatorView() {
+        indicatorView.startAnimating()
+        indicatorBGView.isHidden = false
+    }
+    
+    private func hideIndicatorView() {
+        indicatorView.stopAnimating()
+        indicatorBGView.isHidden = true
     }
 }
 

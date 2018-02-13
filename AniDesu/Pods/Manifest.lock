@@ -7,6 +7,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - Cosmos (14.0.0)
+  - EasySocialButton (1.0.2)
   - Eureka (4.0.1)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
@@ -72,6 +73,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - Pageboy (2.2.0)
   - PureLayout (3.0.2)
   - SwiftyJSON (4.0.0)
@@ -83,6 +87,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 14.0)
+  - EasySocialButton
   - Eureka
   - FacebookCore
   - FacebookLogin
@@ -91,6 +96,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Hero
   - Kingfisher (~> 4.0)
+  - NVActivityIndicatorView
   - SwiftyJSON
   - Tabman (~> 1.0)
   - WCLShineButton
@@ -99,6 +105,7 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: 6dd44b65d587033e690ae1c350c875d262a23fda
+  EasySocialButton: 8f2464e11dd5b52d612964243cc899d8fae0f1eb
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
@@ -118,12 +125,13 @@ SPEC CHECKSUMS:
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   Pageboy: 50db8fffaa6d4d004249b7b6b19e33464dd7505b
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
   WCLShineButton: d8b979b6f6f9f6709f9e241e6e1a4712a1a9b36b
 
-PODFILE CHECKSUM: 02d34d6749fe6a6feed0cfb97798bd314ecab302
+PODFILE CHECKSUM: d06e97ca087aac4594c94e08d28396358d997234
 
 COCOAPODS: 1.1.1

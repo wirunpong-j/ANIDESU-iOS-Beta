@@ -127,6 +127,19 @@ class PostService {
         completion(true)
     }
     
+    func editPost(post: Post, completion: @escaping CompletionHandler) {
+        let ref = Database.database().reference()
+        let postInfo: [String: Any] = [
+            "uid": post.uid,
+            "status": post.status,
+            "post_date": post.postDate,
+            "like_count": post.likeCount
+        ]
+        ref.child("ios").child("posts").child("\((post.postKey)!)").updateChildValues(postInfo)
+        
+        completion(true)
+    }
+    
     func deletePost(postKey: String, completion: @escaping CompletionHandler) {
         let ref = Database.database().reference()
         ref.child("ios").child("posts").child(postKey).removeValue() { (error, _) in

@@ -16,6 +16,7 @@ class CreatePostVC: UIViewController {
     
     // Variables
     var delegate: CreatePostDelegate?
+    var currentPost: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +30,39 @@ class CreatePostVC: UIViewController {
         profileImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: UserDataService.instance.imageUrlProfile))
         nameLabel.text = UserDataService.instance.displayName
         aboutLabel.text = UserDataService.instance.about
-        statusTextView.textColor = UIColor.lightGray
-        statusTextView.text = "What's on your mind?"
+        
+        if currentPost != nil {
+            statusTextView.text = currentPost?.status
+            statusTextView.textColor = UIColor.black
+            self.navigationController?.navigationBar.topItem?.title = "Edit Post"
+        } else {
+            statusTextView.text = "What's on your mind?"
+            statusTextView.textColor = UIColor.lightGray
+            self.navigationController?.navigationBar.topItem?.title = "Create Post"
+        }
     }
     
     @IBAction func shareBtnPressed(_ sender: Any) {
         let status = statusTextView.text
         let currentTime = AllFormat.instance.getCurrentTime()
-        let post = Post(uid: UserDataService.instance.uid, status: status!, postDate: currentTime, likeCount: 0)
+        var post = Post(uid: UserDataService.instance.uid, status: status!, postDate: currentTime, likeCount: 0)
         
-        PostService.instance.postStatus(post: post) { (success) in
-            if success {
-                self.dismiss(animated: true, completion: {
-                    self.delegate?.onPostComplete()
-                })
+        if currentPost != nil {
+            post.postKey = (currentPost?.postKey)!
+            PostService.instance.editPost(post: post) { (success) in
+                if success {
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onPostComplete()
+                    })
+                }
+            }
+        } else {
+            PostService.instance.postStatus(post: post) { (success) in
+                if success {
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onPostComplete()
+                    })
+                }
             }
         }
     }

@@ -1725,7 +1725,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV9-cD-EaF">
                                                     <rect key="frame" x="15" y="19" width="345" height="67"/>
                                                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1845,6 +1845,7 @@
                         <outlet property="postOwnerNameLabel" destination="Jg9-wy-dyU" id="1hN-rp-6gH"/>
                         <outlet property="postTableView" destination="NR9-cn-dzB" id="0Sr-GV-FSG"/>
                         <outlet property="sendBtn" destination="Euw-zX-QfN" id="TZD-0y-vgW"/>
+                        <segue destination="iJ3-Y9-wUu" kind="presentation" identifier="toEditPost" id="MSi-0A-kRa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swl-l7-hUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4943,6 +4944,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="j1p-Jn-koz"/>
+        <segue reference="MSi-0A-kRa"/>
         <segue reference="sv0-Bf-bqL"/>
     </inferredMetricsTieBreakers>
 </document>

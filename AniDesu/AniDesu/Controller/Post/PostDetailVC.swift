@@ -8,7 +8,7 @@ protocol PostDetailDelegate {
 class PostDetailVC: UIViewController {
     
     // Constance
-    let HEADER_ROWS = 2
+    let HEADER_ROWS = 1
     let NAV_BAR_HEIGHT = CGFloat(40)
     
     // Outlets
@@ -51,7 +51,7 @@ class PostDetailVC: UIViewController {
             self.postTableView.reloadData()
             
             if commentIsAdded {
-                let endIndex = IndexPath(row: (post?.comment?.count)! + 1, section: 0)
+                let endIndex = IndexPath(row: (post?.comment?.count)!, section: 0)
                 self.postTableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
             }
         }
@@ -91,7 +91,7 @@ class PostDetailVC: UIViewController {
     }
     
     func editPost(action: UIAlertAction) {
-        
+        self.performSegue(withIdentifier: SEGUE_EDIT_POST, sender: post)
     }
     
     func deletePost(action: UIAlertAction) {
@@ -137,11 +137,19 @@ class PostDetailVC: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEGUE_EDIT_POST {
+            let navVC = segue.destination as? UINavigationController
+            if let createPostVC = navVC?.viewControllers.first as? CreatePostVC {
+                createPostVC.delegate = self
+                createPostVC.currentPost = post
+            }
+        }
+    }
 }
 
-extension PostDetailVC: PostNavBarCellDelegate {
-    func onLikeBtnPressed(postKey: String) {
-        self.postKey = postKey
+extension PostDetailVC: CreatePostDelegate {
+    func onPostComplete() {
         self.fetchPostInfo(commentIsAdded: false)
     }
 }
@@ -183,7 +191,7 @@ extension PostDetailVC: UITableViewDataSource {
                 }
             default:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: COMMENT_CELL) as? CommentCell {
-                    let comment = post?.comment![indexPath.row - 2]
+                    let comment = post?.comment![indexPath.row - 1]
                     cell.configureCell(comment: comment!)
                     cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
                     
@@ -202,9 +210,6 @@ extension PostDetailVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return NAV_BAR_HEIGHT
-        }
         return UITableViewAutomaticDimension
     }
     

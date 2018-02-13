@@ -78,6 +78,7 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.1.1)
   - Pageboy (2.2.0)
   - PureLayout (3.0.2)
+  - SkeletonView (1.0.4)
   - SwiftyJSON (4.0.0)
   - Tabman (1.2.0):
     - Pageboy (~> 2.2.0)
@@ -97,6 +98,7 @@ DEPENDENCIES:
   - Hero
   - Kingfisher (~> 4.0)
   - NVActivityIndicatorView
+  - SkeletonView
   - SwiftyJSON
   - Tabman (~> 1.0)
   - WCLShineButton
@@ -128,10 +130,11 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   Pageboy: 50db8fffaa6d4d004249b7b6b19e33464dd7505b
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  SkeletonView: 933a9442b08c3550f61c2ae38a02456a74ad86f4
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: 5951d9c5bc4e438e1c82b7e59e5cdc9f505c1431
   WCLShineButton: d8b979b6f6f9f6709f9e241e6e1a4712a1a9b36b
 
-PODFILE CHECKSUM: d06e97ca087aac4594c94e08d28396358d997234
+PODFILE CHECKSUM: 93739562a855f2a3ad2d43e5710f703a1133e378
 
 COCOAPODS: 1.1.1

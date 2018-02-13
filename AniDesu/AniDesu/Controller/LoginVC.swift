@@ -12,6 +12,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     @IBOutlet weak var indicatorBGView: UIView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +24,13 @@ class LoginVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if AuthService.instance.isLoggedIn && FBSDKAccessToken.current() != nil {
+            self.showIndicatorView()
             DispatchQueue.main.async {
                 AuthService.instance.loginUser(uid: AuthService.instance.uid) { (success) in
                     if success {
                         AuthService.instance.authAniList { (success) in
                             if success {
+                                self.hideIndicatorView()
                                 self.performSegue(withIdentifier: SEGUE_HOME, sender: nil)
                             }
                         }

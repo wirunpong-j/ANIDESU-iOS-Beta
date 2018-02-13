@@ -1,4 +1,5 @@
 import UIKit
+import SkeletonView
 
 class HomeVC: UIViewController {
     
@@ -7,6 +8,7 @@ class HomeVC: UIViewController {
     
     // Variables
     var allPost = [Post]()
+    let HEIGHT_OF_HEADER = CGFloat(140)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,8 +16,6 @@ class HomeVC: UIViewController {
         postTableView.delegate = self
         postTableView.dataSource = self
         
-        postTableView.rowHeight = UITableViewAutomaticDimension
-        postTableView.estimatedRowHeight = UITableViewAutomaticDimension
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
@@ -29,6 +29,7 @@ class HomeVC: UIViewController {
             postTableView.backgroundView = refreshControl
         }
         
+        self.postTableView.showAnimatedGradientSkeleton()
         self.fetchAllData()
         
     }
@@ -41,6 +42,7 @@ class HomeVC: UIViewController {
                 self.allPost.removeAll()
             }
             self.postTableView.reloadData()
+            self.postTableView.hideSkeleton()
         }
     }
     
@@ -67,7 +69,6 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
             case 0:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: PRE_POST_CELL, for: indexPath) as? PrePostCell {
@@ -95,6 +96,9 @@ extension HomeVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return HEIGHT_OF_HEADER
+        }
         return UITableViewAutomaticDimension
     }
     
@@ -106,6 +110,17 @@ extension HomeVC: UITableViewDelegate {
                 performSegue(withIdentifier: SEGUE_POST_DETAIL, sender: allPost[indexPath.row - 1].postKey)
         }
     }
+}
+
+extension HomeVC: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return PRE_POST_CELL
+    }
+    
 }
 
 extension HomeVC: CreatePostDelegate {

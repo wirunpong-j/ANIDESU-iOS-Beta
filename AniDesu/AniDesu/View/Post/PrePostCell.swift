@@ -1,13 +1,6 @@
-//
-//  PrePostCell.swift
-//  AniDesu
-//
-//  Created by Wirunpong Jaingamlertwong on 29/1/2561 BE.
-//  Copyright © 2561 Wirunpong Jaingamlertwong. All rights reserved.
-//
-
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class PrePostCell: UITableViewCell {
     
@@ -16,6 +9,7 @@ class PrePostCell: UITableViewCell {
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var tipLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +17,8 @@ class PrePostCell: UITableViewCell {
     }
     
     func configureCell() {
-        let url = URL(string: UserDataService.instance.imageUrlProfile)
-        profileImage.kf.setImage(with: url)
+        tipLabel.text = "What's on your mind?"
+        profileImage.kf.setImage(with: AllFormat.instance.getURL(stringURL: UserDataService.instance.imageUrlProfile))
         nameLabel.text = UserDataService.instance.displayName
         aboutLabel.text = UserDataService.instance.about
     }

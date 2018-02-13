@@ -21,4 +21,5 @@ pod 'Eureka'
 pod 'WCLShineButton'
 pod 'EasySocialButton'
 pod 'NVActivityIndicatorView'
+pod "SkeletonView"
 end

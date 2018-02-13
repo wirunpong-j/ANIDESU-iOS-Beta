@@ -25,7 +25,6 @@ class PostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpView()
     }
 
     func configureCell(post: Post) {
@@ -39,6 +38,8 @@ class PostCell: UITableViewCell {
         likeBtn.image = .like
         likeBtn.isSelected = (post.likes?.contains(UserDataService.instance.uid))!
         likeBtn.addTarget(self, action: #selector(likeBtnPressed), for: .valueChanged)
+        
+        setUpView()
     }
     
     @objc func likeBtnPressed() {

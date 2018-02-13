@@ -1,11 +1,16 @@
 import UIKit
 import Hero
+import SkeletonView
 
 class ReviewVC: UIViewController {
     
+    // Outlets
     @IBOutlet weak var reviewTableView: UITableView!
+    
+    // Variables
     var allReview = [Review]()
     let cellHeight: CGFloat = 180
+    let SKELETON_ROW = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +19,7 @@ class ReviewVC: UIViewController {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: REVIEW_CELL)
+        reviewTableView.register(UINib(nibName: "ReviewSkeletonCell", bundle: nil), forCellReuseIdentifier: SKELETON_REVIEW_CELL)
         
         // set navbar
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
@@ -30,13 +36,14 @@ class ReviewVC: UIViewController {
         }
         
         self.fetchAllData()
-        
     }
     
     func fetchAllData() {
+        self.reviewTableView.showAnimatedGradientSkeleton()
         ReviewService.instance.fetchAllReview { (allReview) in
             self.allReview = allReview!
             self.reviewTableView.reloadData()
+            self.reviewTableView.hideSkeleton()
         }
     }
     
@@ -54,6 +61,17 @@ class ReviewVC: UIViewController {
         refreshControl.endRefreshing()
     }
 
+}
+
+extension ReviewVC: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SKELETON_ROW
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return SKELETON_REVIEW_CELL
+    }
+    
 }
 
 extension ReviewVC: UITableViewDataSource {
@@ -81,7 +99,7 @@ extension ReviewVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: SEGUE_REVIEW_DETAIL, sender: allReview[indexPath.row])
+        self.performSegue(withIdentifier: SEGUE_REVIEW_DETAIL, sender: allReview[indexPath.row])
     }
     
 }

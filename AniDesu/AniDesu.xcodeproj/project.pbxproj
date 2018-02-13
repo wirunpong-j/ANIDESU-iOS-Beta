@@ -58,6 +58,10 @@
 		D3E891372019CF0300A50489 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E891362019CF0300A50489 /* AniListService.swift */; };
 		D3F4121220246D5C00145913 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F4121120246D5C00145913 /* UserProfileCell.swift */; };
 		D3F5293820301D3A0041C2A7 /* ReviewAnimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */; };
+		D3FA889A2033067C00903690 /* ReviewSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA88982033067C00903690 /* ReviewSkeletonCell.swift */; };
+		D3FA889B2033067C00903690 /* ReviewSkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3FA88992033067C00903690 /* ReviewSkeletonCell.xib */; };
+		D3FA889F20330BC000903690 /* PostSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA889D20330BC000903690 /* PostSkeletonCell.swift */; };
+		D3FA88A020330BC000903690 /* PostSkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3FA889E20330BC000903690 /* PostSkeletonCell.xib */; };
 		EB144E1F3235C82DC5B94985 /* Pods_AniDesu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E5A92BA7891058D17E6887 /* Pods_AniDesu.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,10 @@
 		D3E891362019CF0300A50489 /* AniListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
 		D3F4121120246D5C00145913 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
 		D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAnimeVC.swift; sourceTree = "<group>"; };
+		D3FA88982033067C00903690 /* ReviewSkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSkeletonCell.swift; sourceTree = "<group>"; };
+		D3FA88992033067C00903690 /* ReviewSkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewSkeletonCell.xib; sourceTree = "<group>"; };
+		D3FA889D20330BC000903690 /* PostSkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSkeletonCell.swift; sourceTree = "<group>"; };
+		D3FA889E20330BC000903690 /* PostSkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostSkeletonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +286,7 @@
 		D3E891222019B8BB00A50489 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA889C2033068800903690 /* SkeletonCell */,
 				D3DC6BDF202D9DFB005EDA42 /* Post */,
 				D3CE82BE202719C5006DBB6D /* Anime */,
 				D3BC51D52022FADF00E30526 /* Review */,
@@ -336,6 +345,17 @@
 				D3F5293720301D3A0041C2A7 /* ReviewAnimeVC.swift */,
 			);
 			path = Review;
+			sourceTree = "<group>";
+		};
+		D3FA889C2033068800903690 /* SkeletonCell */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA88982033067C00903690 /* ReviewSkeletonCell.swift */,
+				D3FA88992033067C00903690 /* ReviewSkeletonCell.xib */,
+				D3FA889D20330BC000903690 /* PostSkeletonCell.swift */,
+				D3FA889E20330BC000903690 /* PostSkeletonCell.xib */,
+			);
+			path = SkeletonCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,8 +420,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FA889B2033067C00903690 /* ReviewSkeletonCell.xib in Resources */,
 				D3E736282015D5FC00247976 /* LaunchScreen.storyboard in Resources */,
 				D3BC51D92022FAEF00E30526 /* ReviewCell.xib in Resources */,
+				D3FA88A020330BC000903690 /* PostSkeletonCell.xib in Resources */,
 				D36483F32019F28F00CC10B5 /* GoogleService-Info.plist in Resources */,
 				D3E736252015D5FC00247976 /* Assets.xcassets in Resources */,
 				D3E736232015D5FC00247976 /* Main.storyboard in Resources */,
@@ -471,9 +493,11 @@
 				D3E8912F2019C15200A50489 /* HomeVC.swift in Sources */,
 				D3DF3712201F2BA600A492AF /* PrePostCell.swift in Sources */,
 				D3E891312019CC1500A50489 /* DiscoverAnimeVC.swift in Sources */,
+				D3FA889A2033067C00903690 /* ReviewSkeletonCell.swift in Sources */,
 				D36483F52019F44700CC10B5 /* AuthService.swift in Sources */,
 				D3DC6BDE202D8DDE005EDA42 /* PostDetailVC.swift in Sources */,
 				D36483F72019F4EA00CC10B5 /* UserDataService.swift in Sources */,
+				D3FA889F20330BC000903690 /* PostSkeletonCell.swift in Sources */,
 				D34DE208202885F6008130EB /* BorderView.swift in Sources */,
 				D36483EF2019E26800CC10B5 /* MyAnimeListVC.swift in Sources */,
 				D3DC6BE3202DA4AC005EDA42 /* StatusCell.swift in Sources */,

@@ -27,6 +27,10 @@ let POST_DETAIL_CELL = "postDetailCell"
 let POST_NAV_BAR_CELL = "postNavBarCell"
 let COMMENT_CELL = "commentCell"
 
+// Skeleton Cell
+let SKELETON_REVIEW_CELL = "reviewSkeletonCell"
+let SKELETON_POST_CELL = "postSkeletonCell"
+
 // User default key
 let LOGGED_IN_KEY = "logged"
 let TOKEN_KEY = "token"

@@ -9,12 +9,15 @@ class HomeVC: UIViewController {
     // Variables
     var allPost = [Post]()
     let HEIGHT_OF_HEADER = CGFloat(140)
+    let SKELETON_ROW = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         postTableView.delegate = self
         postTableView.dataSource = self
+        
+        postTableView.register(UINib(nibName: "PostSkeletonCell", bundle: nil), forCellReuseIdentifier: SKELETON_POST_CELL)
         
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1336890757, green: 0.1912626624, blue: 0.2462295294, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -114,11 +117,13 @@ extension HomeVC: UITableViewDelegate {
 
 extension HomeVC: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return SKELETON_ROW
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return PRE_POST_CELL
+        
+        return SKELETON_POST_CELL
     }
     
 }

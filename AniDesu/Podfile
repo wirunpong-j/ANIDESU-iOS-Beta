@@ -8,5 +8,18 @@ target 'AniDesu' do
   # Pods for AniDesu
 pod 'Alamofire'
 pod 'SwiftyJSON'
-
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'FacebookCore'
+pod 'FacebookLogin'
+pod 'FacebookShare'
+pod 'Kingfisher', '~> 4.0'
+pod 'Tabman', '~> 1.0'
+pod 'Hero'
+pod 'Cosmos', '~> 14.0'
+pod 'Eureka'
+pod 'WCLShineButton'
+pod 'EasySocialButton'
+pod 'NVActivityIndicatorView'
+pod "SkeletonView"
 end

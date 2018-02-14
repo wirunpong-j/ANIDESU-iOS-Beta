@@ -33,7 +33,7 @@ ANIDESU-iOS: >>> https://github.com/wirunpong-j/ANIDESU-iOS <<<
   1.) Create/Edit Post : หน้าที่ไว้ให้สำหรับสมาชิกต้องการจะ สร้าง/แก้ไข Post <br><br>
 <img style="border: 10px solid black;" src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/3.png" width="300"><br><br>
   2.) Post Detail : หน้าที่ให้สมาชิกต้องการจะแสดงความคิดเห็น (Comment) ของ Post ที่สนใจ โดยในหน้านี้จะมีตัวเลือก (จุด3จุด) สำหรับเลือกได้ว่าจะทำการแก้ไข (Edit) หรือ ลบ (Delete) Post <br><br>
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/4.png" width="300"> <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/5.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/4.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/5.png" width="300"><br>
 
 - **Discover Anime :** หน้าที่รวบรวมและแสดง Anime ญี่ปุ่นทั้งหมด โดยจะแบ่งเป็น ฤดูกาล (Season) ได้แก่ Winter, Spring, Summer และ Fall โดยเมื่อเลือกดูข้อมูลของ Anime แต่ละเรื่อง
 
@@ -45,8 +45,8 @@ ANIDESU-iOS: >>> https://github.com/wirunpong-j/ANIDESU-iOS <<<
   - Extras : หน้าที่แสดงชื่อตัวละคร และผู้สร้างที่อยู่ใน Anime เรื่องนั้น ๆ
   - Reviews : หน้าที่แสดง Reviews ของสมาชิกที่ได้ดูเรื่องนี้ ไม่ว่าจะเป็น Reviews เชิงบวกหรือเชิงลบ
 
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/7.png" width="300"> <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/8.png" width="300"><br>
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/9.png" width="300"> <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/10.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/7.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/8.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/9.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/10.png" width="300"><br>
 
 ​	โดยในหน้านี้จะมีตัวเลือกให้ (รูปขีด3ขีด) สามารถเพิ่ม/แก้ไข Anime ลงในรายการตนเอง (Add to My Anime List), รีวิว Anime (Review) และ Share ไปยัง Application ภายนอกได้
 
@@ -55,11 +55,11 @@ ANIDESU-iOS: >>> https://github.com/wirunpong-j/ANIDESU-iOS <<<
 
 - **ADD/EDIT My Anime List :** หน้าที่ เพิ่ม แก้ไข ลบ Anime ที่อยู่ใน My Anime List โดยระบบจะเก็บ สถานะของ Anime, ตอนที่ดู, คะแนนโดยรวม และ Notes เป็นต้น
 
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/12.png" width="300"> <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/13.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/12.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/13.png" width="300"><br>
 
 - **ADD/EDIT Review :** หน้าที่ เพิ่ม แก้ไข ลบ Review ของ Anime ที่สนใจ โดยการคะแนน (ดาว) และใส่ข้อความที่ต้องการจะ Review
 
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/14.png" width="300"><img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/15.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/14.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/15.png" width="300"><br>
 
 - **Share Anime :** หน้าที่ทำการ Share Anime ไปยัง Application อื่น ๆ
 
@@ -71,7 +71,7 @@ ANIDESU-iOS: >>> https://github.com/wirunpong-j/ANIDESU-iOS <<<
 
 - **Anime Review :** หน้าที่รวมข้อมูลการ Review ของทุก User ที่ทำการ Review ไว้
 
-<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/17.png" width="300"> <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/18.png" width="300"><br>
+<img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/17.png" width="300">   <img src="https://raw.githubusercontent.com/wirunpong-j/ANIDESU-iOS/master/Screenshot/18.png" width="300"><br>
 
 - **Anime Search :** ช่องที่ไว้สำหรับการค้นหา หา Anime ที่สนใจ และแสดง Anime ทั้งหมด ที่ใกล้เคียงกับคำค้นหา (Not Release)
 

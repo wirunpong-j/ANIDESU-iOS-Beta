@@ -1,5 +1,6 @@
 import UIKit
 import Kingfisher
+import SkeletonView
 
 protocol PostDetailDelegate {
     func onDeletePostComplete()
@@ -19,12 +20,14 @@ class PostDetailVC: UIViewController {
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var optionsBtn: UIButton!
+    @IBOutlet weak var headerView: UIView!
     
     // Variables
     var postKey: String?
     var post: Post?
     var keyboardHeight: CGFloat?
     var delegate: PostDetailDelegate?
+    let SKELETON_ROW = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,7 @@ class PostDetailVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(PostDetailVC.handleTap))
         view.addGestureRecognizer(tap)
         
+        self.view.showAnimatedGradientSkeleton()
         fetchPostInfo(commentIsAdded: false)
 
     }
@@ -54,6 +58,8 @@ class PostDetailVC: UIViewController {
                 let endIndex = IndexPath(row: (post?.comment?.count)!, section: 0)
                 self.postTableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
             }
+            
+            self.view.hideSkeleton()
         }
     }
     
@@ -152,6 +158,17 @@ extension PostDetailVC: CreatePostDelegate {
     func onPostComplete() {
         self.fetchPostInfo(commentIsAdded: false)
     }
+}
+
+extension PostDetailVC: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SKELETON_ROW
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return POST_DETAIL_CELL
+    }
+    
 }
 
 extension PostDetailVC: UITextViewDelegate {

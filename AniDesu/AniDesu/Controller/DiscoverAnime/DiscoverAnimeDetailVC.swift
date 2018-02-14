@@ -32,6 +32,7 @@ class DiscoverAnimeDetailVC: UIViewController {
     @IBOutlet weak var watchingLabel: UILabel!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     @IBOutlet weak var shineButton: WCLShineButton!
+    @IBOutlet weak var nextEPTextLabel: UILabel!
     
     // Constraints
     @IBOutlet weak var bannerViewHeightConstraint: NSLayoutConstraint!
@@ -82,6 +83,7 @@ class DiscoverAnimeDetailVC: UIViewController {
         let animeImageURL = anime?.image_url_banner != "" ? anime?.image_url_banner: anime?.image_url_lge
         animeBannerImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: animeImageURL!))
         
+        nextEPTextLabel.text = "Next Episode"
         animeImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (anime?.image_url_lge)!))
         animeTitleLabel.text = anime?.title_romaji
         animeAiringLabel.text = anime?.airing_status.uppercased()

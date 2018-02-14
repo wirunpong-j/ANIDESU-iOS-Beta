@@ -51,7 +51,7 @@ class ReviewDetailVC: UIViewController, UIGestureRecognizerDelegate {
         animeImageView.kf.setImage(with: AllFormat.instance.getURL(stringURL: (review?.anime.image_url_lge)!))
         ratingView.rating = (review?.rating)!
         messageLabel.text = "\" \((review?.text)!) \""
-        reviewDateLabel.text = "Review Date: \((review?.reviewDate)!)"
+        reviewDateLabel.text = "Review Date: \(AllFormat.instance.formatDatetime(timeStr: (review?.reviewDate)!))"
         
         // set nav bar
         customNavBar.setBackgroundImage(UIImage(), for: .default)

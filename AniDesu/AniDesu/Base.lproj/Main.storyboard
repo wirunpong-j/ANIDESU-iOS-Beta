@@ -1058,6 +1058,7 @@
                         <outlet property="linkConstraints" destination="cNW-e4-Ox4" id="utG-c6-oF8"/>
                         <outlet property="mainStudioLabel" destination="R9c-Sb-hfi" id="ySY-dK-6lb"/>
                         <outlet property="nextEPLabel" destination="Ion-hl-t8t" id="1lT-Ac-4gZ"/>
+                        <outlet property="nextEPTextLabel" destination="q1e-y2-J32" id="IXg-cV-Xc8"/>
                         <outlet property="panGesture" destination="Lnw-lY-gUm" id="mfI-J6-IO2"/>
                         <outlet property="planToWatchLabel" destination="vHj-DC-XjG" id="Yq8-tM-YwO"/>
                         <outlet property="shineButton" destination="W0v-ar-8Y4" id="Ynp-nC-rb8"/>
@@ -1864,18 +1865,27 @@
                                             <constraint firstAttribute="width" constant="40" id="Ctr-Xb-SOv"/>
                                             <constraint firstAttribute="height" constant="40" id="ate-Gg-vFK"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wirunpong Jaingamlertwong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg9-wy-dyU">
                                         <rect key="frame" x="106" y="8" width="197" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Oct 2017 - 22:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hx-9F-eij">
                                         <rect key="frame" x="106" y="28" width="197" height="13"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -1895,6 +1905,9 @@
                                     <constraint firstItem="Sih-Im-apE" firstAttribute="leading" secondItem="Jg9-wy-dyU" secondAttribute="trailing" constant="20" id="t5E-cd-hW8"/>
                                     <constraint firstAttribute="height" constant="50" id="u98-ey-y2M"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NR9-cn-dzB">
                                 <rect key="frame" x="0.0" y="78" width="375" height="539"/>
@@ -1907,12 +1920,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV9-cD-EaF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV9-cD-EaF">
                                                     <rect key="frame" x="15" y="19" width="345" height="67"/>
-                                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1921,8 +1936,14 @@
                                                 <constraint firstItem="AV9-cD-EaF" firstAttribute="leading" secondItem="EHJ-sk-fVg" secondAttribute="leadingMargin" id="6cC-xy-WKu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="AV9-cD-EaF" secondAttribute="trailing" id="rhE-d6-xEz"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="statusLabel" destination="AV9-cD-EaF" id="kHf-5T-If9"/>
                                         </connections>
@@ -2005,6 +2026,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2021,9 +2045,13 @@
                             <constraint firstItem="IkI-n7-h47" firstAttribute="trailing" secondItem="Kxe-nN-lBs" secondAttribute="trailing" id="xfd-kC-lwN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kxe-nN-lBs"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="commentText" destination="3iK-MK-cvX" id="9DK-5U-VJD"/>
+                        <outlet property="headerView" destination="IkI-n7-h47" id="EuO-dM-K4E"/>
                         <outlet property="optionsBtn" destination="Sih-Im-apE" id="S8G-oM-Iwz"/>
                         <outlet property="postDateLabel" destination="0Hx-9F-eij" id="fnw-6Z-q3t"/>
                         <outlet property="postOwnerImageView" destination="eBU-bx-EEL" id="dOB-cs-sfI"/>
@@ -5157,8 +5185,8 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAACVtU
         <image name="profileDefault" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I4F-NU-pzh"/>
-        <segue reference="zdQ-Vp-ma7"/>
+        <segue reference="j1p-Jn-koz"/>
+        <segue reference="MSi-0A-kRa"/>
         <segue reference="sv0-Bf-bqL"/>
     </inferredMetricsTieBreakers>
 </document>

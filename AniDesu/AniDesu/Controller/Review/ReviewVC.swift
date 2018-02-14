@@ -65,17 +65,18 @@ class ReviewVC: UIViewController {
 
 extension ReviewVC: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return SKELETON_ROW
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        
         return SKELETON_REVIEW_CELL
     }
     
 }
 
 extension ReviewVC: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: REVIEW_CELL) as? ReviewCell {
